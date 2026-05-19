@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — PoE2 Config Generator & Performance Guide</title>
+  <meta name="description" content="Privacy Policy for PoE2Settings.com — a frontend tool that uses LocalStorage for config preferences. Learn how we handle your data." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://poe2settings.com/privacy.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    :root {
+      --bg-primary: #0B0F1A; --bg-card: #161B22; --accent-green: #10B981;
+      --accent-blue: #3B82F6; --border-subtle: rgba(255,255,255,0.06);
+      --text-primary: #E6EDF3; --text-secondary: #8B949E;
+      --glass-bg: rgba(22,27,34,0.6);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-primary); color: var(--text-primary);
+      line-height: 1.8; -webkit-font-smoothing: antialiased;
+    }
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle); border-radius: 12px;
+    }
+    .glass-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border-subtle); border-radius: 16px;
+    }
+    .nav-link {
+      position: relative; color: var(--text-secondary);
+      font-size: 0.875rem; font-weight: 500; transition: color 0.2s ease;
+    }
+    .nav-link:hover { color: var(--text-primary); }
+    ::selection { background: rgba(16,185,129,0.25); color:#fff; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
+    h2 { color: var(--accent-green); margin-top: 2rem; margin-bottom: 0.75rem; }
+    p { color: var(--text-secondary); margin-bottom: 1rem; }
+    ul { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1rem; }
+    li { margin-bottom: 0.5rem; }
+    strong { color: var(--text-primary); }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <!-- Nav -->
+  <nav class="glass fixed top-0 left-0 right-0 z-50 px-4 md:px-8" style="border-radius:0; background:rgba(11,15,26,0.85);">
+    <div class="max-w-7xl mx-auto flex items-center justify-between h-16">
+      <a href="/#home" class="flex items-center gap-2 font-bold text-lg tracking-tight">
+        <span class="text-[#10B981]">⏣</span>
+        <span>PoE2<span class="text-[#10B981]"> Settings</span></span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="/" class="nav-link">Config Generator</a>
+        <a href="guides/poe2-0-5-0-performance-guide.html" class="nav-link">Guides</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <main class="pt-28 pb-20 px-4 md:px-8">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-3xl md:text-4xl font-bold mb-2 text-glow">Privacy Policy</h1>
+      <p class="text-sm text-[#8B949E]/60 mb-8">Last updated: May 2026</p>
+
+      <div class="glass-card p-6 md:p-8">
+        <h2>1. Introduction</h2>
+        <p>PoE2Settings.com ("we," "our," or "us") is a <strong>fan-made, frontend-only tool</strong> that helps Path of Exile 2 players generate optimized <code style="color:var(--accent-green);">production_Config.ini</code> settings. We take your privacy seriously. This policy explains what data we collect and how it is used.</p>
+
+        <h2>2. Data We Collect</h2>
+        <p><strong>We do not collect any personal data.</strong> PoE2Settings.com is a purely client-side application. No data is sent to any server, backend, or third-party API.</p>
+        <ul>
+          <li><strong>LocalStorage</strong> — We use your browser's LocalStorage to save your language preference (English/Chinese). This stays on your device and is never transmitted.</li>
+          <li><strong>URL Parameters</strong> — Config selections can be serialized into URL parameters (e.g., <code style="color:var(--accent-green);">?gpu=nvidia&preset=competitive</code>) for sharing. These are URL-only and never stored or tracked by us.</li>
+        </ul>
+
+        <h2>3. Google AdSense</h2>
+        <p>We use <strong>Google AdSense</strong> to display advertisements. Google AdSense may use cookies and web beacons to serve ads based on your prior visits to this website or other sites. Google's use of advertising cookies enables it and its partners to serve ads based on your visit to our site and/or other sites on the Internet.</p>
+        <p>You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ads Settings</a>. For more information, see <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">How Google uses cookies in advertising</a>.</p>
+
+        <h2>4. Google Analytics</h2>
+        <p>We may use Google Analytics to understand how visitors use our site. Google Analytics collects anonymized data such as page views, browser type, and session duration. This data is processed in accordance with Google's Privacy Policy. You can opt out via the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics opt-out browser add-on</a>.</p>
+
+        <h2>5. Third-Party Links</h2>
+        <p>Our website may contain links to third-party websites (e.g., Reddit, Discord). We are not responsible for the privacy practices of those sites. We encourage you to review their privacy policies before engaging.</p>
+
+        <h2>6. Children's Privacy</h2>
+        <p>Our services are not directed to individuals under the age of 18. We do not knowingly collect any information from children.</p>
+
+        <h2>7. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated revision date.</p>
+
+        <h2>8. Contact</h2>
+        <p>If you have any questions about this Privacy Policy, please reach out via our <a href="about.html">Contact page</a>.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5 py-8 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <p class="text-xs text-[#8B949E]">© 2026 PoE2Settings.com — Unofficial fan site</p>
+      <div class="flex gap-4 text-xs">
+        <a href="/" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Config Generator</a>
+        <a href="privacy.html" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Privacy Policy</a>
+        <a href="disclaimer.html" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Disclaimer</a>
+        <a href="about.html" class="text-[#8B949E] hover:text-[#10B981] transition-colors">About</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

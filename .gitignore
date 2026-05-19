@@ -1,0 +1,3 @@
+# Exclude non-website files
+.claude/
+优化建议.md

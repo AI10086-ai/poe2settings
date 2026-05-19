@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About & Contact — PoE2 Config Generator & Performance Guide</title>
+  <meta name="description" content="About PoE2Settings.com — a fan-made tool by a hardcore ARPG player. Contact us for questions, suggestions, or feedback." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://poe2settings.com/about.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    :root {
+      --bg-primary: #0B0F1A; --bg-card: #161B22; --accent-green: #10B981;
+      --accent-blue: #3B82F6; --border-subtle: rgba(255,255,255,0.06);
+      --text-primary: #E6EDF3; --text-secondary: #8B949E;
+      --glass-bg: rgba(22,27,34,0.6);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-primary); color: var(--text-primary);
+      line-height: 1.8; -webkit-font-smoothing: antialiased;
+    }
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle); border-radius: 12px;
+    }
+    .glass-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border-subtle); border-radius: 16px;
+    }
+    .nav-link {
+      position: relative; color: var(--text-secondary);
+      font-size: 0.875rem; font-weight: 500; transition: color 0.2s ease;
+    }
+    .nav-link:hover { color: var(--text-primary); }
+    ::selection { background: rgba(16,185,129,0.25); color:#fff; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
+    h2 { color: var(--accent-green); margin-top: 2rem; margin-bottom: 0.75rem; }
+    p { color: var(--text-secondary); margin-bottom: 1rem; }
+    strong { color: var(--text-primary); }
+    a { color: var(--accent-blue); }
+  </style>
+</head>
+<body>
+  <!-- Nav -->
+  <nav class="glass fixed top-0 left-0 right-0 z-50 px-4 md:px-8" style="border-radius:0; background:rgba(11,15,26,0.85);">
+    <div class="max-w-7xl mx-auto flex items-center justify-between h-16">
+      <a href="/#home" class="flex items-center gap-2 font-bold text-lg tracking-tight">
+        <span class="text-[#10B981]">⏣</span>
+        <span>PoE2<span class="text-[#10B981]"> Settings</span></span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="/" class="nav-link">Config Generator</a>
+        <a href="guides/poe2-0-5-0-performance-guide.html" class="nav-link">Guides</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <main class="pt-28 pb-20 px-4 md:px-8">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-3xl md:text-4xl font-bold mb-8 text-glow">About & Contact</h1>
+
+      <div class="glass-card p-6 md:p-8 mb-8">
+        <h2>About This Tool</h2>
+        <p>PoE2Settings.com was created by a <strong>hardcore ARPG player</strong> who has spent thousands of hours in Wraeclast — dying to porcupines, ripping in hardcore, and obsessing over every single frame in juiced T16 maps.</p>
+        <p>After the Path of Exile 2 Early Access launch, I noticed that most "optimization guides" were either too shallow ("just turn down your settings") or buried in 40-minute YouTube videos. I wanted something <strong>interactive, precise, and instantly actionable</strong> — a tool where you select your hardware and get a tailored <code style="color:var(--accent-green);">production_Config.ini</code> without editing random forum posts.</p>
+        <p>Every setting in this generator is backed by real testing — running maps, measuring frame times, and tweaking parameters until the 1% lows stop hurting. This is a tool by a player, for players.</p>
+
+        <h2>Why This Exists</h2>
+        <p>Path of Exile 2 is an incredible game, but its engine demands careful tuning. The difference between a smooth 144 FPS experience and a stuttery mess often comes down to <strong>five or six config file values</strong> that aren't even exposed in the in-game options menu. This tool bridges that gap.</p>
+
+        <h2>Contact</h2>
+        <p>Got feedback, suggestions, or found a bug? Found a config that works amazingly for your specific GPU? I'd love to hear about it.</p>
+        <p class="flex items-center gap-2 mt-4">
+          <span class="text-[#10B981]">✉</span>
+          <a href="mailto:contact@poe2settings.com" class="text-[#10B981] hover:underline font-medium">contact@poe2settings.com</a>
+        </p>
+        <p class="text-xs text-[#8B949E]/60 mt-2">Expect a reply within 48 hours. For urgent issues, reach out on Reddit.</p>
+      </div>
+
+      <div class="glass-card p-6 md:p-8">
+        <h2>Support the Project</h2>
+        <p>If this tool helped you squeeze more FPS out of your rig, consider sharing it with a friend on Reddit or Discord. Word-of-mouth from the community is what keeps this project alive.</p>
+        <p class="mt-4 flex flex-wrap items-center gap-3">
+          <span class="text-sm text-[#8B949E]">Share on:</span>
+          <a href="https://reddit.com/r/pathofexile" target="_blank" rel="noopener" class="text-xs px-3 py-1.5 rounded-lg bg-[#FF4500]/10 text-[#FF4500] border border-[#FF4500]/20 hover:bg-[#FF4500]/20 transition-colors">Reddit</a>
+          <a href="https://discord.com" target="_blank" rel="noopener" class="text-xs px-3 py-1.5 rounded-lg bg-[#5865F2]/10 text-[#5865F2] border border-[#5865F2]/20 hover:bg-[#5865F2]/20 transition-colors">Discord</a>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5 py-8 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <p class="text-xs text-[#8B949E]">© 2026 PoE2Settings.com — Unofficial fan site</p>
+      <div class="flex gap-4 text-xs">
+        <a href="/" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Config Generator</a>
+        <a href="privacy.html" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Privacy Policy</a>
+        <a href="disclaimer.html" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Disclaimer</a>
+        <a href="about.html" class="text-[#8B949E] hover:text-[#10B981] transition-colors">About</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

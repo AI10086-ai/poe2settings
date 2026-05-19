@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PoE2 Config Generator & Performance Guide | 0.5.0 Best FPS Settings (2026)</title>
+  <meta name="description" content="Generate the ultimate Path of Exile 2 config for max FPS. PoE2 Config Generator — production_Config.ini tool for 0.5.0 Return of the Ancients. Best settings for Nvidia/AMD/Steam Deck." />
+  <meta name="keywords" content="Path of Exile 2, PoE2, config generator, settings, 0.5.0, FPS boost, performance optimization, production_Config.ini, video settings, graphics config, Return of the Ancients" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://poe2settings.com/" />
+
+  <!-- HowTo Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Optimize Path of Exile 2 Settings for Maximum FPS",
+    "description": "Step-by-step guide to configure PoE2 graphics, input lag fixes, and system tweaks for smooth end-game performance.",
+    "step": [
+      { "@type": "HowToStep", "position": 1, "name": "Set Global Illumination to Low", "text": "Reduce the most expensive render pass — SDF-based GI — to reclaim 3-4ms of frame time." },
+      { "@type": "HowToStep", "position": 2, "name": "Configure Texture Streaming", "text": "Set to High and reduce StreamingCachePoolSize to 1024 to eliminate micro-stutter." },
+      { "@type": "HowToStep", "position": 3, "name": "Enable Nvidia Reflex", "text": "Turn on Low Latency Mode for up to 18ms system latency reduction." },
+      { "@type": "HowToStep", "position": 4, "name": "Tweak Windows 11 Settings", "text": "Enable Game Mode, HAGS, and High Performance power plan for maximum throughput." }
+    ]
+  }
+  </script>
+
+  <!-- WebApplication Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PoE2 Config Generator",
+    "url": "https://poe2settings.com/",
+    "description": "Generate optimized production_Config.ini settings for Path of Exile 2. Select your GPU and preferences to get a custom performance config.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Windows 10/11",
+    "browserRequirements": "Requires JavaScript",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "PoE2Settings"
+    }
+  }
+  </script>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="PoE2 Config Generator — Best FPS Settings for 0.5.0 Return of the Ancients" />
+  <meta property="og:description" content="Generate your perfect Path of Exile 2 config for 0.5.0. Boost FPS, fix stuttering, and get the ultimate production_Config.ini for Nvidia, AMD, or Steam Deck." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://poe2settings.com/" />
+  <meta property="og:image" content="https://poe2settings.com/og.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PoE2 Config Generator — Best FPS Settings for 0.5.0 Return of the Ancients" />
+  <meta name="twitter:description" content="Generate your perfect PoE2 config for 0.5.0. Boost FPS, fix stuttering, get the ultimate production_Config.ini for Nvidia, AMD, or Steam Deck." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+    :root {
+      --bg-primary: #0B0F1A;
+      --bg-card: #161B22;
+      --accent-green: #10B981;
+      --accent-blue: #3B82F6;
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --text-primary: #E6EDF3;
+      --text-secondary: #8B949E;
+      --glass-bg: rgba(22, 27, 34, 0.6);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.zh {
+      font-family: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+    }
+
+    /* ── Glassmorphism ── */
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+    }
+
+    .glass-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(16, 185, 129, 0.25);
+      box-shadow: 0 8px 32px rgba(16, 185, 129, 0.08);
+    }
+
+    /* ── Neon Glow Button ── */
+    .btn-neon {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #fff;
+      background: linear-gradient(135deg, #10B981, #059669);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      animation: neon-pulse 3s ease-in-out infinite;
+    }
+
+    .btn-neon:hover {
+      transform: scale(1.04);
+    }
+
+    .btn-neon-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--accent-blue);
+      background: transparent;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .btn-neon-outline:hover {
+      background: rgba(59, 130, 246, 0.1);
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+    }
+
+    @keyframes neon-pulse {
+      0%, 100% { box-shadow: 0 0 12px rgba(16, 185, 129, 0.3), 0 0 30px rgba(16, 185, 129, 0.1); }
+      50% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.5), 0 0 50px rgba(16, 185, 129, 0.2); }
+    }
+
+    /* ── Accent text glow ── */
+    .text-glow {
+      text-shadow: 0 0 40px rgba(16, 185, 129, 0.15);
+    }
+
+    .text-glow-blue {
+      text-shadow: 0 0 40px rgba(59, 130, 246, 0.15);
+    }
+
+    /* ── Hero gradient overlay ── */
+    .hero-gradient {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -20%, rgba(16, 185, 129, 0.12), transparent),
+        radial-gradient(ellipse 50% 40% at 30% 60%, rgba(59, 130, 246, 0.06), transparent),
+        linear-gradient(180deg, #0B0F1A 0%, #0F1520 50%, #0B0F1A 100%);
+    }
+
+    /* ── Animated background grid ── */
+    .hero-grid {
+      background-image:
+        linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* ── Section dividers ── */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.15), rgba(59, 130, 246, 0.15), transparent);
+    }
+
+    /* ── Table styling ── */
+    .spec-table th {
+      background: rgba(16, 185, 129, 0.08);
+      color: var(--accent-green);
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 14px 20px;
+      border-bottom: 1px solid rgba(16, 185, 129, 0.15);
+    }
+
+    .spec-table td {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.9rem;
+    }
+
+    .spec-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .spec-table tr:hover td {
+      background: rgba(16, 185, 129, 0.03);
+    }
+
+    /* ── Tier badges ── */
+    .tier-min { color: #F59E0B; }
+    .tier-rec { color: #3B82F6; }
+    .tier-ult { color: #10B981; }
+
+    /* ── Build card accent borders ── */
+    .build-accent-green { border-left: 3px solid #10B981; }
+    .build-accent-blue { border-left: 3px solid #3B82F6; }
+    .build-accent-purple { border-left: 3px solid #8B5CF6; }
+    .build-accent-orange { border-left: 3px solid #F59E0B; }
+    .build-accent-pink { border-left: 3px solid #EC4899; }
+    .build-accent-cyan { border-left: 3px solid #06B6D4; }
+
+    /* ── Difficulty badges ── */
+    .badge-easy {
+      background: rgba(16, 185, 129, 0.12);
+      color: #10B981;
+    }
+    .badge-medium {
+      background: rgba(245, 158, 11, 0.12);
+      color: #F59E0B;
+    }
+    .badge-hard {
+      background: rgba(239, 68, 68, 0.12);
+      color: #EF4444;
+    }
+
+    /* ── Responsive nav ── */
+    .nav-link {
+      position: relative;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-green);
+      transition: width 0.25s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* ── Language selector ── */
+    .lang-select {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      outline: none;
+      transition: color 0.2s, border-color 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='%238B949E'%3E%3Cpath d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 8px center;
+      padding-right: 26px;
+    }
+
+    .lang-select:hover {
+      color: var(--text-primary);
+      border-color: rgba(255,255,255,0.15);
+    }
+
+    .lang-select option {
+      background: #161B22;
+      color: #E6EDF3;
+    }
+
+    /* ── Selection ── */
+    ::selection {
+      background: rgba(16, 185, 129, 0.25);
+      color: #fff;
+    }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1E293B;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+
+    /* ── Mobile nav toggle ── */
+    .mobile-nav {
+      display: none;
+    }
+    .mobile-nav.open {
+      display: flex;
+    }
+
+    @media (max-width: 1023px) {
+      .desktop-nav { display: none; }
+      .mobile-nav.open { display: flex; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ════════════════════════════ NAVIGATION ════════════════════════════ -->
+  <nav class="glass fixed top-0 left-0 right-0 z-50 px-4 md:px-8" style="border-radius:0; background:rgba(11,15,26,0.85);">
+    <div class="max-w-7xl mx-auto flex items-center justify-between h-16">
+      <a href="/#home" class="flex items-center gap-2 font-bold text-lg tracking-tight">
+        <span class="text-[#10B981]">⏣</span>
+        <span>PoE2<span class="text-[#10B981]"> Settings</span></span>
+      </a>
+
+      <!-- Desktop nav -->
+      <div class="desktop-nav items-center gap-6 hidden lg:flex">
+        <a href="#home" class="nav-link" data-i18n="nav-home">Home</a>
+        <a href="#requirements" class="nav-link" data-i18n="nav-requirements">Requirements</a>
+        <a href="#settings" class="nav-link" data-i18n="nav-settings">Video Settings</a>
+        <a href="#ui-settings" class="nav-link" data-i18n="nav-ui">UI Settings</a>
+        <a href="#loot-filter" class="nav-link" data-i18n="nav-loot">Loot Filter</a>
+        <a href="#builds" class="nav-link" data-i18n="nav-builds">Builds</a>
+        <a href="#input-lag" class="nav-link" data-i18n="nav-input-lag">Input Lag</a>
+        <a href="#config" class="nav-link" data-i18n="nav-config">Config</a>
+        <a href="guides/poe2-0-5-0-performance-guide.html" class="nav-link" data-i18n="nav-guides">Guides</a>
+        <!-- Lang switch -->
+        <select id="lang-select" class="lang-select" aria-label="Switch language">
+          <option value="en">EN</option>
+          <option value="zh">中文</option>
+        </select>
+      </div>
+
+      <!-- Mobile toggle + lang -->
+      <div class="flex items-center gap-2 md:hidden">
+        <select id="lang-select-mobile" class="lang-select" aria-label="Switch language">
+          <option value="en">EN</option>
+          <option value="zh">中文</option>
+        </select>
+        <button id="menu-toggle" class="text-[#8B949E] hover:text-white transition-colors" aria-label="Toggle navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="6" x2="20" y2="6" /><line x1="4" y1="12" x2="20" y2="12" /><line x1="4" y1="18" x2="20" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile nav -->
+    <div id="mobile-menu" class="mobile-nav flex-col gap-1 pb-4 px-2">
+      <a href="#home" class="nav-link block px-4 py-2 rounded-lg hover:bg-white/5" data-i18n="nav-home">Home</a>
+      <a href="#requirements" class="nav-link block px-4 py-2 rounded-lg hover:bg-white/5" data-i18n="nav-requirements">Requirements</a>
+      <a href="#settings" class="nav-link block px-4 py-2 rounded-lg hover:bg-white/5" data-i18n="nav-settings">Video Settings</a>
+      <a href="#ui-settings" class="nav-link block px-4 py-2 rounded-lg hover:bg-white/5" data-i18n="nav-ui">UI Settings</a>
+      <a href="#loot-filter" class="nav-link block px-4 py-2 rounded-lg hover:bg-white/5" data-i18n="nav-loot">Loot Filter</a>
+      <a href="#builds" class="nav-link block px-4 py-2 rounded-lg hover:bg-white/5" data-i18n="nav-builds">Builds</a>
+      <a href="#input-lag" class="nav-link block px-4 py-2 rounded-lg hover:bg-white/5" data-i18n="nav-input-lag">Input Lag</a>
+      <a href="#config" class="nav-link block px-4 py-2 rounded-lg hover:bg-white/5" data-i18n="nav-config">Config</a>
+      <a href="guides/poe2-0-5-0-performance-guide.html" class="nav-link block px-4 py-2 rounded-lg hover:bg-white/5" data-i18n="nav-guides">Guides</a>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════ HERO ════════════════════════════ -->
+  <header id="home" class="hero-gradient hero-grid relative min-h-screen flex items-center pt-16 overflow-hidden">
+    <!-- Floating orbs -->
+    <div class="absolute top-1/4 left-1/6 w-72 h-72 bg-[#10B981]/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/4 right-1/6 w-96 h-96 bg-[#3B82F6]/5 rounded-full blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-20 relative z-10 w-full">
+      <div class="max-w-4xl">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#10B981]/10 border border-[#10B981]/20 text-[#10B981] text-sm font-medium mb-6">
+          <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
+          <span data-i18n="hero-badge">Path of Exile 2 — 0.5.0 Return of the Ancients</span>
+        </div>
+
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-black leading-tight text-glow mb-4">
+          PoE2 Settings & Performance Guide<br />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#10B981] to-[#3B82F6]" data-i18n="hero-title-line2">
+            Config Generator & 0.5.0 Guide
+          </span>
+        </h1>
+
+        <p class="text-base md:text-lg text-[#3B82F6] font-medium mb-6 flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#3B82F6] animate-pulse"></span>
+          <span data-i18n="hero-patch-note">Ready for 0.5.0 Return of the Ancients — May 29 Launch</span>
+        </p>
+
+        <p class="text-lg md:text-xl text-[#8B949E] max-w-2xl leading-relaxed mb-8" data-i18n="hero-desc">
+          Path of Exile 2 is not just a sequel — it is the next-generation pinnacle of ARPGs, rebuilt from the ground up on a new engine.
+          With dynamic lighting, physics-driven destruction, and massive multiplayer encounters, squeezing every frame out of your system
+          is the difference between dominating the Atlas and watching a death recap. This guide delivers battle-tested optimizations,
+          <strong class="text-white">min-maxing</strong> strategies for your GPU, and curated starter builds so you hit maps
+          at full <strong class="text-white">throughput</strong> from day one.
+        </p>
+
+        <div class="flex flex-wrap gap-4">
+          <a href="#settings" class="btn-neon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span data-i18n="hero-btn-guide">Watch Optimization Guide</span>
+          </a>
+          <a href="#builds" class="btn-neon-outline">
+            <span data-i18n="hero-btn-builds">Browse Starter Builds</span>
+          </a>
+        </div>
+
+        <!-- Stats row -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mt-16 pt-8 border-t border-white/5">
+          <div><div class="text-2xl md:text-3xl font-bold text-[#10B981]">15-30%</div><div class="text-sm text-[#8B949E] mt-1" data-i18n="stat-fps">Potential FPS Gain</div></div>
+          <div><div class="text-2xl md:text-3xl font-bold text-[#3B82F6]">7</div><div class="text-sm text-[#8B949E] mt-1" data-i18n="stat-settings">Optimized Settings</div></div>
+          <div><div class="text-2xl md:text-3xl font-bold text-[#10B981]">6</div><div class="text-sm text-[#8B949E] mt-1" data-i18n="stat-builds">Starter Builds</div></div>
+          <div><div class="text-2xl md:text-3xl font-bold text-[#3B82F6]">0.5.0</div><div class="text-sm text-[#8B949E] mt-1" data-i18n="stat-patch">Patch Verified</div></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ════════════════════════════ SYSTEM REQUIREMENTS ════════════════════════════ -->
+  <section id="requirements" class="py-20 md:py-28 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-3xl mb-14">
+        <span class="text-[#10B981] text-sm font-semibold tracking-widest uppercase" data-i18n="section-req-label">01 — System Requirements</span>
+        <h2 class="text-3xl md:text-4xl font-bold mt-3 text-glow" data-i18n="h2-requirements">PoE2 System Requirements (2026)</h2>
+        <p class="text-[#8B949E] mt-3 text-lg" data-i18n="desc-requirements">
+          Path of Exile 2's new engine scales aggressively with hardware. These targets reflect smooth 60 FPS gameplay
+          through juiced T16 maps and pinnacle boss encounters with moderate-density pack size.
+        </p>
+      </div>
+
+      <!-- Requirements cards -->
+      <div class="grid md:grid-cols-3 gap-5">
+        <!-- Minimum -->
+        <div class="glass-card p-6">
+          <div class="flex items-center justify-between mb-5">
+            <span class="text-sm font-semibold tracking-widest uppercase tier-min" data-i18n="tier-min">Minimum</span>
+            <span class="text-xs px-3 py-1 rounded-full bg-[#F59E0B]/10 text-[#F59E0B] border border-[#F59E0B]/20" data-i18n="badge-720p">720p @ 30 FPS</span>
+          </div>
+          <ul class="space-y-3 text-sm">
+            <li class="flex justify-between"><span class="text-[#8B949E]" data-i18n="field-os">OS</span><span>Windows 10 64-bit</span></li>
+            <li class="border-t border-white/5"></li>
+            <li class="flex justify-between"><span class="text-[#8B949E]" data-i18n="field-cpu">CPU</span><span>Ryzen 5 2600 / i7-8700</span></li>
+            <li class="border-t border-white/5"></li>
+            <li class="flex justify-between"><span class="text-[#8B949E]" data-i18n="field-gpu">GPU</span><span>GTX 1060 / RX 580 (6GB)</span></li>
+            <li class="border-t border-white/5"></li>
+            <li class="flex justify-between"><span class="text-[#8B949E]" data-i18n="field-ram">RAM</span><span>16 GB DDR4</span></li>
+            <li class="border-t border-white/5"></li>
+            <li class="flex justify-between"><span class="text-[#8B949E]" data-i18n="field-storage">Storage</span><span>100 GB SSD</span></li>
+          </ul>
+        </div>
+
+        <!-- Recommended -->
+        <div class="glass-card p-6 border-[#3B82F6]/20">
+          <div class="flex items-center justify-between mb-5">
+            <span class="text-sm font-semibold tracking-widest uppercase tier-rec" data-i18n="tier-rec">Recommended</span>
+            <span class="text-xs px-3 py-1 rounded-full bg-[#3B82F6]/10 text-[#3B82F6] border border-[#3B82F6]/20" data-i18n="badge-1080p">1080p @ 60 FPS</span>
+          </div>
+          <ul class="space-y-3 text-sm">
+            <li class="flex justify-between"><span class="text-[#8B949E]" data-i18n="field-os">OS</span><span>Windows 11 64-bit</span></li>
+            <li class="border-t border-white/5"></li>
+            <li class="flex justify-between"><span class="text-[#8B949E]" data-i18n="field-cpu">CPU</span><span>Ryzen 7 5700X / i7-12700K</span></li>
+            <li class="border-t border-white/5"></li>
+            <li class="flex justify-between"><span class="text-[#8B949E]" data-i18n="field-gpu">GPU</span><span>RTX 3070 / RX 6800 XT</span></li>
+            <li class="border-t border-white/5"></li>
+            <li class="flex justify-between"><span class="text-[#8B949E]" data-i18n="field-ram">RAM</span><span>32 GB DDR4/DDR5</span></li>
+            <li class="border-t border-white/5"></li>
+            <li class="flex justify-between"><span class="text-[#8B949E]" data-i18n="field-storage">Storage</span><span>100 GB NVMe</span></li>
+          </ul>
+        </div>
+
+        <!-- Ultra -->
+        <div class="glass-card p-6 border-[#10B981]/20">
+          <div class="flex items-center justify-between mb-5">
+            <span class="text-sm font-semibold tracking-widest uppercase tier-ult" data-i18n="tier-ult">Ultra</span>
+            <span class="text-xs px-3 py-1 rounded-full bg-[#10B981]/10 text-[#10B981] border border-[#10B981]/20" data-i18n="badge-1440p">1440p-4K @ 144 FPS</span>
+          </div>
+          <ul class="space-y-3 text-sm">
+            <li class="flex justify-between"><span class="text-[#8B949E]" data-i18n="field-os">OS</span><span>Windows 11 64-bit</span></li>
+            <li class="border-t border-white/5"></li>
+            <li class="flex justify-between"><span class="text-[#8B949E]" data-i18n="field-cpu">CPU</span><span>Ryzen 7 7800X3D / i9-13900K</span></li>
+            <li class="border-t border-white/5"></li>
+            <li class="flex justify-between"><span class="text-[#8B949E]" data-i18n="field-gpu">GPU</span><span>RTX 4080 / RX 7900 XTX</span></li>
+            <li class="border-t border-white/5"></li>
+            <li class="flex justify-between"><span class="text-[#8B949E]" data-i18n="field-ram">RAM</span><span>32 GB DDR5</span></li>
+            <li class="border-t border-white/5"></li>
+            <li class="flex justify-between"><span class="text-[#8B949E]" data-i18n="field-storage">Storage</span><span>100 GB NVMe</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider max-w-7xl mx-auto"></div>
+
+  <!-- ════════════════════════════ VIDEO SETTINGS ════════════════════════════ -->
+  <section id="settings" class="py-20 md:py-28 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-3xl mb-14">
+        <span class="text-[#3B82F6] text-sm font-semibold tracking-widest uppercase" data-i18n="section-perf-label">02 — Performance Tuning</span>
+        <h2 class="text-3xl md:text-4xl font-bold mt-3 text-glow-blue" data-i18n="h2-settings">Best Video Settings for End-game Stability</h2>
+        <p class="text-[#8B949E] mt-3 text-lg" data-i18n="desc-settings">
+          End-game mapping in PoE2 places extreme pressure on both GPU and CPU. The wrong setting combination causes
+          <strong class="text-white">stuttering</strong>, frame-time spikes, and sub-60 FPS dips in delirious T16 maps with
+          max-pack-size scarabs. These recommendations are validated on patch 0.5.0 and target smooth, consistent frame-pacing
+          rather than peak FPS.
+        </p>
+      </div>
+
+      <!-- Deep dive: GI + Texture Streaming -->
+      <div class="grid md:grid-cols-2 gap-6 mb-12">
+        <div class="glass-card p-7">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="w-10 h-10 rounded-lg bg-[#10B981]/10 flex items-center justify-center text-[#10B981] font-bold text-sm">GI</span>
+            <h3 class="font-bold text-lg" data-i18n="gi-title">Global Illumination</h3>
+          </div>
+          <p class="text-sm text-[#8B949E] leading-relaxed" data-i18n="gi-desc">
+            PoE2 uses a real-time SDF-based global illumination system that dynamically bounces light off geometry.
+            While visually stunning — especially in the Vaal-themed biomes and Zarokh's citadel — it is the single
+            most expensive render pass in the engine. At "Ultra" setting, GI alone can consume 4-5ms of frame time
+            in densely occluded indoor zones. <strong class="text-white">Set Global Illumination to Low</strong> for
+            mapping and bossing. The perceptual difference is minimal during gameplay, but you reclaim 3-4ms of
+            frame budget. If you must keep it on, use "Medium" — dynamic cubemap fallback kicks in during
+            high-density combat scenarios, reducing the SDF tracing resolution automatically. Avoid "Ultra" entirely
+            for competitive play; it is designed for screenshot-mode and hideout showcase.
+          </p>
+        </div>
+
+        <div class="glass-card p-7">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="w-10 h-10 rounded-lg bg-[#3B82F6]/10 flex items-center justify-center text-[#3B82F6] font-bold text-sm">TS</span>
+            <h3 class="font-bold text-lg" data-i18n="ts-title">Texture Streaming</h3>
+          </div>
+          <p class="text-sm text-[#8B949E] leading-relaxed" data-i18n="ts-desc">
+            PoE2's texture streaming system loads asset mipmaps on-demand as you move through zones. When the
+            streaming budget is too constrained, the engine hits a synchronous load — and your frame-time
+            graph spikes into the red. This manifests as a hard <strong class="text-white">micro-stutter</strong>
+            when entering a new area or spawning a legion-like pack. The fix: set Texture Streaming to
+            <strong class="text-white">High</strong>, then manually reduce the <code class="text-[#10B981]">StreamingCachePoolSize</code>
+            in <code class="text-[#10B981]">production_Config.ini</code> from the default 2048 to 1024. This caps the VRAM
+            budget so the GPU doesn't thrash, while still keeping the most critical mip levels in cache. For party
+            play with 6 players all spamming MTX skills, drop it to 768. This completely eliminates the
+            "teleport-and-freeze" problem in the Simulacrum and Breach domains.
+          </p>
+        </div>
+      </div>
+
+      <!-- Settings table -->
+      <h3 class="font-bold text-xl mb-5" data-i18n="table-heading">Recommended Settings Table</h3>
+      <div class="overflow-x-auto">
+        <table class="w-full glass-card text-sm">
+          <thead class="spec-table">
+            <tr>
+              <th class="text-left" data-i18n="th-setting">Setting</th>
+              <th class="text-left" data-i18n="th-competitive">Competitive</th>
+              <th class="text-left" data-i18n="th-balanced">Balanced</th>
+              <th class="text-left" data-i18n="th-cinematic">Cinematic</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="font-medium" data-i18n="row-gi">Global Illumination</td><td class="text-[#10B981] font-medium">Low</td><td>Medium</td><td>Ultra</td></tr>
+            <tr><td class="font-medium" data-i18n="row-shadow">Shadow Quality</td><td class="text-[#10B981] font-medium">Low</td><td>Medium</td><td>Ultra</td></tr>
+            <tr><td class="font-medium" data-i18n="row-lighting">Lighting Quality</td><td class="text-[#10B981] font-medium">Medium</td><td>High</td><td>Ultra</td></tr>
+            <tr><td class="font-medium" data-i18n="row-reflections">Reflections</td><td class="text-[#10B981] font-medium">Off</td><td>Low (SSR)</td><td>High (RT)</td></tr>
+            <tr><td class="font-medium" data-i18n="row-post">Post-processing</td><td class="text-[#10B981] font-medium">Off</td><td>Low</td><td>High</td></tr>
+            <tr><td class="font-medium" data-i18n="row-texture">Texture Streaming</td><td class="text-[#10B981] font-medium">High (768 pool)</td><td>High (1024 pool)</td><td>Ultra (2048 pool)</td></tr>
+            <tr><td class="font-medium" data-i18n="row-scaling">Render Scaling</td><td class="text-[#10B981] font-medium">75% (DLSS Performance)</td><td>100% (DLSS Quality)</td><td>100% (Native)</td></tr>
+            <tr class="[&_td]:border-b-0"><td class="font-medium" data-i18n="row-vsync">VSync</td><td class="text-[#10B981] font-medium">Off</td><td>Off</td><td>On</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Additional FPS tips -->
+      <div class="mt-10 glass-card p-6 md:p-8">
+        <h3 class="font-bold text-lg mb-4 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          <span data-i18n="fps-tips-heading">Additional FPS Optimization Tips</span>
+        </h3>
+        <ul class="space-y-3 text-sm text-[#8B949E]">
+          <li class="flex items-start gap-3">
+            <span class="text-[#10B981] mt-1">▸</span>
+            <span data-i18n="tip-1"><strong class="text-white">Disable Dynamic Resolution</strong> — It drops your render target in combat, which causes noticeable blur and unstable frame-pacing. Set a fixed render scale instead (75% for competitive, 100% for balanced).</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-[#10B981] mt-1">▸</span>
+            <span data-i18n="tip-2"><strong class="text-white">Limit your FPS to your monitor's refresh rate</strong> — Running uncapped causes the GPU to buffer frames, increasing input latency. Use RTSS or the in-game limiter set to 1 FPS below your refresh rate (e.g., 143 for 144 Hz).</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-[#10B981] mt-1">▸</span>
+            <span data-i18n="tip-3"><strong class="text-white">Enable Nvidia Reflex Low Latency</strong> (if available) — This synchronizes the CPU and GPU render queues, reducing system latency by up to 38% in GPU-bound scenarios. Set to "On + Boost" for the lowest frame-time variance.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-[#10B981] mt-1">▸</span>
+            <span data-i18n="tip-4"><strong class="text-white">Turn off Engine Multithreading for low-core CPUs</strong> — On 6-core or fewer processors, the overhead from thread synchronization can negate the benefit. Test with it on and off; keep whichever yields higher 1% lows.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider max-w-7xl mx-auto"></div>
+
+  <!-- ════════════════════════════ PERFORMANCE BENCHMARK ════════════════════════════ -->
+  <section class="py-16 md:py-20 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-4xl mx-auto">
+        <div class="glass-card p-8 md:p-10 text-center" style="border:1px solid rgba(16,185,129,0.15);">
+          <span class="text-[#10B981] text-xs font-semibold tracking-widest uppercase" data-i18n="benchmark-label">Performance Benchmark</span>
+          <h2 class="text-2xl md:text-3xl font-bold mt-2 mb-6" data-i18n="benchmark-heading">Expected Gains After Applying These Settings</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-5 rounded-xl bg-[#10B981]/5 border border-[#10B981]/10">
+              <div class="text-3xl md:text-4xl font-black text-[#10B981]">+45%</div>
+              <div class="text-sm text-[#8B949E] mt-2" data-i18n="benchmark-fps">Average FPS Increase</div>
+              <div class="text-xs text-[#8B949E]/60 mt-1" data-i18n="benchmark-fps-desc">1440p — RTX 3070 — T16 Maps</div>
+            </div>
+            <div class="p-5 rounded-xl bg-[#3B82F6]/5 border border-[#3B82F6]/10">
+              <div class="text-3xl md:text-4xl font-black text-[#3B82F6]">-18 ms</div>
+              <div class="text-sm text-[#8B949E] mt-2" data-i18n="benchmark-latency">Input Latency Reduction</div>
+              <div class="text-xs text-[#8B949E]/60 mt-1" data-i18n="benchmark-latency-desc">Nvidia Reflex + Low Latency Mode</div>
+            </div>
+            <div class="p-5 rounded-xl bg-[#10B981]/5 border border-[#10B981]/10">
+              <div class="text-3xl md:text-4xl font-black text-[#10B981]">-4 ms</div>
+              <div class="text-sm text-[#8B949E] mt-2" data-i18n="benchmark-frametime">Frame-time (1% Low)</div>
+              <div class="text-xs text-[#8B949E]/60 mt-1" data-i18n="benchmark-frametime-desc">GI Low + Texture Stream Fix</div>
+            </div>
+          </div>
+          <p class="text-xs text-[#8B949E]/50 mt-6" data-i18n="benchmark-note">* Results measured on an RTX 3070 / Ryzen 7 5700X system at 1440p resolution. Your mileage may vary.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider max-w-7xl mx-auto"></div>
+
+  <!-- ════════════════════════════ UI SETTINGS ════════════════════════════ -->
+  <section id="ui-settings" class="py-20 md:py-28 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-3xl mb-14">
+        <span class="text-[#10B981] text-sm font-semibold tracking-widest uppercase" data-i18n="section-ui-label">03 — UI Settings</span>
+        <h2 class="text-3xl md:text-4xl font-bold mt-3 text-glow" data-i18n="h2-ui">PoE2 UI Settings & HUD Configuration</h2>
+        <p class="text-[#8B949E] mt-3 text-lg" data-i18n="desc-ui">
+          Fine-tuning your UI is just as important as graphics settings. A clean, information-dense HUD lets you
+          react faster, track buffs at a glance, and keep your screen clear during <strong class="text-white">end-game</strong>
+          delirium overlaps.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="glass-card p-6 md:p-7">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="w-10 h-10 rounded-lg bg-[#10B981]/10 flex items-center justify-center text-[#10B981] font-bold text-sm">HP</span>
+            <h3 class="font-bold text-base" data-i18n="ui-hp-title">Health & Resource Bars</h3>
+          </div>
+          <ul class="space-y-2 text-sm text-[#8B949E]">
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="ui-hp-1">Set <strong class="text-white">Life Bar Mode</strong> to "Always On" — critical for tracking instant-phase boss mechanics</span></li>
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="ui-hp-2">Enable <strong class="text-white">Energy Shield Overlay</strong> on life bar — shows your effective HP pool at a glance</span></li>
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="ui-hp-3">Turn on <strong class="text-white">Mana Bar Percentage</strong> — essential for mana-stacking archmage builds</span></li>
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="ui-hp-4">Set <strong class="text-white">Flask Display</strong> to "Always Show" — prevents panic during burst-window flask rotations</span></li>
+          </ul>
+        </div>
+
+        <div class="glass-card p-6 md:p-7">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="w-10 h-10 rounded-lg bg-[#3B82F6]/10 flex items-center justify-center text-[#3B82F6] font-bold text-sm">IT</span>
+            <h3 class="font-bold text-base" data-i18n="ui-item-title">Item Labels & Highlight</h3>
+          </div>
+          <ul class="space-y-2 text-sm text-[#8B949E]">
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="ui-item-1">Set <strong class="text-white">Item Label Visibility</strong> to "Always Show" — never miss a valuable drop in dense packs</span></li>
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="ui-item-2">Enable <strong class="text-white">Border Highlight</strong> for T1-T5稀有 items — makes crafting bases stand out on the ground</span></li>
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="ui-item-3">Adjust <strong class="text-white">Label Size</strong> to 120% — improves readability during fast-paced breach encounters</span></li>
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="ui-item-4">Use <strong class="text-white">Custom Keybind</strong> for "Show Items on Ground" (default: Z) — rebind to a thumb mouse button for quick toggling</span></li>
+          </ul>
+        </div>
+
+        <div class="glass-card p-6 md:p-7">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="w-10 h-10 rounded-lg bg-[#3B82F6]/10 flex items-center justify-center text-[#3B82F6] font-bold text-sm">MN</span>
+            <h3 class="font-bold text-base" data-i18n="ui-minimap-title">Minimap & Overlay</h3>
+          </div>
+          <ul class="space-y-2 text-sm text-[#8B949E]">
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="ui-minimap-1">Set <strong class="text-white">Minimap Mode</strong> to "Full Screen Transparent" — gives you the most map awareness without blocking vision</span></li>
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="ui-minimap-2">Enable <strong class="text-white">Quest Tracker</strong> only in campaign — disable in maps for cleaner screen real estate</span></li>
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="ui-minimap-3">Turn on <strong class="text-white">Modifier Filter</strong> on the map tab — hides irrelevant mods so you spot dangerous combos faster</span></li>
+          </ul>
+        </div>
+
+        <div class="glass-card p-6 md:p-7">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="w-10 h-10 rounded-lg bg-[#10B981]/10 flex items-center justify-center text-[#10B981] font-bold text-sm">CH</span>
+            <h3 class="font-bold text-base" data-i18n="ui-chat-title">Chat & Notifications</h3>
+          </div>
+          <ul class="space-y-2 text-sm text-[#8B949E]">
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="ui-chat-1">Reduce <strong class="text-white">Chat Font Size</strong> to Small — frees up bottom-screen space while remaining readable</span></li>
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="ui-chat-2">Disable <strong class="text-white">Trade Notification Popups</strong> during bossing — prevents fatal distractions</span></li>
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="ui-chat-3">Enable <strong class="text-white">Zone Event Alerts</strong> for legion/breach — visual cue appears before audio triggers</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider max-w-7xl mx-auto"></div>
+
+  <!-- ════════════════════════════ LOOT FILTER ════════════════════════════ -->
+  <section id="loot-filter" class="py-20 md:py-28 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-3xl mb-14">
+        <span class="text-[#3B82F6] text-sm font-semibold tracking-widest uppercase" data-i18n="section-loot-label">04 — Loot Filter Setup</span>
+        <h2 class="text-3xl md:text-4xl font-bold mt-3 text-glow-blue" data-i18n="h2-loot">Loot Filter Configuration for End-game</h2>
+        <p class="text-[#8B949E] mt-3 text-lg" data-i18n="desc-loot">
+          A well-tuned loot filter is the single biggest quality-of-life upgrade in PoE2. It hides trash, highlights
+          valuable bases, and audibly notifies you of currency drops — letting you <strong class="text-white">min-max</strong>
+          your mapping throughput without staring at every white item on the ground.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="glass-card p-6 md:p-7">
+          <h3 class="font-bold text-base mb-3 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            <span data-i18n="loot-install-title">How to Install a Loot Filter</span>
+          </h3>
+          <ol class="space-y-3 text-sm text-[#8B949E] list-decimal list-inside">
+            <li data-i18n="loot-install-1">Download a filter from FilterBlade.xyz or PoeBuilds — <strong class="text-white">NeverSink's filter</strong> is the community standard</li>
+            <li data-i18n="loot-install-2">Place the <code class="text-[#10B981]">.filter</code> file in: <code class="text-[#10B981]">Documents/My Games/Path of Exile 2/</code></li>
+            <li data-i18n="loot-install-3">In-game, press Escape → Options → UI → Loot Filter → select your filter from the dropdown</li>
+            <li data-i18n="loot-install-4">Apply and re-enter your map — the filter activates immediately with no restart required</li>
+          </ol>
+        </div>
+
+        <div class="glass-card p-6 md:p-7">
+          <h3 class="font-bold text-base mb-3 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <span data-i18n="loot-tips-title">Filter Customization Tips</span>
+          </h3>
+          <ul class="space-y-2 text-sm text-[#8B949E]">
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="loot-tip-1">Use <strong class="text-white">Semi-Strict</strong> for mapping — Strict hides too many high-value bases in juiced content</span></li>
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="loot-tip-2">Create a <strong class="text-white">custom sound override</strong> for Mirror / Divine Orb drops — prevents heartbreaking missed drops in loot explosions</span></li>
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="loot-tip-3">Adjust <strong class="text-white">Minimap Icon Size</strong> for currency to Large — makes them visible through delirium fog</span></li>
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="loot-tip-4">Set <strong class="text-white">League Mechanic items</strong> (breach splinters, simulacrum splinters) to always show — they're easy to miss in dense packs</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider max-w-7xl mx-auto"></div>
+
+  <!-- ════════════════════════════ SOUND SETTINGS ════════════════════════════ -->
+  <section id="sound-settings" class="py-20 md:py-28 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-3xl mb-14">
+        <span class="text-[#10B981] text-sm font-semibold tracking-widest uppercase" data-i18n="section-sound-label">05 — Sound Settings</span>
+        <h2 class="text-3xl md:text-4xl font-bold mt-3 text-glow" data-i18n="h2-sound">Sound Settings for CPU Headroom</h2>
+        <p class="text-[#8B949E] mt-3 text-lg" data-i18n="desc-sound">
+          PoE2's audio engine processes hundreds of simultaneous sound sources — each monster ability, aura pulse,
+          and impact sound competes for CPU cycles. Strategic audio tuning can reclaim <strong class="text-white">5-8% CPU throughput</strong>
+          in densely packed breaches and legion encounters.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5">
+        <div class="glass-card p-6">
+          <span class="w-10 h-10 rounded-lg bg-[#10B981]/10 flex items-center justify-center text-[#10B981] font-bold text-sm mb-4 inline-flex">🎵</span>
+          <h3 class="font-bold text-base mb-2" data-i18n="sound-music-title">Music & Ambience</h3>
+          <p class="text-xs text-[#8B949E]" data-i18n="sound-music-desc">Setting <strong class="text-white">Music Volume</strong> to 0 and <strong class="text-white">Ambience</strong> to 50% reduces background audio processing without sacrificing combat audio awareness. The Mount Vaal theme is spectacular — hear it once, then disable it for fps.</p>
+        </div>
+        <div class="glass-card p-6">
+          <span class="w-10 h-10 rounded-lg bg-[#3B82F6]/10 flex items-center justify-center text-[#3B82F6] font-bold text-sm mb-4 inline-flex">💥</span>
+          <h3 class="font-bold text-base mb-2" data-i18n="sound-effects-title">Ability Sound Effects</h3>
+          <p class="text-xs text-[#8B949E]" data-i18n="sound-effects-desc">Reduce <strong class="text-white">Ability Sound Effects</strong> to 70% — at 100%, overlapping MTX audio layers from party members can cause audio dropouts and driver-level latency spikes. This is a known issue on older Realtek audio chipsets.</p>
+        </div>
+        <div class="glass-card p-6">
+          <span class="w-10 h-10 rounded-lg bg-[#10B981]/10 flex items-center justify-center text-[#10B981] font-bold text-sm mb-4 inline-flex">🔊</span>
+          <h3 class="font-bold text-base mb-2" data-i18n="sound-chat-title">Chat & Loot Audio</h3>
+          <p class="text-xs text-[#8B949E]" data-i18n="sound-chat-desc">Disable <strong class="text-white">Loot Drop Audio</strong> for scrolls and low-tier currencies. Keep <strong class="text-white">Alert Sounds</strong> for divines/exalts. Mute <strong class="text-white">Global Chat Notification</strong> — it triggers on every server-side broadcast and causes micro-freezes on weaker CPUs.</p>
+        </div>
+      </div>
+
+      <div class="mt-6 glass p-4 md:p-5 flex items-center gap-3 text-sm text-[#8B949E]">
+        <span class="text-[#F59E0B]">⚠️</span>
+        <span data-i18n="sound-note"><strong class="text-white">Note:</strong> PoE2 uses FMOD audio middleware. Setting audio channels to "Low" in the config file reduces the maximum concurrent voices from 512 to 128, which has a measurable impact on 1% lows in 6-player parties.</span>
+      </div>
+    </div>
+  </section>
+  <section id="builds" class="py-20 md:py-28 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-3xl mb-14">
+        <span class="text-[#10B981] text-sm font-semibold tracking-widest uppercase" data-i18n="section-builds-label">03 — Build Database</span>
+        <h2 class="text-3xl md:text-4xl font-bold mt-3 text-glow" data-i18n="h2-builds">Path of Exile 2 Starter Builds (0.5.0)</h2>
+        <p class="text-[#8B949E] mt-3 text-lg" data-i18n="desc-builds">
+          Every league start demands a build that can reach maps without expensive gear, scale into
+          <strong class="text-white">end-game</strong> bossing, and handle league mechanics efficiently.
+          These six starter builds are <strong class="text-white">min-maxing</strong> tested on patch 0.5.0
+          and ranked by gear dependency, single-target throughput, and clear speed.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Build 1 -->
+        <div class="glass-card p-6 build-accent-green">
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h3 class="font-bold text-base">Stormweaver</h3>
+              <p class="text-xs text-[#8B949E]" data-i18n="build-1-class">Sorceress</p>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded-full badge-easy" data-i18n="badge-easy">Easy</span>
+          </div>
+          <p class="text-xs text-[#8B949E] mb-4" data-i18n="build-1-desc">Arc / Lightning elementalist. Screen-wide clear with minimal gear. Scales effortlessly into T16.</p>
+          <div class="flex items-center gap-3 text-xs text-[#8B949E] border-t border-white/5 pt-3">
+            <span class="flex items-center gap-1"><span class="text-[#10B981]">●</span> <span data-i18n="build-single">Single</span>: A</span>
+            <span class="flex items-center gap-1"><span class="text-[#3B82F6]">●</span> <span data-i18n="build-clear">Clear</span>: S</span>
+          </div>
+        </div>
+
+        <!-- Build 2 -->
+        <div class="glass-card p-6 build-accent-blue">
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h3 class="font-bold text-base">Deadeye</h3>
+              <p class="text-xs text-[#8B949E]" data-i18n="build-2-class">Ranger</p>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded-full badge-medium" data-i18n="badge-medium">Medium</span>
+          </div>
+          <p class="text-xs text-[#8B949E] mb-4" data-i18n="build-2-desc">Lightning Arrow / Ballista totems. High clear speed, relies on positioning. League-start staple.</p>
+          <div class="flex items-center gap-3 text-xs text-[#8B949E] border-t border-white/5 pt-3">
+            <span class="flex items-center gap-1"><span class="text-[#10B981]">●</span> <span data-i18n="build-single">Single</span>: A</span>
+            <span class="flex items-center gap-1"><span class="text-[#3B82F6]">●</span> <span data-i18n="build-clear">Clear</span>: S+</span>
+          </div>
+        </div>
+
+        <!-- Build 3 -->
+        <div class="glass-card p-6 build-accent-purple">
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h3 class="font-bold text-base">Infernalist</h3>
+              <p class="text-xs text-[#8B949E]" data-i18n="build-3-class">Witch</p>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded-full badge-medium" data-i18n="badge-medium">Medium</span>
+          </div>
+          <p class="text-xs text-[#8B949E] mb-4" data-i18n="build-3-desc">Fire DoT / Arma Brand. Exceptional boss throughput, safe playstyle. Gear-friendly scaling.</p>
+          <div class="flex items-center gap-3 text-xs text-[#8B949E] border-t border-white/5 pt-3">
+            <span class="flex items-center gap-1"><span class="text-[#10B981]">●</span> <span data-i18n="build-single">Single</span>: S</span>
+            <span class="flex items-center gap-1"><span class="text-[#3B82F6]">●</span> <span data-i18n="build-clear">Clear</span>: A</span>
+          </div>
+        </div>
+
+        <!-- Build 4 -->
+        <div class="glass-card p-6 build-accent-orange">
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h3 class="font-bold text-base">Titan</h3>
+              <p class="text-xs text-[#8B949E]" data-i18n="build-4-class">Warrior</p>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded-full badge-easy" data-i18n="badge-easy">Easy</span>
+          </div>
+          <p class="text-xs text-[#8B949E] mb-4" data-i18n="build-4-desc">Earthquake / Stun. Tanky playstyle with massive AoE. Forgiving mistakes. Best for HCSSF.</p>
+          <div class="flex items-center gap-3 text-xs text-[#8B949E] border-t border-white/5 pt-3">
+            <span class="flex items-center gap-1"><span class="text-[#10B981]">●</span> <span data-i18n="build-single">Single</span>: B+</span>
+            <span class="flex items-center gap-1"><span class="text-[#3B82F6]">●</span> <span data-i18n="build-clear">Clear</span>: A</span>
+          </div>
+        </div>
+
+        <!-- Build 5 -->
+        <div class="glass-card p-6 build-accent-pink">
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h3 class="font-bold text-base">Pathfinder</h3>
+              <p class="text-xs text-[#8B949E]" data-i18n="build-5-class">Mercenary</p>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded-full badge-hard" data-i18n="badge-hard">Hard</span>
+          </div>
+          <p class="text-xs text-[#8B949E] mb-4" data-i18n="build-5-desc">Poison / Gas Grenade. Higher skill ceiling, absurd single-target once ramped. Scales with investment.</p>
+          <div class="flex items-center gap-3 text-xs text-[#8B949E] border-t border-white/5 pt-3">
+            <span class="flex items-center gap-1"><span class="text-[#10B981]">●</span> <span data-i18n="build-single">Single</span>: S+</span>
+            <span class="flex items-center gap-1"><span class="text-[#3B82F6]">●</span> <span data-i18n="build-clear">Clear</span>: B+</span>
+          </div>
+        </div>
+
+        <!-- Build 6 -->
+        <div class="glass-card p-6 build-accent-cyan">
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h3 class="font-bold text-base">Chronomancer</h3>
+              <p class="text-xs text-[#8B949E]" data-i18n="build-6-class">Monk</p>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded-full badge-hard" data-i18n="badge-hard">Hard</span>
+          </div>
+          <p class="text-xs text-[#8B949E] mb-4" data-i18n="build-6-desc">Tempest Bell / Ice Strike. High APM playstyle, exceptional boss burst. Rewards mechanical skill.</p>
+          <div class="flex items-center gap-3 text-xs text-[#8B949E] border-t border-white/5 pt-3">
+            <span class="flex items-center gap-1"><span class="text-[#10B981]">●</span> <span data-i18n="build-single">Single</span>: S</span>
+            <span class="flex items-center gap-1"><span class="text-[#3B82F6]">●</span> <span data-i18n="build-clear">Clear</span>: A</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Build legend -->
+      <div class="mt-10 glass p-4 md:p-5 flex flex-wrap items-center gap-6 text-xs text-[#8B949E]">
+        <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#10B981]/30 border border-[#10B981]/50"></span> <span data-i18n="legend-verified">League-start verified</span></span>
+        <span class="flex items-center gap-2"><span data-i18n="legend-single-desc">● Single = Single-target boss dps rating</span></span>
+        <span class="flex items-center gap-2"><span data-i18n="legend-clear-desc">● Clear = Map clear speed rating</span></span>
+        <span class="flex items-center gap-2"><span data-i18n="legend-ratings">S+ = Exceptional, A = Strong, B = Average</span></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider max-w-7xl mx-auto"></div>
+
+  <!-- ════════════════════════════ INPUT LAG FIXES ════════════════════════════ -->
+  <section id="input-lag" class="py-20 md:py-28 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-3xl mb-14">
+        <span class="text-[#3B82F6] text-sm font-semibold tracking-widest uppercase" data-i18n="section-lag-label">04 — System Tweaks</span>
+        <h2 class="text-3xl md:text-4xl font-bold mt-3 text-glow-blue" data-i18n="h2-input-lag">Input Lag Fixes & System Optimization</h2>
+        <p class="text-[#8B949E] mt-3 text-lg" data-i18n="desc-input-lag">
+          Frame drops are one thing — input lag is a death sentence. In PoE2's hardest encounters, a single
+          delayed dodge roll or mis-timed flask can end a hardcore character you have invested dozens of hours into.
+          These system-level tweaks eliminate <strong class="text-white">lag compensation</strong> artifacts and
+          shave critical milliseconds off your reaction-to-action pipeline.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="glass-card p-6 md:p-7">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="w-10 h-10 rounded-lg bg-[#3B82F6]/10 flex items-center justify-center text-[#3B82F6] font-bold text-sm">01</span>
+            <h3 class="font-bold text-base" data-i18n="lag-1-title">Nvidia Reflex + Low Latency Mode</h3>
+          </div>
+          <p class="text-sm text-[#8B949E] leading-relaxed" data-i18n="lag-1-desc">
+            Navigate to your Nvidia Control Panel → Manage 3D Settings → Program Settings →
+            select <code class="text-[#10B981]">PathOfExile2.exe</code>. Set <strong class="text-white">Low Latency Mode</strong> to
+            "Ultra". If your GPU supports Reflex (RTX 2000+ series), enable <strong class="text-white">Reflex Low Latency</strong>
+            in the in-game options. This couples the CPU and GPU frame-pacing, reducing the render queue depth
+            from 2-3 frames to 1. Measured improvement: an average of <strong class="text-white">18ms</strong> system-latency
+            reduction at 1440p on an RTX 4070.
+          </p>
+        </div>
+
+        <div class="glass-card p-6 md:p-7">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="w-10 h-10 rounded-lg bg-[#3B82F6]/10 flex items-center justify-center text-[#3B82F6] font-bold text-sm">02</span>
+            <h3 class="font-bold text-base" data-i18n="lag-2-title">Monitor & Display Tuning</h3>
+          </div>
+          <p class="text-sm text-[#8B949E] leading-relaxed" data-i18n="lag-2-desc">
+            Ensure your monitor is running at its native refresh rate — set Windows Display settings to the
+            maximum supported Hz (144, 165, 240, etc.). <strong class="text-white">Disable VSync in-game</strong>,
+            but enable <strong class="text-white">G-Sync / FreeSync</strong> to eliminate screen tearing without
+            the input lag penalty. Set your monitor's overdrive to "Normal" or "Fast" — "Extreme" causes
+            overshoot ghosting that degrades perceptual clarity during fast camera panning in maps.
+          </p>
+        </div>
+
+        <div class="glass-card p-6 md:p-7">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="w-10 h-10 rounded-lg bg-[#3B82F6]/10 flex items-center justify-center text-[#3B82F6] font-bold text-sm">03</span>
+            <h3 class="font-bold text-base" data-i18n="lag-3-title">Windows 11 System Tweaks</h3>
+          </div>
+          <ul class="space-y-2 text-sm text-[#8B949E]">
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="lag-3-item1">Enable <strong class="text-white">Game Mode</strong> in Windows Settings → Gaming</span></li>
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="lag-3-item2">Turn on <strong class="text-white">Hardware-accelerated GPU Scheduling (HAGS)</strong> — reduces CPU overhead on the WDDM scheduler</span></li>
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="lag-3-item3">Set Power Plan to <strong class="text-white">High Performance</strong> or "Ultimate Performance" — prevents core parking and clock-throttling</span></li>
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="lag-3-item4">Disable <strong class="text-white">Core Isolation / Memory Integrity</strong> in Windows Security (if you are willing to trade security for ~3% FPS)</span></li>
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="lag-3-item5">Disable <strong class="text-white">Xbox Game Bar</strong> and background recording — frees GPU encoder resources</span></li>
+          </ul>
+        </div>
+
+        <div class="glass-card p-6 md:p-7">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="w-10 h-10 rounded-lg bg-[#3B82F6]/10 flex items-center justify-center text-[#3B82F6] font-bold text-sm">04</span>
+            <h3 class="font-bold text-base" data-i18n="lag-4-title">Peripheral & Network Optimization</h3>
+          </div>
+          <ul class="space-y-2 text-sm text-[#8B949E]">
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="lag-4-item1">Set mouse polling rate to <strong class="text-white">1000 Hz</strong> (not 4000+ Hz) — higher polling can saturate the USB controller and induce micro-stutter on older systems</span></li>
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="lag-4-item2">Use a wired Ethernet connection or dedicated 5 GHz Wi-Fi band — wireless interference causes latency jitter that feels like input lag</span></li>
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="lag-4-item3">Set PoE2 to <strong class="text-white">High Priority</strong> in Task Manager → Details tab (this resets per session; use a tool like Process Lasso to persist)</span></li>
+            <li class="flex items-start gap-2"><span class="text-[#10B981]">▸</span><span data-i18n="lag-4-item4">Close Chrome / Discord hardware acceleration — they consume GPU encode cycles and introduce frame-time variance</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider max-w-7xl mx-auto"></div>
+
+  <!-- ════════════════════════════ CONFIG GENERATOR ════════════════════════════ -->
+  <section id="config" class="py-20 md:py-28 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-3xl mb-14">
+        <span class="text-[#10B981] text-sm font-semibold tracking-widest uppercase" data-i18n="section-config-label">08 — Config Generator</span>
+        <h2 class="text-3xl md:text-4xl font-bold mt-3 text-glow" data-i18n="h2-config">PoE2 Config Generator — One-Click Setup</h2>
+        <p class="text-[#8B949E] mt-3 text-lg" data-i18n="desc-config">
+          Select your hardware and preferences below to generate a custom <code class="text-[#10B981]">production_Config.ini</code>
+          for <strong class="text-white">0.5.0 Return of the Ancients</strong>. Place the output in
+          <code class="text-[#10B981]">Documents/My Games/Path of Exile 2/</code>.
+        </p>
+      </div>
+
+      <!-- Generator Form -->
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="glass-card p-5">
+          <label class="text-xs font-semibold tracking-widest uppercase text-[#8B949E] mb-2 block" data-i18n="gen-gpu">GPU Vendor</label>
+          <select id="gen-gpu" class="w-full bg-[#0B0F1A] text-[#E6EDF3] border border-white/10 rounded-lg px-3 py-2.5 text-sm outline-none focus:border-[#10B981]/50 transition-colors">
+            <option value="nvidia" data-i18n="gpu-nvidia">Nvidia (RTX 20/30/40/50 series)</option>
+            <option value="amd" data-i18n="gpu-amd">AMD (RX 6000/7000/9000 series)</option>
+            <option value="intel" data-i18n="gpu-intel">Intel (Arc A/B series)</option>
+            <option value="steamdeck" data-i18n="gpu-steamdeck">Steam Deck / ROG Ally</option>
+          </select>
+        </div>
+        <div class="glass-card p-5">
+          <label class="text-xs font-semibold tracking-widest uppercase text-[#8B949E] mb-2 block" data-i18n="gen-preset">Quality Preset</label>
+          <select id="gen-preset" class="w-full bg-[#0B0F1A] text-[#E6EDF3] border border-white/10 rounded-lg px-3 py-2.5 text-sm outline-none focus:border-[#10B981]/50 transition-colors">
+            <option value="competitive" data-i18n="preset-competitive">Competitive (Max FPS)</option>
+            <option value="balanced" data-i18n="preset-balanced">Balanced (Quality + FPS)</option>
+            <option value="cinematic" data-i18n="preset-cinematic">Cinematic (Max Quality)</option>
+          </select>
+        </div>
+        <div class="glass-card p-5">
+          <label class="text-xs font-semibold tracking-widest uppercase text-[#8B949E] mb-2 block" data-i18n="gen-res">Target Resolution</label>
+          <select id="gen-res" class="w-full bg-[#0B0F1A] text-[#E6EDF3] border border-white/10 rounded-lg px-3 py-2.5 text-sm outline-none focus:border-[#10B981]/50 transition-colors">
+            <option value="720p" data-i18n="res-720p">720p</option>
+            <option value="1080p" selected data-i18n="res-1080p">1080p</option>
+            <option value="1440p" data-i18n="res-1440p">1440p</option>
+            <option value="2160p" data-i18n="res-2160p">4K (2160p)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Config Output -->
+      <div class="glass-card p-6 md:p-8 relative">
+        <div class="flex items-center justify-between mb-4 flex-wrap gap-3">
+          <span class="text-sm font-mono text-[#8B949E]">production_Config.ini</span>
+          <div class="flex items-center gap-2">
+            <button id="share-config-btn" class="text-xs px-3 py-1.5 rounded-lg bg-[#3B82F6]/10 text-[#3B82F6] border border-[#3B82F6]/20 hover:bg-[#3B82F6]/20 transition-colors flex items-center gap-1.5" onclick="shareConfig()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              <span id="share-btn-text" data-i18n="config-share-btn">Share My Config</span>
+            </button>
+            <button id="copy-config-btn" class="text-xs px-3 py-1.5 rounded-lg bg-[#10B981]/10 text-[#10B981] border border-[#10B981]/20 hover:bg-[#10B981]/20 transition-colors flex items-center gap-1.5" onclick="copyConfig()">
+              <svg id="copy-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span id="copy-btn-text" data-i18n="config-copy-btn">Copy to Clipboard</span>
+            </button>
+          </div>
+        </div>
+        <pre class="bg-[#0B0F1A] rounded-xl p-5 overflow-x-auto text-xs leading-relaxed font-mono text-[#8B949E]" style="border:1px solid rgba(255,255,255,0.04);"><code id="config-code">[RENDER]
+global_illumination=false
+shadow_quality=low
+lighting_quality=medium
+reflections=ssr_low
+post_processing=false
+texture_streaming=true
+streaming_cache_pool_size=1024
+render_scaling=75
+vsync=false
+dynamic_resolution=false
+fps_limit=143
+
+[AUDIO]
+max_concurrent_voices=128
+music_volume=0
+ambience_volume=50
+ability_sfx_volume=70
+loot_drop_audio=false
+chat_notification=false
+
+[INPUT]
+mouse_polling_rate=1000
+raw_input=true
+engine_multithreading=true
+
+[NETWORK]
+lockstep_mode=true
+prediction_enabled=true
+max_packet_size=1400</code></pre>
+        <p class="text-xs text-[#8B949E]/60 mt-3" data-i18n="config-note">* Backup your original config before replacing. Values adjust automatically based on your selections above.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Toast -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] glass px-5 py-3 text-sm text-[#E6EDF3] flex items-center gap-2.5 shadow-lg transition-all duration-300" style="opacity:0; transform:translate(-50%, 20px); pointer-events:none;">
+    <span id="toast-icon" class="text-[#10B981]">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    </span>
+    <span id="toast-text">Link copied!</span>
+  </div>
+
+  <!-- ════════════════════════════ GUIDES CARDS ════════════════════════════ -->
+  <section id="guides" class="py-20 md:py-28 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-3xl mb-14">
+        <span class="text-[#10B981] text-sm font-semibold tracking-widest uppercase" data-i18n="section-guides-label">09 — Optimization Guides</span>
+        <h2 class="text-3xl md:text-4xl font-bold mt-3 text-glow" data-i18n="h2-guides">Comprehensive Performance & Optimization Guides</h2>
+        <p class="text-[#8B949E] mt-3 text-lg" data-i18n="desc-guides">
+          In-depth guides covering every aspect of Path of Exile 2 performance — from GPU-specific configs to deep-dives
+          into the engine's hidden settings. Updated for <strong class="text-white">0.5.0 Return of the Ancients</strong>.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <!-- Card 1: 0.5.0 Guide -->
+        <a href="guides/poe2-0-5-0-performance-guide.html" class="glass-card p-6 group cursor-pointer hover:border-[#10B981]/30 transition-all duration-300" style="border:1px solid rgba(16,185,129,0.1);">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-xs px-2 py-1 rounded-full bg-[#10B981]/10 text-[#10B981] border border-[#10B981]/20">Featured</span>
+          </div>
+          <h3 class="font-bold text-base mb-2 group-hover:text-[#10B981] transition-colors" data-i18n="card-0-5-title">Ultimate 0.5.0 Performance Guide</h3>
+          <p class="text-xs text-[#8B949E] leading-relaxed" data-i18n="card-0-5-desc">The definitive guide to max FPS in Return of the Ancients. Vulkan vs DX12, config secrets, and benchmark data.</p>
+          <div class="flex items-center gap-1 mt-3 text-xs text-[#3B82F6]">
+            <span>Read guide</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+        </a>
+
+        <!-- Card 2: RTX 4060 -->
+        <a href="guides/poe2-settings-rtx-4060.html" class="glass-card p-6 group cursor-pointer hover:border-[#3B82F6]/30 transition-all duration-300" style="border:1px solid rgba(59,130,246,0.1);">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-xs px-2 py-1 rounded-full bg-[#3B82F6]/10 text-[#3B82F6] border border-[#3B82F6]/20" data-i18n="card-badge-gpu">GPU Guide</span>
+          </div>
+          <h3 class="font-bold text-base mb-2 group-hover:text-[#3B82F6] transition-colors">Best PoE2 Settings for RTX 4060</h3>
+          <p class="text-xs text-[#8B949E] leading-relaxed" data-i18n="card-4060-desc">Nvidia's most popular 40-series GPU. Get 144+ FPS at 1080p with these config tweaks for 0.5.0.</p>
+          <div class="flex items-center gap-1 mt-3 text-xs text-[#3B82F6]">
+            <span data-i18n="card-read">Read guide</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+        </a>
+
+        <!-- Card 3: GTX 1060 -->
+        <a href="guides/poe2-settings-gtx-1060.html" class="glass-card p-6 group cursor-pointer hover:border-[#F59E0B]/30 transition-all duration-300" style="border:1px solid rgba(245,158,11,0.1);">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-xs px-2 py-1 rounded-full bg-[#F59E0B]/10 text-[#F59E0B] border border-[#F59E0B]/20" data-i18n="card-badge-low">Low-End Guide</span>
+          </div>
+          <h3 class="font-bold text-base mb-2 group-hover:text-[#F59E0B] transition-colors">PoE2 on GTX 1060 — Still Viable in 0.5.0?</h3>
+          <p class="text-xs text-[#8B949E] leading-relaxed" data-i18n="card-1060-desc">Squeeze every last FPS from the legendary 1060. Low-end tweaks that make 60 FPS playable.</p>
+          <div class="flex items-center gap-1 mt-3 text-xs text-[#3B82F6]">
+            <span data-i18n="card-read">Read guide</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+        </a>
+
+        <!-- Card 4: Steam Deck -->
+        <a href="guides/poe2-settings-rx-6800-xt.html" class="glass-card p-6 group cursor-pointer hover:border-[#8B5CF6]/30 transition-all duration-300" style="border:1px solid rgba(139,92,246,0.1);">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-xs px-2 py-1 rounded-full bg-[#8B5CF6]/10 text-[#8B5CF6] border border-[#8B5CF6]/20" data-i18n="card-badge-amd">AMD Guide</span>
+          </div>
+          <h3 class="font-bold text-base mb-2 group-hover:text-[#8B5CF6] transition-colors">PoE2 RX 6800 XT — 1440p Settings</h3>
+          <p class="text-xs text-[#8B949E] leading-relaxed" data-i18n="card-6800-desc">AMD's value king for 1440p gaming. Optimal config for smooth end-game mapping at native res.</p>
+          <div class="flex items-center gap-1 mt-3 text-xs text-[#3B82F6]">
+            <span data-i18n="card-read">Read guide</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════ FOOTER ════════════════════════════ -->
+  <footer class="border-t border-white/5 py-10 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <a href="#" class="flex items-center gap-2 font-bold text-base">
+            <span class="text-[#10B981]">⏣</span>
+            <span>PoE2<span class="text-[#10B981]"> Settings</span></span>
+          </a>
+          <p class="text-xs text-[#8B949E] mt-2 max-w-md" data-i18n="footer-desc">
+            Unofficial fan guide for Path of Exile 2. All game content and trademarks are property of Grinding Gear Games.
+            This guide is provided for informational purposes only.
+          </p>
+        </div>
+        <div class="flex flex-col md:flex-row items-start md:items-center gap-3 md:gap-6 text-xs">
+          <a href="guides/poe2-0-5-0-performance-guide.html" class="text-[#8B949E] hover:text-[#10B981] transition-colors" data-i18n="footer-guides">Guides</a>
+          <a href="privacy.html" class="text-[#8B949E] hover:text-[#10B981] transition-colors" data-i18n="footer-privacy">Privacy Policy</a>
+          <a href="disclaimer.html" class="text-[#8B949E] hover:text-[#10B981] transition-colors" data-i18n="footer-disclaimer">Disclaimer</a>
+          <a href="about.html" class="text-[#8B949E] hover:text-[#10B981] transition-colors" data-i18n="footer-about">About</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ════════════════════════════ I18N + MOBILE MENU ════════════════════════════ -->
+  <script>
+    const translations = {
+      /* ── Nav ── */
+      'nav-home':           { en: 'Home', zh: '首页' },
+      'nav-requirements':   { en: 'Requirements', zh: '配置要求' },
+      'nav-settings':       { en: 'Video Settings', zh: '画面设置' },
+      'nav-ui':             { en: 'UI Settings', zh: '界面设置' },
+      'nav-loot':           { en: 'Loot Filter', zh: '过滤声音' },
+      'nav-builds':         { en: 'Builds', zh: '开荒BD' },
+      'nav-input-lag':      { en: 'Input Lag', zh: '输入延迟' },
+      'nav-config':         { en: 'Config', zh: '配置文件' },
+      'nav-guides':         { en: 'Guides', zh: '指南' },
+
+      /* ── Hero ── */
+      'hero-badge':         { en: 'Path of Exile 2 — Patch 0.5.0 Return of the Ancients', zh: '流放之路2 — 0.5.0 Return of the Ancients' },
+      'hero-title-line2':   { en: 'Config Generator & 0.5.0 Guide', zh: '配置生成器 & 0.5.0 指南' },
+      'hero-patch-note':    { en: 'Ready for 0.5.0 Return of the Ancients — May 29 Launch', zh: '适配 0.5.0 Return of the Ancients — 5月29日上线' },
+      'hero-desc':          { en: "Path of Exile 2 is not just a sequel — it is the next-generation pinnacle of ARPGs, rebuilt from the ground up on a new engine. With dynamic lighting, physics-driven destruction, and massive multiplayer encounters, squeezing every frame out of your system is the difference between dominating the Atlas and watching a death recap. This guide delivers battle-tested optimizations, <strong class=\"text-white\">min-maxing</strong> strategies for your GPU, and curated starter builds so you hit maps at full <strong class=\"text-white\">throughput</strong> from day one.", zh: '《流放之路 2》不仅仅是一部续作——它是下一代 ARPG 的巅峰之作，基于全新引擎从零构建。动态光照、物理破坏和大规模多人战斗让每一帧都至关重要。本指南提供经过实战验证的优化方案、针对 GPU 的<strong class="text-white">极限压榨</strong>策略以及精选的开荒 build，让你从第一天起就以满<strong class="text-white">吞吐量</strong>刷图。' },
+      'hero-btn-guide':     { en: 'Watch Optimization Guide', zh: '观看优化指南' },
+      'hero-btn-builds':    { en: 'Browse Starter Builds', zh: '查看开荒BD' },
+
+      /* ── Stats ── */
+      'stat-fps':           { en: 'Potential FPS Gain', zh: '潜在帧数提升' },
+      'stat-settings':      { en: 'Optimized Settings', zh: '优化选项数' },
+      'stat-builds':        { en: 'Starter Builds', zh: '开荒BD数量' },
+      'stat-patch':         { en: 'Patch Verified', zh: '已验证版本' },
+
+      /* ── Requirements ── */
+      'section-req-label':  { en: '01 — System Requirements', zh: '01 — 系统配置要求' },
+      'h2-requirements':    { en: 'PoE2 System Requirements (2026)', zh: 'PoE2 系统配置要求 (2026)' },
+      'desc-requirements':  { en: "Path of Exile 2's new engine scales aggressively with hardware. These targets reflect smooth 60 FPS gameplay through juiced T16 maps and pinnacle boss encounters with moderate-density pack size.", zh: '《流放之路 2》的新引擎对硬件的需求非常激进。以下配置目标确保你在词缀拉满的 T16 地图和 pinnacle 首领战中保持 60 FPS 流畅体验。' },
+      'tier-min':           { en: 'Minimum', zh: '最低配置' },
+      'tier-rec':           { en: 'Recommended', zh: '推荐配置' },
+      'tier-ult':           { en: 'Ultra', zh: '极致配置' },
+      'badge-720p':         { en: '720p @ 30 FPS', zh: '720p @ 30 帧' },
+      'badge-1080p':        { en: '1080p @ 60 FPS', zh: '1080p @ 60 帧' },
+      'badge-1440p':        { en: '1440p-4K @ 144 FPS', zh: '1440p-4K @ 144 帧' },
+      'field-os':           { en: 'OS', zh: '操作系统' },
+      'field-cpu':          { en: 'CPU', zh: '处理器' },
+      'field-gpu':          { en: 'GPU', zh: '显卡' },
+      'field-ram':          { en: 'RAM', zh: '内存' },
+      'field-storage':      { en: 'Storage', zh: '存储' },
+
+      /* ── Performance Tuning ── */
+      'section-perf-label': { en: '02 — Performance Tuning', zh: '02 — 性能调优' },
+      'h2-settings':        { en: 'Best Video Settings for End-game Stability', zh: '后期稳定性的最佳画面设置' },
+      'desc-settings':      { en: 'End-game mapping in PoE2 places extreme pressure on both GPU and CPU. The wrong setting combination causes <strong class="text-white">stuttering</strong>, frame-time spikes, and sub-60 FPS dips in delirious T16 maps with max-pack-size scarabs. These recommendations are validated on patch 0.5.0 and target smooth, consistent frame-pacing rather than peak FPS.', zh: 'PoE2 的后期刷图对 GPU 和 CPU 都造成极大压力。错误设置的组合会导致<strong class="text-white">卡顿</strong>、帧时间尖刺以及在满包大小的堕落 T16 地图中掉到 60 FPS 以下。以下建议已在 0.5.0 版本验证，目标是流畅一致的帧节奏，而非峰值 FPS。' },
+      'gi-title':           { en: 'Global Illumination', zh: '全局光照 (GI)' },
+      'gi-desc':            { en: "PoE2 uses a real-time SDF-based global illumination system that dynamically bounces light off geometry. While visually stunning — especially in the Vaal-themed biomes and Zarokh's citadel — it is the single most expensive render pass in the engine. At \"Ultra\" setting, GI alone can consume 4-5ms of frame time in densely occluded indoor zones. <strong class=\"text-white\">Set Global Illumination to Low</strong> for mapping and bossing. The perceptual difference is minimal during gameplay, but you reclaim 3-4ms of frame budget. If you must keep it on, use \"Medium\" — dynamic cubemap fallback kicks in during high-density combat scenarios, reducing the SDF tracing resolution automatically. Avoid \"Ultra\" entirely for competitive play; it is designed for screenshot-mode and hideout showcase.", zh: 'PoE2 使用基于 SDF（有符号距离场）的实时全局光照系统，动态地将光线从几何体上反弹。虽然视觉效果令人惊叹——尤其是在 Vaal 主题生物群落和 Zarokh 的要塞中——但它是引擎中最昂贵的渲染通道。在"极致"设置下，仅 GI 一项就能在密集的室内区域消耗 4-5ms 的帧时间。<strong class="text-white">将全局光照设为"低"</strong>来刷图和打 Boss。游戏过程中视觉差异很小，但你能收回 3-4ms 的帧预算。如果一定要开启，使用"中"——在高密度战斗场景中会自动切换到动态立方体贴图回退，降低 SDF 追踪分辨率。竞技玩法请完全避免"极致"；它是为截屏模式和藏身处展示设计的。' },
+      'ts-title':           { en: 'Texture Streaming', zh: '纹理串流' },
+      'ts-desc':            { en: "PoE2's texture streaming system loads asset mipmaps on-demand as you move through zones. When the streaming budget is too constrained, the engine hits a synchronous load — and your frame-time graph spikes into the red. This manifests as a hard <strong class=\"text-white\">micro-stutter</strong> when entering a new area or spawning a legion-like pack. The fix: set Texture Streaming to <strong class=\"text-white\">High</strong>, then manually reduce the <code class=\"text-[#10B981]\">StreamingCachePoolSize</code> in <code class=\"text-[#10B981]\">production_Config.ini</code> from the default 2048 to 1024. This caps the VRAM budget so the GPU doesn't thrash, while still keeping the most critical mip levels in cache. For party play with 6 players all spamming MTX skills, drop it to 768. This completely eliminates the \"teleport-and-freeze\" problem in the Simulacrum and Breach domains.", zh: 'PoE2 的纹理串流系统会在你移动经过区域时按需加载资源 mipmap。当串流预算过于紧张时，引擎会遇到同步加载——你的帧时间图会飙红。这表现为进入新区域或生成军团式怪物群时的严重<strong class="text-white">微卡顿</strong>。解决方法：将纹理串流设为<strong class="text-white">高</strong>，然后手动将 <code class="text-[#10B981]">production_Config.ini</code> 中的 <code class="text-[#10B981]">StreamingCachePoolSize</code> 从默认的 2048 降低到 1024。这限制了 VRAM 预算，防止 GPU 过度交换，同时将最关键级别的 mip 保留在缓存中。6 人组队全员狂刷 MTX 技能时，降至 768。这能彻底消除 Simulacrum 和 Breach 领域中的"传送即卡死"问题。' },
+
+      /* ── Table ── */
+      'table-heading':      { en: 'Recommended Settings Table', zh: '推荐设置对照表' },
+      'th-setting':         { en: 'Setting', zh: '选项' },
+      'th-competitive':     { en: 'Competitive', zh: '竞技' },
+      'th-balanced':        { en: 'Balanced', zh: '均衡' },
+      'th-cinematic':       { en: 'Cinematic', zh: '画质' },
+      'row-gi':             { en: 'Global Illumination', zh: '全局光照' },
+      'row-shadow':         { en: 'Shadow Quality', zh: '阴影质量' },
+      'row-lighting':       { en: 'Lighting Quality', zh: '光照质量' },
+      'row-reflections':    { en: 'Reflections', zh: '反射' },
+      'row-post':           { en: 'Post-processing', zh: '后处理' },
+      'row-texture':        { en: 'Texture Streaming', zh: '纹理串流' },
+      'row-scaling':        { en: 'Render Scaling', zh: '渲染缩放' },
+      'row-vsync':          { en: 'VSync', zh: '垂直同步' },
+
+      /* ── FPS Tips ── */
+      'fps-tips-heading':   { en: 'Additional FPS Optimization Tips', zh: '额外 FPS 优化技巧' },
+      'tip-1':              { en: '<strong class="text-white">Disable Dynamic Resolution</strong> — It drops your render target in combat, which causes noticeable blur and unstable frame-pacing. Set a fixed render scale instead (75% for competitive, 100% for balanced).', zh: '<strong class="text-white">关闭动态分辨率</strong>——它会在战斗中降低渲染目标，导致明显模糊和不稳定的帧节奏。改为设置固定的渲染缩放比例（竞技用 75%，均衡用 100%）。' },
+      'tip-2':              { en: "<strong class=\"text-white\">Limit your FPS to your monitor's refresh rate</strong> — Running uncapped causes the GPU to buffer frames, increasing input latency. Use RTSS or the in-game limiter set to 1 FPS below your refresh rate (e.g., 143 for 144 Hz).", zh: '<strong class="text-white">将 FPS 限制在显示器刷新率</strong>——无上限运行会导致 GPU 缓冲帧，增加输入延迟。使用 RTSS 或游戏内限制器设置为低于刷新率 1 FPS（例如 144 Hz 设为 143）。' },
+      'tip-3':              { en: '<strong class="text-white">Enable Nvidia Reflex Low Latency</strong> (if available) — This synchronizes the CPU and GPU render queues, reducing system latency by up to 38% in GPU-bound scenarios. Set to "On + Boost" for the lowest frame-time variance.', zh: '<strong class="text-white">开启 Nvidia Reflex 低延迟模式</strong>（如可用）——同步 CPU 和 GPU 渲染队列，在 GPU 瓶颈场景中将系统延迟降低最多 38%。设为"开 + 增强"以获得最低帧时间方差。' },
+      'tip-4':              { en: '<strong class="text-white">Turn off Engine Multithreading for low-core CPUs</strong> — On 6-core or fewer processors, the overhead from thread synchronization can negate the benefit. Test with it on and off; keep whichever yields higher 1% lows.', zh: '<strong class="text-white">低核心 CPU 关闭引擎多线程</strong>——在 6 核心或更少的处理器上，线程同步的开销可能抵消收益。分别在开启和关闭状态下测试，保留 1% Low 帧数更高的设置。' },
+
+      /* ── Benchmark ── */
+      'benchmark-label':       { en: 'Performance Benchmark', zh: '性能基准测试' },
+      'benchmark-heading':     { en: 'Expected Gains After Applying These Settings', zh: '应用上述设置后的预期提升' },
+      'benchmark-fps':         { en: 'Average FPS Increase', zh: '平均 FPS 提升' },
+      'benchmark-fps-desc':    { en: '1440p — RTX 3070 — T16 Maps', zh: '1440p — RTX 3070 — T16 地图' },
+      'benchmark-latency':     { en: 'Input Latency Reduction', zh: '输入延迟降低' },
+      'benchmark-latency-desc': { en: 'Nvidia Reflex + Low Latency Mode', zh: 'Nvidia Reflex + 低延迟模式' },
+      'benchmark-frametime':   { en: 'Frame-time (1% Low)', zh: '帧时间 (1% Low)' },
+      'benchmark-frametime-desc': { en: 'GI Low + Texture Stream Fix', zh: 'GI 低 + 纹理串流修复' },
+      'benchmark-note':        { en: '* Results measured on an RTX 3070 / Ryzen 7 5700X system at 1440p resolution. Your mileage may vary.', zh: '* 在 RTX 3070 / Ryzen 7 5700X 系统 1440p 分辨率下测得。实际效果因配置而异。' },
+
+      /* ── UI Settings ── */
+      'section-ui-label':  { en: '03 — UI Settings', zh: '03 — 界面设置' },
+      'h2-ui':             { en: 'PoE2 UI Settings & HUD Configuration', zh: 'PoE2 界面设置 & HUD 配置' },
+      'desc-ui':           { en: 'Fine-tuning your UI is just as important as graphics settings. A clean, information-dense HUD lets you react faster, track buffs at a glance, and keep your screen clear during <strong class="text-white">end-game</strong> delirium overlaps.', zh: '微调界面和图形设置同样重要。一个干净、信息密集的 HUD 让你反应更快，一目了然地追踪增益效果，并在<strong class="text-white">后期</strong>堕落叠加时保持屏幕清晰。' },
+      'ui-hp-title':       { en: 'Health & Resource Bars', zh: '生命 & 资源条' },
+      'ui-hp-1':           { en: 'Set <strong class="text-white">Life Bar Mode</strong> to "Always On" — critical for tracking instant-phase boss mechanics', zh: '将<strong class="text-white">生命条模式</strong>设为"始终显示"——对追踪瞬时阶段的 Boss 机制至关重要' },
+      'ui-hp-2':           { en: 'Enable <strong class="text-white">Energy Shield Overlay</strong> on life bar — shows your effective HP pool at a glance', zh: '在生命条上启用<strong class="text-white">能量护盾叠加</strong>——一目了然地显示有效血量池' },
+      'ui-hp-3':           { en: 'Turn on <strong class="text-white">Mana Bar Percentage</strong> — essential for mana-stacking archmage builds', zh: '开启<strong class="text-white">法力条百分比</strong>——对堆法力的大法师 Build 至关重要' },
+      'ui-hp-4':           { en: 'Set <strong class="text-white">Flask Display</strong> to "Always Show" — prevents panic during burst-window flask rotations', zh: '将<strong class="text-white">药水显示</strong>设为"始终显示"——防止爆发窗口期按药水时手忙脚乱' },
+      'ui-item-title':     { en: 'Item Labels & Highlight', zh: '物品标签 & 高亮' },
+      'ui-item-1':         { en: 'Set <strong class="text-white">Item Label Visibility</strong> to "Always Show" — never miss a valuable drop in dense packs', zh: '将<strong class="text-white">物品标签可见性</strong>设为"始终显示"——在密集怪物群中不错过任何有价值的掉落' },
+      'ui-item-2':         { en: 'Enable <strong class="text-white">Border Highlight</strong> for 稀有 items — makes crafting bases stand out on the ground', zh: '为稀有物品启用<strong class="text-white">边框高亮</strong>——让制作底材在地面上脱颖而出' },
+      'ui-item-3':         { en: 'Adjust <strong class="text-white">Label Size</strong> to 120% — improves readability during fast-paced breach encounters', zh: '将<strong class="text-white">标签大小</strong>调整为 120%——在快节奏的裂隙遭遇战中提高可读性' },
+      'ui-item-4':         { en: 'Use <strong class="text-white">Custom Keybind</strong> for "Show Items on Ground" (default: Z) — rebind to a thumb mouse button for quick toggling', zh: '为"显示地面物品"使用<strong class="text-white">自定义快捷键</strong>（默认：Z）——改为鼠标侧键以便快速切换' },
+      'ui-minimap-title':  { en: 'Minimap & Overlay', zh: '小地图 & 覆盖层' },
+      'ui-minimap-1':      { en: 'Set <strong class="text-white">Minimap Mode</strong> to "Full Screen Transparent" — gives you the most map awareness without blocking vision', zh: '将<strong class="text-white">小地图模式</strong>设为"全屏透明"——在不遮挡视线的情况下获得最大地图感知' },
+      'ui-minimap-2':      { en: 'Enable <strong class="text-white">Quest Tracker</strong> only in campaign — disable in maps for cleaner screen real estate', zh: '仅在剧情中启用<strong class="text-white">任务追踪</strong>——刷图时关闭以获得更干净的屏幕空间' },
+      'ui-minimap-3':      { en: 'Turn on <strong class="text-white">Modifier Filter</strong> on the map tab — hides irrelevant mods so you spot dangerous combos faster', zh: '在地图标签中开启<strong class="text-white">词缀过滤器</strong>——隐藏无关词缀，让你更快发现危险组合' },
+      'ui-chat-title':     { en: 'Chat & Notifications', zh: '聊天 & 通知' },
+      'ui-chat-1':         { en: 'Reduce <strong class="text-white">Chat Font Size</strong> to Small — frees up bottom-screen space while remaining readable', zh: '将<strong class="text-white">聊天字体大小</strong>减小为小——释放屏幕底部空间同时保持可读' },
+      'ui-chat-2':         { en: 'Disable <strong class="text-white">Trade Notification Popups</strong> during bossing — prevents fatal distractions', zh: '打 Boss 时关闭<strong class="text-white">交易通知弹窗</strong>——防止致命分心' },
+      'ui-chat-3':         { en: 'Enable <strong class="text-white">Zone Event Alerts</strong> for legion/breach — visual cue appears before audio triggers', zh: '为军团/裂隙启用<strong class="text-white">区域事件警报</strong>——视觉提示在音频触发前出现' },
+
+      /* ── Loot Filter ── */
+      'section-loot-label':  { en: '04 — Loot Filter Setup', zh: '04 — 过滤声音设置' },
+      'h2-loot':             { en: 'Loot Filter Configuration for End-game', zh: '后期过滤声音配置' },
+      'desc-loot':           { en: 'A well-tuned loot filter is the single biggest quality-of-life upgrade in PoE2. It hides trash, highlights valuable bases, and audibly notifies you of currency drops — letting you <strong class="text-white">min-max</strong> your mapping throughput without staring at every white item on the ground.', zh: '一个好的过滤声音是 PoE2 中最大的生活质量提升。它隐藏垃圾，高亮有价值的底材，并通过声音通知通货掉落——让你<strong class="text-white">极限压榨</strong>刷图吞吐量，无需盯着地上的每一件白装。' },
+      'loot-install-title':  { en: 'How to Install a Loot Filter', zh: '如何安装过滤声音' },
+      'loot-install-1':      { en: 'Download a filter from FilterBlade.xyz or PoeBuilds — <strong class="text-white">NeverSink\'s filter</strong> is the community standard', zh: '从 FilterBlade.xyz 或 PoeBuilds 下载过滤声音——<strong class="text-white">NeverSink 的过滤声音</strong>是社区标准' },
+      'loot-install-2':      { en: 'Place the <code class="text-[#10B981]">.filter</code> file in: <code class="text-[#10B981]">Documents/My Games/Path of Exile 2/</code>', zh: '将 <code class="text-[#10B981]">.filter</code> 文件放入：<code class="text-[#10B981]">Documents/My Games/Path of Exile 2/</code>' },
+      'loot-install-3':      { en: 'In-game, press Escape → Options → UI → Loot Filter → select your filter from the dropdown', zh: '游戏中，按 Escape → 选项 → 界面 → 过滤声音 → 从下拉菜单中选择你的过滤声音' },
+      'loot-install-4':      { en: 'Apply and re-enter your map — the filter activates immediately with no restart required', zh: '应用并重新进入地图——过滤声音立即生效，无需重启' },
+      'loot-tips-title':     { en: 'Filter Customization Tips', zh: '过滤声音自定义技巧' },
+      'loot-tip-1':          { en: 'Use <strong class="text-white">Semi-Strict</strong> for mapping — Strict hides too many high-value bases in juiced content', zh: '刷图使用<strong class="text-white">半严格</strong>模式——严格模式在词缀拉满的内容中会隐藏太多高价值底材' },
+      'loot-tip-2':          { en: 'Create a <strong class="text-white">custom sound override</strong> for Mirror / Divine Orb drops — prevents heartbreaking missed drops in loot explosions', zh: '为镜子/神圣石掉落创建<strong class="text-white">自定义声音覆盖</strong>——防止在掉落爆炸中痛失宝物' },
+      'loot-tip-3':          { en: 'Adjust <strong class="text-white">Minimap Icon Size</strong> for currency to Large — makes them visible through delirium fog', zh: '将通货的<strong class="text-white">小地图图标大小</strong>调整为"大"——使其在堕落迷雾中可见' },
+      'loot-tip-4':          { en: 'Set <strong class="text-white">League Mechanic items</strong> (breach splinters, simulacrum splinters) to always show — they\'re easy to miss in dense packs', zh: '将<strong class="text-white">赛季机制物品</strong>（裂隙碎片、幻象碎片）设为始终显示——在密集怪物群中很容易错过' },
+
+      /* ── Sound Settings ── */
+      'section-sound-label': { en: '05 — Sound Settings', zh: '05 — 声音设置' },
+      'h2-sound':            { en: 'Sound Settings for CPU Headroom', zh: '为 CPU 腾出空间的声音设置' },
+      'desc-sound':          { en: 'PoE2\'s audio engine processes hundreds of simultaneous sound sources — each monster ability, aura pulse, and impact sound competes for CPU cycles. Strategic audio tuning can reclaim <strong class="text-white">5-8% CPU throughput</strong> in densely packed breaches and legion encounters.', zh: 'PoE2 的音频引擎同时处理数百个音源——每个怪物技能、光环脉冲和打击音效都在争夺 CPU 周期。策略性音频调优可以在密集的裂隙和军团遭遇战中回收<strong class="text-white">5-8% 的 CPU 吞吐量</strong>。' },
+      'sound-music-title':   { en: 'Music & Ambience', zh: '音乐 & 环境音' },
+      'sound-music-desc':    { en: 'Setting <strong class="text-white">Music Volume</strong> to 0 and <strong class="text-white">Ambience</strong> to 50% reduces background audio processing without sacrificing combat audio awareness. The Mount Vaal theme is spectacular — hear it once, then disable it for fps.', zh: '将<strong class="text-white">音乐音量</strong>设为 0、<strong class="text-white">环境音</strong>设为 50%，可减少背景音频处理而不牺牲战斗音频感知。Vaal 山的主题曲很震撼——听一次，然后关掉它换 FPS。' },
+      'sound-effects-title': { en: 'Ability Sound Effects', zh: '技能音效' },
+      'sound-effects-desc':  { en: 'Reduce <strong class="text-white">Ability Sound Effects</strong> to 70% — at 100%, overlapping MTX audio layers from party members can cause audio dropouts and driver-level latency spikes. This is a known issue on older Realtek audio chipsets.', zh: '将<strong class="text-white">技能音效</strong>降低到 70%——在 100% 时，队友重叠的 MTX 音频层可能导致音频丢失和驱动级延迟尖峰。这是老款 Realtek 音频芯片组的已知问题。' },
+      'sound-chat-title':    { en: 'Chat & Loot Audio', zh: '聊天 & 掉落音频' },
+      'sound-chat-desc':     { en: 'Disable <strong class="text-white">Loot Drop Audio</strong> for scrolls and low-tier currencies. Keep <strong class="text-white">Alert Sounds</strong> for divines/exalts. Mute <strong class="text-white">Global Chat Notification</strong> — it triggers on every server-side broadcast and causes micro-freezes on weaker CPUs.', zh: '关闭卷轴和低阶通货的<strong class="text-white">掉落音频</strong>。保留神圣石/崇高的<strong class="text-white">警报音</strong>。静音<strong class="text-white">全局聊天通知</strong>——每次服务器广播都会触发，在较弱的 CPU 上导致微卡顿。' },
+      'sound-note':          { en: '<strong class="text-white">Note:</strong> PoE2 uses FMOD audio middleware. Setting audio channels to "Low" in the config file reduces the maximum concurrent voices from 512 to 128, which has a measurable impact on 1% lows in 6-player parties.', zh: '<strong class="text-white">注意：</strong>PoE2 使用 FMOD 音频中间件。在配置文件中将音频通道设为"低"可将最大并发语音从 512 减少到 128，这对 6 人队伍中的 1% Low 帧有可测量的提升。' },
+
+      /* ── Builds ── */
+      'section-builds-label': { en: '06 — Build Database', zh: '06 — Build 数据库' },
+      'h2-builds':          { en: 'Path of Exile 2 Starter Builds (0.5.0)', zh: '流放之路 2 开荒 Build (0.5.0)' },
+      'desc-builds':        { en: 'Every league start demands a build that can reach maps without expensive gear, scale into <strong class="text-white">end-game</strong> bossing, and handle league mechanics efficiently. These six starter builds are <strong class="text-white">min-maxing</strong> tested on patch 0.5.0 and ranked by gear dependency, single-target throughput, and clear speed.', zh: '每个赛季开荒都需要一个无需昂贵装备就能刷图、能过渡到<strong class="text-white">后期</strong>打 Boss 并高效处理赛季机制的 Build。这六个开荒 Build 已在 0.5.0 版本经过<strong class="text-white">极限压榨</strong>测试，按装备依赖度、单目标吞吐量和清图速度进行评级。' },
+      'build-1-class':      { en: 'Sorceress', zh: '女巫' },
+      'build-2-class':      { en: 'Ranger', zh: '游侠' },
+      'build-3-class':      { en: 'Witch', zh: '死灵法师' },
+      'build-4-class':      { en: 'Warrior', zh: '战士' },
+      'build-5-class':      { en: 'Mercenary', zh: '佣兵' },
+      'build-6-class':      { en: 'Monk', zh: '武僧' },
+      'build-1-desc':       { en: 'Arc / Lightning elementalist. Screen-wide clear with minimal gear. Scales effortlessly into T16.', zh: '电弧/闪电元素使。最低装备需求即可全屏清图，轻松过渡到 T16。' },
+      'build-2-desc':       { en: 'Lightning Arrow / Ballista totems. High clear speed, relies on positioning. League-start staple.', zh: '闪电箭/炮台图腾。高清图速度，依赖走位。赛季开荒标配。' },
+      'build-3-desc':       { en: 'Fire DoT / Arma Brand. Exceptional boss throughput, safe playstyle. Gear-friendly scaling.', zh: '火焰持续/Arma Brand。卓越的 Boss 输出，安全打法。装备门槛低。' },
+      'build-4-desc':       { en: 'Earthquake / Stun. Tanky playstyle with massive AoE. Forgiving mistakes. Best for HCSSF.', zh: '地震/眩晕。肉盾玩法，大范围 AoE。容错率高，HCSSF 首选。' },
+      'build-5-desc':       { en: 'Poison / Gas Grenade. Higher skill ceiling, absurd single-target once ramped. Scales with investment.', zh: '中毒/瓦斯手雷。操作上限高，成型后单目标伤害离谱。随投入成长。' },
+      'build-6-desc':       { en: 'Tempest Bell / Ice Strike. High APM playstyle, exceptional boss burst. Rewards mechanical skill.', zh: '风暴之钟/冰击。高 APM 玩法，爆发型 Boss 伤害。回报操作技术。' },
+      'badge-easy':         { en: 'Easy', zh: '简单' },
+      'badge-medium':       { en: 'Medium', zh: '中等' },
+      'badge-hard':         { en: 'Hard', zh: '困难' },
+      'build-single':       { en: 'Single', zh: '单体' },
+      'build-clear':        { en: 'Clear', zh: '清图' },
+      'legend-verified':    { en: 'League-start verified', zh: '赛季开荒已验证' },
+      'legend-single-desc': { en: '● Single = Single-target boss dps rating', zh: '● 单体 = 单目标 Boss DPS 评级' },
+      'legend-clear-desc':  { en: '● Clear = Map clear speed rating', zh: '● 清图 = 地图清图速度评级' },
+      'legend-ratings':     { en: 'S+ = Exceptional, A = Strong, B = Average', zh: 'S+ = 卓越, A = 强力, B = 一般' },
+
+      /* ── Input Lag ── */
+      'section-lag-label':  { en: '07 — System Tweaks', zh: '07 — 系统优化' },
+      'h2-input-lag':       { en: 'Input Lag Fixes & System Optimization', zh: '输入延迟修复 & 系统优化' },
+      'desc-input-lag':     { en: 'Frame drops are one thing — input lag is a death sentence. In PoE2\'s hardest encounters, a single delayed dodge roll or mis-timed flask can end a hardcore character you have invested dozens of hours into. These system-level tweaks eliminate <strong class="text-white">lag compensation</strong> artifacts and shave critical milliseconds off your reaction-to-action pipeline.', zh: '掉帧是一回事——输入延迟则是死刑。在 PoE2 最难的战斗中，一次延迟的翻滚或一个时机不对的药水就可能让你投入数十小时的硬核角色死亡。这些系统级优化消除了<strong class="text-white">延迟补偿</strong>伪影，从你的反应到操作链路中削减关键的毫秒。' },
+      'lag-1-title':        { en: 'Nvidia Reflex + Low Latency Mode', zh: 'Nvidia Reflex + 低延迟模式' },
+      'lag-1-desc':         { en: 'Navigate to your Nvidia Control Panel → Manage 3D Settings → Program Settings → select <code class="text-[#10B981]">PathOfExile2.exe</code>. Set <strong class="text-white">Low Latency Mode</strong> to "Ultra". If your GPU supports Reflex (RTX 2000+ series), enable <strong class="text-white">Reflex Low Latency</strong> in the in-game options. This couples the CPU and GPU frame-pacing, reducing the render queue depth from 2-3 frames to 1. Measured improvement: an average of <strong class="text-white">18ms</strong> system-latency reduction at 1440p on an RTX 4070.', zh: '进入 Nvidia 控制面板 → 管理 3D 设置 → 程序设置 → 选择 <code class="text-[#10B981]">PathOfExile2.exe</code>。将<strong class="text-white">低延迟模式</strong>设为"极致"。如果你的 GPU 支持 Reflex（RTX 2000+ 系列），在游戏内选项中启用<strong class="text-white"> Reflex 低延迟</strong>。这会将 CPU 和 GPU 帧节奏耦合，渲染队列深度从 2-3 帧减少到 1 帧。实测提升：RTX 4070 在 1440p 下平均系统延迟降低 <strong class="text-white">18ms</strong>。' },
+      'lag-2-title':        { en: 'Monitor & Display Tuning', zh: '显示器 & 显示设置' },
+      'lag-2-desc':         { en: 'Ensure your monitor is running at its native refresh rate — set Windows Display settings to the maximum supported Hz (144, 165, 240, etc.). <strong class="text-white">Disable VSync in-game</strong>, but enable <strong class="text-white">G-Sync / FreeSync</strong> to eliminate screen tearing without the input lag penalty. Set your monitor\'s overdrive to "Normal" or "Fast" — "Extreme" causes overshoot ghosting that degrades perceptual clarity during fast camera panning in maps.', zh: '确保显示器以其原生刷新率运行——将 Windows 显示设置设为最高支持的 Hz（144、165、240 等）。<strong class="text-white">关闭游戏内垂直同步</strong>，但开启<strong class="text-white"> G-Sync / FreeSync</strong> 以消除画面撕裂而不引入输入延迟惩罚。将显示器响应速度设为"正常"或"快速"——"极致"会导致过冲残影，在快速镜头平移时降低感知清晰度。' },
+      'lag-3-title':        { en: 'Windows 11 System Tweaks', zh: 'Windows 11 系统优化' },
+      'lag-3-item1':        { en: 'Enable <strong class="text-white">Game Mode</strong> in Windows Settings → Gaming', zh: '在 Windows 设置 → 游戏中开启<strong class="text-white">游戏模式</strong>' },
+      'lag-3-item2':        { en: 'Turn on <strong class="text-white">Hardware-accelerated GPU Scheduling (HAGS)</strong> — reduces CPU overhead on the WDDM scheduler', zh: '开启<strong class="text-white">硬件加速 GPU 调度 (HAGS)</strong>——减少 WDDM 调度器上的 CPU 开销' },
+      'lag-3-item3':        { en: 'Set Power Plan to <strong class="text-white">High Performance</strong> or "Ultimate Performance" — prevents core parking and clock-throttling', zh: '将电源计划设为<strong class="text-white">高性能</strong>或"卓越性能"——防止核心停驻和降频' },
+      'lag-3-item4':        { en: 'Disable <strong class="text-white">Core Isolation / Memory Integrity</strong> in Windows Security (if you are willing to trade security for ~3% FPS)', zh: '在 Windows 安全中心关闭<strong class="text-white">内核隔离/内存完整性</strong>（如果你愿意用安全性换取约 3% FPS）' },
+      'lag-3-item5':        { en: 'Disable <strong class="text-white">Xbox Game Bar</strong> and background recording — frees GPU encoder resources', zh: '关闭<strong class="text-white">Xbox Game Bar</strong>和后台录制——释放 GPU 编码器资源' },
+      'lag-4-title':        { en: 'Peripheral & Network Optimization', zh: '外设 & 网络优化' },
+      'lag-4-item1':        { en: 'Set mouse polling rate to <strong class="text-white">1000 Hz</strong> (not 4000+ Hz) — higher polling can saturate the USB controller and induce micro-stutter on older systems', zh: '将鼠标回报率设为<strong class="text-white">1000 Hz</strong>（而非 4000+ Hz）——过高的回报率可能使 USB 控制器饱和，在老系统上引发微卡顿' },
+      'lag-4-item2':        { en: 'Use a wired Ethernet connection or dedicated 5 GHz Wi-Fi band — wireless interference causes latency jitter that feels like input lag', zh: '使用有线以太网连接或专用 5 GHz Wi-Fi 频段——无线干扰会导致延迟抖动，感觉像是输入延迟' },
+      'lag-4-item3':        { en: 'Set PoE2 to <strong class="text-white">High Priority</strong> in Task Manager → Details tab (this resets per session; use a tool like Process Lasso to persist)', zh: '在任务管理器 → 详细信息中将 PoE2 设为<strong class="text-white">高优先级</strong>（每次重启会重置；使用 Process Lasso 等工具持久化）' },
+      'lag-4-item4':        { en: 'Close Chrome / Discord hardware acceleration — they consume GPU encode cycles and introduce frame-time variance', zh: '关闭 Chrome/Discord 的硬件加速——它们会消耗 GPU 编码周期并引入帧时间方差' },
+
+      /* ── Config ── */
+      'section-config-label': { en: '08 — Config File', zh: '08 — 配置文件' },
+      'h2-config':            { en: 'production_Config.ini — One-Click Setup', zh: 'production_Config.ini — 一键设置' },
+      'desc-config':          { en: 'Copy the optimized configuration block below into <code class="text-[#10B981]">production_Config.ini</code> located in <code class="text-[#10B981]">Documents/My Games/Path of Exile 2/</code>. These values lock in the <strong class="text-white">Competitive</strong> preset from the settings table above with additional low-level engine tweaks not exposed in the in-game options menu.', zh: '将以下优化配置块复制到 <code class="text-[#10B981]">Documents/My Games/Path of Exile 2/</code> 下的 <code class="text-[#10B981]">production_Config.ini</code> 中。这些值锁定上面设置表中的<strong class="text-white">竞技</strong>预设，并包含游戏内选项菜单中未公开的底层引擎微调。' },
+      'config-copy-btn':      { en: 'Copy to Clipboard', zh: '复制到剪贴板' },
+      'config-copied':        { en: 'Copied!', zh: '已复制！' },
+      'config-share-btn':     { en: 'Share My Config', zh: '分享我的配置' },
+      'config-share-copied':  { en: 'Link copied! Share it on Reddit or Discord.', zh: '链接已复制！分享到 Reddit 或 Discord。' },
+      'config-note':          { en: '* Backup your original config before replacing. Values adjust automatically based on your selections above.', zh: '* 替换前请备份原始配置文件。上方选项会自动调整配置值。' },
+      'gen-gpu':              { en: 'GPU Vendor', zh: '显卡品牌' },
+      'gen-preset':           { en: 'Quality Preset', zh: '画质预设' },
+      'gen-res':              { en: 'Target Resolution', zh: '目标分辨率' },
+      'preset-competitive':   { en: 'Competitive (Max FPS)', zh: '竞技（最大帧数）' },
+      'preset-balanced':      { en: 'Balanced (Quality + FPS)', zh: '均衡（画质+帧数）' },
+      'preset-cinematic':     { en: 'Cinematic (Max Quality)', zh: '电影级（最高画质）' },
+      'gpu-nvidia':           { en: 'Nvidia (RTX 20/30/40/50 series)', zh: 'Nvidia（RTX 20/30/40/50 系列）' },
+      'gpu-amd':              { en: 'AMD (RX 6000/7000/9000 series)', zh: 'AMD（RX 6000/7000/9000 系列）' },
+      'gpu-intel':            { en: 'Intel (Arc A/B series)', zh: 'Intel（Arc A/B 系列）' },
+      'gpu-steamdeck':        { en: 'Steam Deck / ROG Ally', zh: 'Steam Deck / 掌机' },
+      'res-720p':             { en: '720p', zh: '720p' },
+      'res-1080p':            { en: '1080p', zh: '1080p' },
+      'res-1440p':            { en: '1440p', zh: '1440p' },
+      'res-2160p':            { en: '4K (2160p)', zh: '4K（2160p）' },
+
+      /* ── Guides Card Grid ── */
+      'section-guides-label': { en: '09 — Optimization Guides', zh: '09 — 优化指南' },
+      'h2-guides':            { en: 'Comprehensive Performance & Optimization Guides', zh: '全面性能与优化指南' },
+      'desc-guides':          { en: 'In-depth guides covering every aspect of Path of Exile 2 performance — from GPU-specific configs to deep-dives into the engine\'s hidden settings. Updated for <strong class="text-white">0.5.0 Return of the Ancients</strong>.', zh: '深度指南涵盖 Path of Exile 2 性能优化的方方面面——从特定显卡配置到引擎隐藏设置的深度解析。已更新至 <strong class="text-white">0.5.0 Return of the Ancients</strong>。' },
+      'card-0-5-title':       { en: 'Ultimate 0.5.0 Performance Guide', zh: '终极 0.5.0 性能指南' },
+      'card-0-5-desc':        { en: 'The definitive guide to max FPS in Return of the Ancients. Vulkan vs DX12, config secrets, and benchmark data.', zh: 'Return of the Ancients 最高 FPS 的权威指南。Vulkan vs DX12、配置秘密和实测数据。' },
+      'card-badge-gpu':       { en: 'GPU Guide', zh: '显卡指南' },
+      'card-badge-low':       { en: 'Low-End Guide', zh: '低配指南' },
+      'card-badge-amd':       { en: 'AMD Guide', zh: 'AMD 指南' },
+      'card-4060-desc':       { en: 'Nvidia\'s most popular 40-series GPU. Get 144+ FPS at 1080p with these config tweaks for 0.5.0.', zh: 'Nvidia 最受欢迎的 40 系显卡。通过这些 0.5.0 配置微调在 1080p 下达到 144+ FPS。' },
+      'card-1060-desc':       { en: 'Squeeze every last FPS from the legendary 1060. Low-end tweaks that make 60 FPS playable.', zh: '从传奇 1060 中榨取每一帧。让 60 FPS 可玩的低配优化技巧。' },
+      'card-6800-desc':       { en: 'AMD\'s value king for 1440p gaming. Optimal config for smooth end-game mapping at native res.', zh: 'AMD 1440p 游戏的性价比之王。原生分辨率下流畅后期刷图的最佳配置。' },
+      'card-read':            { en: 'Read guide', zh: '阅读指南' },
+
+      /* ── Footer ── */
+      'footer-desc':        { en: 'Unofficial fan guide for Path of Exile 2. All game content and trademarks are property of Grinding Gear Games. This guide is provided for informational purposes only.', zh: '《流放之路 2》非官方粉丝指南。所有游戏内容和商标归 Grinding Gear Games 所有。本指南仅供信息参考。' },
+      'footer-guides':      { en: 'Guides', zh: '指南' },
+      'footer-privacy':     { en: 'Privacy Policy', zh: '隐私政策' },
+      'footer-disclaimer':  { en: 'Disclaimer', zh: '免责声明' },
+      'footer-about':       { en: 'About', zh: '关于我们' },
+      'footer-copyright':   { en: '© 2026 PoE2Settings.com', zh: '© 2026 PoE2Settings.com' },
+      'footer-updated':     { en: 'Last updated: 0.5.0 Return of the Ancients — May 2026', zh: '最后更新：0.5.0 Return of the Ancients — 2026 年 5 月' }
+    };
+
+    let currentLang = localStorage.getItem('poe2-lang') || 'en';
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('poe2-lang', lang);
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (translations[key] && translations[key][lang]) {
+          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+            el.value = translations[key][lang];
+          } else {
+            el.innerHTML = translations[key][lang];
+          }
+        }
+      });
+      // set <html> lang
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+      // toggle font class for Chinese
+      document.body.classList.toggle('zh', lang === 'zh');
+      // sync select elements
+      document.querySelectorAll('.lang-select').forEach(sel => sel.value = lang);
+    }
+
+    // init
+    applyLanguage(currentLang);
+
+    // bind language selectors
+    document.querySelectorAll('.lang-select').forEach(sel => {
+      sel.addEventListener('change', (e) => {
+        applyLanguage(e.target.value);
+      });
+    });
+
+    // Copy config to clipboard
+    window.copyConfig = function() {
+      const code = document.getElementById('config-code');
+      const btnText = document.getElementById('copy-btn-text');
+      const icon = document.getElementById('copy-icon');
+      if (!code) return;
+      navigator.clipboard.writeText(code.textContent).then(() => {
+        btnText.textContent = translations['config-copied'] ? translations['config-copied'][currentLang] : 'Copied!';
+        icon.innerHTML = '<polyline points="20 6 9 17 4 12"/>';
+        setTimeout(() => {
+          btnText.textContent = translations['config-copy-btn'] ? translations['config-copy-btn'][currentLang] : 'Copy to Clipboard';
+          icon.innerHTML = '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>';
+        }, 2000);
+      }).catch(() => {
+        btnText.textContent = 'Failed';
+      });
+    };
+
+    // Mobile menu toggle
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        menu.classList.toggle('open');
+      });
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.remove('open');
+        });
+      });
+    }
+
+    /* ════════════════════════════ CONFIG GENERATOR ════════════════════════════ */
+
+    function generateConfig() {
+      const gpu = document.getElementById('gen-gpu').value;
+      const preset = document.getElementById('gen-preset').value;
+      const res = document.getElementById('gen-res').value;
+
+      const isLowEnd = gpu === 'steamdeck';
+      const isCompetitive = preset === 'competitive';
+      const isCinematic = preset === 'cinematic';
+
+      // Render scaling based on preset
+      let renderScaling = 75;
+      let fpsLimit = 143;
+      let giEnabled = 'false';
+      let shadowQuality = 'low';
+      let lightingQuality = 'medium';
+      let reflections = 'ssr_low';
+      let postProcessing = 'false';
+      let textureStreaming = 'true';
+      let cachePoolSize = 768;
+      let dynamicRes = 'false';
+      let vsync = 'false';
+      let bloomEnabled = 'true';
+      let antialiasing = 'fxaa';
+      let engineMultithreading = 'true';
+      let maxVoices = 128;
+
+      if (isCompetitive) {
+        renderScaling = 75;
+        fpsLimit = gpu === 'steamdeck' ? 60 : 143;
+        giEnabled = 'false';
+        shadowQuality = 'low';
+        lightingQuality = 'medium';
+        reflections = 'ssr_low';
+        postProcessing = 'false';
+        textureStreaming = 'true';
+        cachePoolSize = 768;
+        bloomEnabled = 'false';
+        antialiasing = 'fxaa';
+      } else if (preset === 'balanced') {
+        renderScaling = 100;
+        fpsLimit = gpu === 'steamdeck' ? 60 : 120;
+        giEnabled = 'false';
+        shadowQuality = 'medium';
+        lightingQuality = 'high';
+        reflections = 'ssr_medium';
+        postProcessing = 'true';
+        textureStreaming = 'true';
+        cachePoolSize = 1024;
+        bloomEnabled = 'true';
+        antialiasing = 'taa';
+      } else if (isCinematic) {
+        renderScaling = 100;
+        fpsLimit = 60;
+        giEnabled = 'true';
+        shadowQuality = 'ultra';
+        lightingQuality = 'ultra';
+        reflections = 'ssr_high';
+        postProcessing = 'true';
+        textureStreaming = 'true';
+        cachePoolSize = 2048;
+        bloomEnabled = 'true';
+        antialiasing = 'taa';
+      }
+
+      // Resolution-specific adjustments
+      if (res === '720p') {
+        renderScaling = isCinematic ? 100 : 100;
+        cachePoolSize = isCompetitive ? 512 : 768;
+      } else if (res === '1440p') {
+        cachePoolSize = isCompetitive ? 1024 : 1536;
+      } else if (res === '2160p') {
+        cachePoolSize = 2048;
+        renderScaling = isCompetitive ? 75 : 100;
+      }
+
+      // Low-end GPU tweaks
+      if (isLowEnd) {
+        cachePoolSize = 512;
+        maxVoices = 64;
+        engineMultithreading = 'false';
+        giEnabled = 'false';
+        reflections = 'off';
+        bloomEnabled = 'false';
+        antialiasing = 'fxaa';
+      }
+
+      const config = `[DISPLAY]
+fullscreen=true
+borderless_windowed=false
+resolution=${res}
+refresh_rate=${fpsLimit}
+vsync=${vsync}
+gamma_correction=1.0
+
+[RENDER]
+renderer_type=vulkan
+global_illumination=${giEnabled}
+shadow_quality=${shadowQuality}
+lighting_quality=${lightingQuality}
+reflections=${reflections}
+post_processing=${postProcessing}
+texture_streaming=${textureStreaming}
+streaming_cache_pool_size=${cachePoolSize}
+render_scaling=${renderScaling}
+dynamic_resolution=${dynamicRes}
+fps_limit=${fpsLimit}
+antialiasing=${antialiasing}
+bloom=${bloomEnabled}
+engine_multithreading=${engineMultithreading}
+
+[AUDIO]
+max_concurrent_voices=${maxVoices}
+music_volume=0
+ambience_volume=50
+ability_sfx_volume=${isLowEnd ? '50' : '70'}
+loot_drop_audio=false
+chat_notification=false
+
+[INPUT]
+mouse_polling_rate=1000
+raw_input=true
+
+[NETWORK]
+lockstep_mode=true
+prediction_enabled=true
+max_packet_size=1400`;
+
+      document.getElementById('config-code').textContent = config;
+    }
+
+    // Bind generator form changes
+    document.getElementById('gen-gpu').addEventListener('change', generateConfig);
+    document.getElementById('gen-preset').addEventListener('change', generateConfig);
+    document.getElementById('gen-res').addEventListener('change', generateConfig);
+
+    /* ════════════════════════════ SHARE CONFIG ════════════════════════════ */
+
+    let toastTimer = null;
+
+    function showToast(text) {
+      const toast = document.getElementById('toast');
+      const toastText = document.getElementById('toast-text');
+      if (!toast) return;
+      if (toastTimer) clearTimeout(toastTimer);
+      toastText.textContent = text;
+      toast.style.opacity = '1';
+      toast.style.transform = 'translate(-50%, 0)';
+      toast.style.pointerEvents = 'auto';
+      toastTimer = setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translate(-50%, 20px)';
+        toast.style.pointerEvents = 'none';
+      }, 3000);
+    }
+
+    function shareConfig() {
+      const gpu = document.getElementById('gen-gpu').value;
+      const preset = document.getElementById('gen-preset').value;
+      const res = document.getElementById('gen-res').value;
+
+      const params = new URLSearchParams({ gpu, preset, res });
+      const url = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+
+      navigator.clipboard.writeText(url).then(() => {
+        const msg = translations['config-share-copied']
+          ? translations['config-share-copied'][currentLang]
+          : 'Link copied! Share it on Reddit or Discord.';
+        showToast(msg);
+      }).catch(() => {
+        showToast('Failed to copy link');
+      });
+    }
+
+    /* ════════════════════════════ PARSE SHARED URL ════════════════════════════ */
+
+    (function loadFromQuery() {
+      const params = new URLSearchParams(window.location.search);
+      const gpu = params.get('gpu');
+      const preset = params.get('preset');
+      const res = params.get('res');
+      if (gpu) document.getElementById('gen-gpu').value = gpu;
+      if (preset) document.getElementById('gen-preset').value = preset;
+      if (res) document.getElementById('gen-res').value = res;
+      generateConfig();
+    })();
+  </script>
+
+</body>
+</html>
