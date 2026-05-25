@@ -55,3 +55,26 @@ Google 不反 AI，反的是**没有人工作价值的规模化 AI 内容**。
 ### 容易被拒的类型
 影视下载、壁纸采集、小说搬运、GPT 批量站、无意义资讯站、医疗/YMYL 低质量站、"什么都写"的杂站
 
+
+---
+
+## 部署经验总结
+
+### GitHub 推送注意事项
+1. **修改后务必提交**：用 Edit 改完文件后要 `git add` + `git commit`，多次修改之间及时提交避免漏改
+2. **国内网络问题**：直连 GitHub 经常连接重置。推送前加代理：
+   ```bash
+   git -c http.proxy=http://127.0.0.1:7897 push -u origin master
+   ```
+3. **提交前检查**：`git status` 确认所有改过的文件都在暂存区
+4. **提交后验证**：去 GitHub 仓库页面刷新确认文件已更新
+
+### Cloudflare Pages 部署注意事项
+1. **纯静态站点不要用 Worker 模式**：Build command 必须清空或用 `true`，Build output directory 填 `.`
+2. **wrangler.jsonc 配置文件**：在项目根目录放此文件，Cloudflare 自动识别为静态站点
+3. **构建配置修改**：在 Cloudflare Dashboard → 项目 Settings → Build configuration 中修改
+4. **部署触发**：推送到 GitHub 后 Cloudflare 自动触发部署
+
+### 技术注意事项
+
+1. **不要用 CDN 动态加载 Tailwind**：`https://cdn.tailwindcss.com` 会做版本重定向，Google 爬虫会报"重定向错误"。改用预编译的 CSS 文件或直接写内联样式来解决

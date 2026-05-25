@@ -52,6 +52,18 @@
     <loc>https://poe2settings.com/guides/poe2-settings-rtx-3060.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-25</lastmod>
+  </url>
+  <url>
+    <loc>https://poe2settings.com/guides/poe2-steam-deck-settings.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <lastmod>2026-05-25</lastmod>
+  </url>
+  <url>
+    <loc>https://poe2settings.com/guides/poe2-dx12-vs-vulkan.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <lastmod>2026-05-25</lastmod>
   </url>
 </urlset>

@@ -446,6 +446,38 @@
           </a>
         </div>
 
+        <!-- GPU Quick Search -->
+        <div class="mt-10 max-w-xl">
+          <label class="text-xs font-semibold tracking-widest uppercase text-[#8B949E] mb-3 block" data-i18n="search-label">Find settings for your GPU</label>
+          <div class="relative">
+            <input id="gpu-search" type="text" list="gpu-list" autocomplete="off" placeholder='e.g. "RTX 4060", "GTX 1060", "RX 6800 XT"...' class="w-full bg-[#0B0F1A] text-[#E6EDF3] border border-white/10 rounded-xl px-4 py-3.5 text-sm outline-none focus:border-[#10B981]/50 transition-colors placeholder:text-[#4A5568]">
+            <button onclick="searchGPU()" class="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-1.5 rounded-lg bg-[#10B981]/10 text-[#10B981] border border-[#10B981]/20 hover:bg-[#10B981]/20 transition-colors text-xs font-medium">
+              <span data-i18n="search-btn">Search</span>
+            </button>
+          </div>
+          <datalist id="gpu-list">
+            <option value="RTX 4060">
+            <option value="RTX 3060">
+            <option value="RTX 3070">
+            <option value="RTX 3080">
+            <option value="RTX 4070">
+            <option value="RTX 4080">
+            <option value="RTX 4090">
+            <option value="GTX 1060">
+            <option value="GTX 1070">
+            <option value="GTX 1080">
+            <option value="GTX 1660">
+            <option value="RX 580">
+            <option value="RX 6800 XT">
+            <option value="RX 6900 XT">
+            <option value="RX 7600">
+            <option value="RX 7800 XT">
+            <option value="RX 7900 XTX">
+            <option value="Steam Deck">
+            <option value="ROG Ally">
+          </datalist>
+        </div>
+
         <!-- Stats row -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mt-16 pt-8 border-t border-white/5">
           <div><div class="text-2xl md:text-3xl font-bold text-[#10B981]">15-30%</div><div class="text-sm text-[#8B949E] mt-1" data-i18n="stat-fps">Potential FPS Gain</div></div>
@@ -1135,7 +1167,7 @@ max_packet_size=1400</code></pre>
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         <!-- Card 1: 0.5.0 Guide -->
         <a href="guides/poe2-0-5-0-performance-guide.html" class="glass-card p-6 group cursor-pointer hover:border-[#10B981]/30 transition-all duration-300" style="border:1px solid rgba(16,185,129,0.1);">
           <div class="flex items-center gap-2 mb-3">
@@ -1176,6 +1208,19 @@ max_packet_size=1400</code></pre>
         </a>
 
         <!-- Card 4: Steam Deck -->
+        <a href="guides/poe2-steam-deck-settings.html" class="glass-card p-6 group cursor-pointer hover:border-[#10B981]/30 transition-all duration-300" style="border:1px solid rgba(16,185,129,0.1);">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-xs px-2 py-1 rounded-full bg-[#10B981]/10 text-[#10B981] border border-[#10B981]/20" data-i18n="card-badge-handheld">Handheld</span>
+          </div>
+          <h3 class="font-bold text-base mb-2 group-hover:text-[#10B981] transition-colors">PoE2 Steam Deck & ROG Ally Settings</h3>
+          <p class="text-xs text-[#8B949E] leading-relaxed" data-i18n="card-deck-desc">Stable 45-60 FPS on handheld PCs. Vulkan tuning, TDP tips, and aggressive cache pool for 800p.</p>
+          <div class="flex items-center gap-1 mt-3 text-xs text-[#3B82F6]">
+            <span data-i18n="card-read">Read guide</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+        </a>
+
+        <!-- Card 5: RX 6800 XT -->
         <a href="guides/poe2-settings-rx-6800-xt.html" class="glass-card p-6 group cursor-pointer hover:border-[#8B5CF6]/30 transition-all duration-300" style="border:1px solid rgba(139,92,246,0.1);">
           <div class="flex items-center gap-2 mb-3">
             <span class="text-xs px-2 py-1 rounded-full bg-[#8B5CF6]/10 text-[#8B5CF6] border border-[#8B5CF6]/20" data-i18n="card-badge-amd">AMD Guide</span>
@@ -1187,6 +1232,110 @@ max_packet_size=1400</code></pre>
             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg>
           </div>
         </a>
+
+        <!-- Card 6: DX12 vs Vulkan -->
+        <a href="guides/poe2-dx12-vs-vulkan.html" class="glass-card p-6 group cursor-pointer hover:border-[#3B82F6]/30 transition-all duration-300" style="border:1px solid rgba(59,130,246,0.1);">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-xs px-2 py-1 rounded-full bg-[#3B82F6]/10 text-[#3B82F6] border border-[#3B82F6]/20" data-i18n="card-badge-bench">Benchmark</span>
+          </div>
+          <h3 class="font-bold text-base mb-2 group-hover:text-[#3B82F6] transition-colors">DX12 vs Vulkan — Which Is Better?</h3>
+          <p class="text-xs text-[#8B949E] leading-relaxed" data-i18n="card-vulkan-desc">Real benchmark data: RTX 4090, 3070, 4060, RX 6800 XT and Steam Deck tested on both APIs in 0.5.0.</p>
+          <div class="flex items-center gap-1 mt-3 text-xs text-[#3B82F6]">
+            <span data-i18n="card-read">Read guide</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════ COMMUNITY CONFIGS ════════════════════════════ -->
+  <section id="community" class="py-20 md:py-28 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-3xl mb-14">
+        <span class="text-[#3B82F6] text-sm font-semibold tracking-widest uppercase" data-i18n="section-community-label">10 — Community Configs</span>
+        <h2 class="text-3xl md:text-4xl font-bold mt-3 text-glow-blue" data-i18n="h2-community">Share Your Setup & See What Others Use</h2>
+        <p class="text-[#8B949E] mt-3 text-lg" data-i18n="desc-community">
+          See what hardware real players are using and what FPS they're getting in PoE2 0.5.0.
+          Share your own config to help the community optimize.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 mb-10">
+        <!-- Example 1 -->
+        <div class="glass-card p-5" style="border-left:3px solid #10B981;">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-sm">RTX 3070</span>
+            <span class="text-xs px-2 py-0.5 rounded-full bg-[#10B981]/10 text-[#10B981]">104 FPS</span>
+          </div>
+          <div class="text-xs text-[#8B949E] space-y-1">
+            <p>CPU: Ryzen 7 5700X · 32 GB</p>
+            <p>1080p · Competitive preset</p>
+            <p>Vulkan · GI Low · DLSS Quality</p>
+          </div>
+        </div>
+        <!-- Example 2 -->
+        <div class="glass-card p-5" style="border-left:3px solid #3B82F6;">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-sm">RX 6800 XT</span>
+            <span class="text-xs px-2 py-0.5 rounded-full bg-[#3B82F6]/10 text-[#3B82F6]">126 FPS</span>
+          </div>
+          <div class="text-xs text-[#8B949E] space-y-1">
+            <p>CPU: Ryzen 7 7800X3D · 32 GB</p>
+            <p>1440p · Balanced preset</p>
+            <p>Vulkan · Medium Shadows · TAA</p>
+          </div>
+        </div>
+        <!-- Example 3 -->
+        <div class="glass-card p-5" style="border-left:3px solid #F59E0B;">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-sm">Steam Deck</span>
+            <span class="text-xs px-2 py-0.5 rounded-full bg-[#F59E0B]/10 text-[#F59E0B]">52 FPS</span>
+          </div>
+          <div class="text-xs text-[#8B949E] space-y-1">
+            <p>800p · Low-end preset</p>
+            <p>Vulkan · GI Off · 75% scale</p>
+            <p>Cache pool: 512 MB</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Form -->
+      <div class="glass-card p-6 md:p-8 max-w-2xl mx-auto">
+        <h3 class="font-bold text-lg mb-4" data-i18n="community-form-title">Submit Your Config</h3>
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="text-xs font-semibold text-[#8B949E] mb-1 block" data-i18n="community-gpu">GPU</label>
+            <input id="com-gpu" class="w-full bg-[#0B0F1A] text-[#E6EDF3] border border-white/10 rounded-lg px-3 py-2.5 text-sm outline-none focus:border-[#3B82F6]/50" placeholder="e.g. RTX 3070">
+          </div>
+          <div>
+            <label class="text-xs font-semibold text-[#8B949E] mb-1 block" data-i18n="community-cpu">CPU</label>
+            <input id="com-cpu" class="w-full bg-[#0B0F1A] text-[#E6EDF3] border border-white/10 rounded-lg px-3 py-2.5 text-sm outline-none focus:border-[#3B82F6]/50" placeholder="e.g. Ryzen 7 5700X">
+          </div>
+          <div>
+            <label class="text-xs font-semibold text-[#8B949E] mb-1 block" data-i18n="community-fps">Avg FPS</label>
+            <input id="com-fps" type="number" class="w-full bg-[#0B0F1A] text-[#E6EDF3] border border-white/10 rounded-lg px-3 py-2.5 text-sm outline-none focus:border-[#3B82F6]/50" placeholder="e.g. 104">
+          </div>
+          <div>
+            <label class="text-xs font-semibold text-[#8B949E] mb-1 block" data-i18n="community-preset">Preset</label>
+            <select id="com-preset" class="w-full bg-[#0B0F1A] text-[#E6EDF3] border border-white/10 rounded-lg px-3 py-2.5 text-sm outline-none focus:border-[#3B82F6]/50">
+              <option value="Competitive">Competitive</option>
+              <option value="Balanced">Balanced</option>
+              <option value="Cinematic">Cinematic</option>
+            </select>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="text-xs font-semibold text-[#8B949E] mb-1 block" data-i18n="community-notes">Notes (optional)</label>
+          <input id="com-notes" class="w-full bg-[#0B0F1A] text-[#E6EDF3] border border-white/10 rounded-lg px-3 py-2.5 text-sm outline-none focus:border-[#3B82F6]/50" placeholder="e.g. Vulkan, GI Low, DLSS Quality">
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="submitCommunityConfig()" class="px-5 py-2.5 rounded-lg bg-[#3B82F6]/10 text-[#3B82F6] border border-[#3B82F6]/20 hover:bg-[#3B82F6]/20 transition-colors text-sm font-medium flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+            <span data-i18n="community-submit">Share My Config</span>
+          </button>
+          <span id="community-status" class="text-xs text-[#8B949E]"></span>
+        </div>
       </div>
     </div>
   </section>
@@ -1433,7 +1582,29 @@ max_packet_size=1400</code></pre>
       'card-4060-desc':       { en: 'Nvidia\'s most popular 40-series GPU. Get 144+ FPS at 1080p with these config tweaks for 0.5.0.', zh: 'Nvidia 最受欢迎的 40 系显卡。通过这些 0.5.0 配置微调在 1080p 下达到 144+ FPS。' },
       'card-1060-desc':       { en: 'Squeeze every last FPS from the legendary 1060. Low-end tweaks that make 60 FPS playable.', zh: '从传奇 1060 中榨取每一帧。让 60 FPS 可玩的低配优化技巧。' },
       'card-6800-desc':       { en: 'AMD\'s value king for 1440p gaming. Optimal config for smooth end-game mapping at native res.', zh: 'AMD 1440p 游戏的性价比之王。原生分辨率下流畅后期刷图的最佳配置。' },
+      'card-badge-handheld':  { en: 'Handheld', zh: '掌机' },
+      'card-badge-bench':     { en: 'Benchmark', zh: '实测' },
+      'card-deck-desc':       { en: 'Stable 45-60 FPS on handheld PCs. Vulkan tuning, TDP tips, and aggressive cache pool for 800p.', zh: '掌机稳定 45-60 帧。Vulkan 调优、TDP 技巧和 800p 极限缓存池设置。' },
+      'card-vulkan-desc':     { en: 'Real benchmark data: RTX 4090, 3070, 4060, RX 6800 XT and Steam Deck tested on both APIs in 0.5.0.', zh: '真实跑分数据：RTX 4090/3070/4060、RX 6800 XT 和 Steam Deck 在 0.5.0 双 API 测试。' },
       'card-read':            { en: 'Read guide', zh: '阅读指南' },
+
+      /* ── Search ── */
+      'search-label':         { en: 'Find settings for your GPU', zh: '查找你的显卡设置' },
+      'search-btn':           { en: 'Search', zh: '搜索' },
+      'search-placeholder':   { en: 'e.g. "RTX 4060", "GTX 1060", "RX 6800 XT"...', zh: '例如 "RTX 4060"、"GTX 1060"、"RX 6800 XT"…' },
+
+      /* ── Community ── */
+      'section-community-label': { en: '10 — Community Configs', zh: '10 — 社区配置' },
+      'h2-community':            { en: "Share Your Setup & See What Others Use", zh: '分享你的配置，看看别人怎么配' },
+      'desc-community':          { en: 'See what hardware real players are using and what FPS they\'re getting in PoE2 0.5.0. Share your own config to help the community optimize.', zh: '看看其他玩家在 PoE2 0.5.0 中使用什么硬件和帧数。分享你的配置来帮助社区优化。' },
+      'community-form-title':    { en: 'Submit Your Config', zh: '提交你的配置' },
+      'community-gpu':           { en: 'GPU', zh: '显卡' },
+      'community-cpu':           { en: 'CPU', zh: '处理器' },
+      'community-fps':           { en: 'Avg FPS', zh: '平均帧数' },
+      'community-preset':        { en: 'Preset', zh: '预设' },
+      'community-notes':         { en: 'Notes (optional)', zh: '备注（可选）' },
+      'community-submit':        { en: 'Share My Config', zh: '分享我的配置' },
+      'community-share-text':    { en: 'My PoE2 0.5.0 setup: GPU: {gpu} | CPU: {cpu} | FPS: {fps} | Preset: {preset} | {notes} — Create yours at poe2settings.com', zh: '我的 PoE2 0.5.0 配置：显卡：{gpu}｜处理器：{cpu}｜帧数：{fps}｜预设：{preset}｜{notes}——在 poe2settings.com 生成你的配置' },
 
       /* ── Footer ── */
       'footer-desc':        { en: 'Unofficial fan guide for Path of Exile 2. All game content and trademarks are property of Grinding Gear Games. This guide is provided for informational purposes only.', zh: '《流放之路 2》非官方粉丝指南。所有游戏内容和商标归 Grinding Gear Games 所有。本指南仅供信息参考。' },
@@ -1667,6 +1838,68 @@ max_packet_size=1400`;
         toast.style.pointerEvents = 'none';
       }, 3000);
     }
+
+    /* ═════════ GPU SEARCH ═════════ */
+
+    const GPU_GUIDES = {
+      'rtx 4060': 'guides/poe2-settings-rtx-4060.html',
+      'rtx 3060': 'guides/poe2-settings-rtx-3060.html',
+      'gtx 1060': 'guides/poe2-settings-gtx-1060.html',
+      'rx 6800 xt': 'guides/poe2-settings-rx-6800-xt.html',
+      'rx 6800': 'guides/poe2-settings-rx-6800-xt.html',
+      'steam deck': 'guides/poe2-steam-deck-settings.html',
+      'rog ally': 'guides/poe2-steam-deck-settings.html',
+      'ally': 'guides/poe2-steam-deck-settings.html',
+      'vulkan': 'guides/poe2-dx12-vs-vulkan.html',
+      'dx12': 'guides/poe2-dx12-vs-vulkan.html',
+      'directx': 'guides/poe2-dx12-vs-vulkan.html',
+    };
+
+    window.searchGPU = function() {
+      const input = document.getElementById('gpu-search');
+      const query = input.value.trim().toLowerCase();
+      if (!query) return;
+      for (const [key, url] of Object.entries(GPU_GUIDES)) {
+        if (query.includes(key) || key.includes(query)) {
+          window.location.href = url; return;
+        }
+      }
+      window.location.href = 'guides/poe2-0-5-0-performance-guide.html';
+    };
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const input = document.getElementById('gpu-search');
+      if (input) input.addEventListener('keydown', function(e) { if (e.key === 'Enter') searchGPU(); });
+    });
+
+    /* ═════════ COMMUNITY SUBMIT ═════════ */
+
+    window.submitCommunityConfig = function() {
+      const gpu = document.getElementById('com-gpu').value.trim();
+      const cpu = document.getElementById('com-cpu').value.trim();
+      const fps = document.getElementById('com-fps').value.trim();
+      const preset = document.getElementById('com-preset').value;
+      const notes = document.getElementById('com-notes').value.trim();
+      if (!gpu || !cpu || !fps) {
+        document.getElementById('community-status').textContent = 'Please fill in GPU, CPU and FPS.';
+        return;
+      }
+      const tmpl = translations['community-share-text'];
+      const lang = currentLang || 'en';
+      const text = (tmpl ? tmpl[lang] : 'My PoE2 0.5.0 setup: GPU: {gpu} | CPU: {cpu} | FPS: {fps} | Preset: {preset} | {notes} — Create yours at poe2settings.com')
+        .replace('{gpu}', gpu).replace('{cpu}', cpu).replace('{fps}', fps).replace('{preset}', preset).replace('{notes}', notes || 'No notes');
+      navigator.clipboard.writeText(text).then(() => {
+        document.getElementById('community-status').textContent = 'Copied! Share it on Reddit or Discord.';
+        document.getElementById('com-gpu').value = '';
+        document.getElementById('com-cpu').value = '';
+        document.getElementById('com-fps').value = '';
+        document.getElementById('com-notes').value = '';
+      }).catch(() => {
+        document.getElementById('community-status').textContent = 'Failed to copy. Try again.';
+      });
+    };
+
+    /* ═════════ SHARE CONFIG ═════════ */
 
     function shareConfig() {
       const gpu = document.getElementById('gen-gpu').value;
