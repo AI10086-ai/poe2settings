@@ -64,7 +64,7 @@ Google 不反 AI，反的是**没有人工作价值的规模化 AI 内容**。
 1. **修改后务必提交**：用 Edit 改完文件后要 `git add` + `git commit`，多次修改之间及时提交避免漏改
 2. **国内网络问题**：直连 GitHub 经常连接重置。推送前加代理：
    ```bash
-   git -c http.proxy=http://127.0.0.1:7897 push -u origin master
+   https_proxy=http://127.0.0.1:7897 git push
    ```
 3. **提交前检查**：`git status` 确认所有改过的文件都在暂存区
 4. **提交后验证**：去 GitHub 仓库页面刷新确认文件已更新
