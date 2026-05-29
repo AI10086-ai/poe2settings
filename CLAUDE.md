@@ -78,3 +78,4 @@ Google 不反 AI，反的是**没有人工作价值的规模化 AI 内容**。
 ### 技术注意事项
 
 1. **不要用 CDN 动态加载 Tailwind**：`https://cdn.tailwindcss.com` 会做版本重定向，Google 爬虫会报"重定向错误"。改用预编译的 CSS 文件或直接写内联样式来解决
+2. **所有页面链接必须使用无后缀 URL**：Cloudflare Pages 会自动把 `.html` 结尾的 URL 重定向到无后缀版（如 `privacy.html` → `/privacy`），Google Search Console 会因此报"网页自动重定向"警告。创建新页面时，footer/nav 链接统一用 `href="privacy"` / `href="/privacy"` 格式，sitemap.xml 中的 URL 也不能带 `.html`

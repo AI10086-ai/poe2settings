@@ -413,7 +413,7 @@
       <div class="max-w-4xl">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#10B981]/10 border border-[#10B981]/20 text-[#10B981] text-sm font-medium mb-6">
           <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
-          <span data-i18n="hero-badge">Path of Exile 2 — 0.5.0 Return of the Ancients</span>
+          <span data-i18n="hero-badge">Path of Exile 2 — 0.5.0 Return of the Ancients — LIVE</span>
         </div>
 
         <h1 class="text-4xl md:text-6xl lg:text-7xl font-black leading-tight text-glow mb-4">
@@ -425,7 +425,7 @@
 
         <p class="text-base md:text-lg text-[#3B82F6] font-medium mb-6 flex items-center gap-2">
           <span class="w-1.5 h-1.5 rounded-full bg-[#3B82F6] animate-pulse"></span>
-          <span data-i18n="hero-patch-note">Ready for 0.5.0 Return of the Ancients — May 29 Launch</span>
+          <span data-i18n="hero-patch-note">LIVE: 0.5.0 Return of the Ancients — Launch Day Guide</span>
         </p>
 
         <p class="text-lg md:text-xl text-[#8B949E] max-w-2xl leading-relaxed mb-8" data-i18n="hero-desc">
@@ -1207,7 +1207,20 @@ max_packet_size=1400</code></pre>
           </div>
         </a>
 
-        <!-- Card 4: Steam Deck -->
+        <!-- Card 4: Stuttering Fix (Featured) -->
+        <a href="guides/poe2-0-5-0-stuttering-fix.html" class="glass-card p-6 group cursor-pointer hover:border-[#EF4444]/30 transition-all duration-300" style="border:1px solid rgba(239,68,68,0.1);">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-xs px-2 py-1 rounded-full bg-[#EF4444]/10 text-[#EF4444] border border-[#EF4444]/20">Hotfix</span>
+          </div>
+          <h3 class="font-bold text-base mb-2 group-hover:text-[#EF4444] transition-colors">PoE2 0.5.0 Stuttering Fix — 10 Solutions</h3>
+          <p class="text-xs text-[#8B949E] leading-relaxed" data-i18n="card-stutter-desc">Launch day hotfix guide. Dynamic Culling, sound channels, shader cache, Reflex toggle, and more community-tested fixes.</p>
+          <div class="flex items-center gap-1 mt-3 text-xs text-[#3B82F6]">
+            <span data-i18n="card-read">Read guide</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+        </a>
+
+        <!-- Card 5: Steam Deck -->
         <a href="guides/poe2-steam-deck-settings.html" class="glass-card p-6 group cursor-pointer hover:border-[#10B981]/30 transition-all duration-300" style="border:1px solid rgba(16,185,129,0.1);">
           <div class="flex items-center gap-2 mb-3">
             <span class="text-xs px-2 py-1 rounded-full bg-[#10B981]/10 text-[#10B981] border border-[#10B981]/20" data-i18n="card-badge-handheld">Handheld</span>
@@ -1381,7 +1394,7 @@ max_packet_size=1400</code></pre>
       /* ── Hero ── */
       'hero-badge':         { en: 'Path of Exile 2 — Patch 0.5.0 Return of the Ancients', zh: '流放之路2 — 0.5.0 Return of the Ancients' },
       'hero-title-line2':   { en: 'Config Generator & 0.5.0 Guide', zh: '配置生成器 & 0.5.0 指南' },
-      'hero-patch-note':    { en: 'Ready for 0.5.0 Return of the Ancients — May 29 Launch', zh: '适配 0.5.0 Return of the Ancients — 5月29日上线' },
+      'hero-patch-note':    { en: 'LIVE: 0.5.0 Return of the Ancients — Launch Day Guide', zh: '已上线：0.5.0 Return of the Ancients — 开服日指南' },
       'hero-desc':          { en: "Path of Exile 2 is not just a sequel — it is the next-generation pinnacle of ARPGs, rebuilt from the ground up on a new engine. With dynamic lighting, physics-driven destruction, and massive multiplayer encounters, squeezing every frame out of your system is the difference between dominating the Atlas and watching a death recap. This guide delivers battle-tested optimizations, <strong class=\"text-white\">min-maxing</strong> strategies for your GPU, and curated starter builds so you hit maps at full <strong class=\"text-white\">throughput</strong> from day one.", zh: '《流放之路 2》不仅仅是一部续作——它是下一代 ARPG 的巅峰之作，基于全新引擎从零构建。动态光照、物理破坏和大规模多人战斗让每一帧都至关重要。本指南提供经过实战验证的优化方案、针对 GPU 的<strong class="text-white">极限压榨</strong>策略以及精选的开荒 build，让你从第一天起就以满<strong class="text-white">吞吐量</strong>刷图。' },
       'hero-btn-guide':     { en: 'Watch Optimization Guide', zh: '观看优化指南' },
       'hero-btn-builds':    { en: 'Browse Starter Builds', zh: '查看开荒BD' },
@@ -1586,6 +1599,7 @@ max_packet_size=1400</code></pre>
       'card-badge-bench':     { en: 'Benchmark', zh: '实测' },
       'card-deck-desc':       { en: 'Stable 45-60 FPS on handheld PCs. Vulkan tuning, TDP tips, and aggressive cache pool for 800p.', zh: '掌机稳定 45-60 帧。Vulkan 调优、TDP 技巧和 800p 极限缓存池设置。' },
       'card-vulkan-desc':     { en: 'Real benchmark data: RTX 4090, 3070, 4060, RX 6800 XT and Steam Deck tested on both APIs in 0.5.0.', zh: '真实跑分数据：RTX 4090/3070/4060、RX 6800 XT 和 Steam Deck 在 0.5.0 双 API 测试。' },
+      'card-stutter-desc':    { en: 'Launch day hotfix guide. Dynamic Culling, sound channels, shader cache, Reflex toggle, and more community-tested fixes.', zh: '开服日热修复指南。Dynamic Culling、音频通道、着色器缓存、Reflex 开关等社区验证的修复方案。' },
       'card-read':            { en: 'Read guide', zh: '阅读指南' },
 
       /* ── Search ── */
@@ -1853,6 +1867,11 @@ max_packet_size=1400`;
       'vulkan': 'guides/poe2-dx12-vs-vulkan.html',
       'dx12': 'guides/poe2-dx12-vs-vulkan.html',
       'directx': 'guides/poe2-dx12-vs-vulkan.html',
+      'stutter': 'guides/poe2-0-5-0-stuttering-fix.html',
+      'stuttering': 'guides/poe2-0-5-0-stuttering-fix.html',
+      'fix': 'guides/poe2-0-5-0-stuttering-fix.html',
+      'lag': 'guides/poe2-0-5-0-stuttering-fix.html',
+      'fps drop': 'guides/poe2-0-5-0-stuttering-fix.html',
     };
 
     window.searchGPU = function() {
