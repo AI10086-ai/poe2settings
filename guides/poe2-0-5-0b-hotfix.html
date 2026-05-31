@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PoE2 0.5.0b Hotfix — Full Patch Notes & Performance Analysis (May 2026)</title>
+  <meta name="description" content="Complete PoE2 0.5.0b hotfix breakdown: crash fixes, boss VFX preloading, Martial Artist buffs, Waystone sustain changes, and remaining stutter issues after the patch." />
+  <meta name="keywords" content="PoE2, 0.5.0b, hotfix, patch notes, Return of the Ancients, performance, crashes, stutter, fix, May 2026, 0.5.0b" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://poe2settings.com/guides/poe2-0-5-0b-hotfix" />
+  <meta property="og:title" content="PoE2 0.5.0b Hotfix — Full Patch Notes & Performance Analysis (May 2026)" />
+  <meta property="og:description" content="Complete breakdown of PoE2 0.5.0b: crash fixes, boss VFX preloading, balance changes, and what performance issues are still unresolved." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://poe2settings.com/guides/poe2-0-5-0b-hotfix" />
+  <meta property="og:image" content="https://poe2settings.com/og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PoE2 0.5.0b Hotfix — Full Patch Notes & Performance Analysis (May 2026)" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"PoE2 0.5.0b Hotfix — Full Patch Notes & Performance Analysis (May 2026)","description":"Complete breakdown of PoE2 0.5.0b including crash fixes, boss VFX preloading, Martial Artist changes, and remaining performance issues.","datePublished":"2026-05-31","dateModified":"2026-05-31"}</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');:root{--bg-primary:#0B0F1A;--bg-card:#161B22;--accent-green:#10B981;--accent-blue:#3B82F6;--border-subtle:rgba(255,255,255,0.06);--text-primary:#E6EDF3;--text-secondary:#8B949E;--glass-bg:rgba(22,27,34,0.6);}*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Inter',system-ui,-apple-system,sans-serif;background-color:var(--bg-primary);color:var(--text-primary);line-height:1.8;-webkit-font-smoothing:antialiased;}.glass{background:var(--glass-bg);backdrop-filter:blur(16px);border:1px solid var(--border-subtle);border-radius:12px;}.glass-card{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border-subtle);border-radius:16px;}.nav-link{color:var(--text-secondary);font-size:.875rem;font-weight:500;transition:color .2s;}.nav-link:hover{color:var(--text-primary);}::selection{background:rgba(16,185,129,.25);color:#fff;}::-webkit-scrollbar{width:8px;}::-webkit-scrollbar-track{background:var(--bg-primary);}::-webkit-scrollbar-thumb{background:#1E293B;border-radius:4px;}article h2{color:var(--accent-green);font-size:1.5rem;font-weight:700;margin-top:2.5rem;margin-bottom:1rem;}article p{color:var(--text-secondary);margin-bottom:1rem;font-size:.95rem;}article ul{color:var(--text-secondary);padding-left:1.5rem;margin-bottom:1rem;font-size:.95rem;}article li{margin-bottom:.4rem;}article strong{color:var(--text-primary);}article a{color:var(--accent-blue);}article a:hover{text-decoration:underline;}article code{color:var(--accent-green);background:rgba(16,185,129,.08);padding:.1rem .4rem;border-radius:4px;font-size:.85rem;}</style>
+</head>
+<body>
+  <nav class="glass fixed top-0 left-0 right-0 z-50 px-4 md:px-8" style="border-radius:0;background:rgba(11,15,26,.85);">
+    <div class="max-w-7xl mx-auto flex items-center justify-between h-16">
+      <a href="/#home" class="flex items-center gap-2 font-bold text-lg"><span class="text-[#10B981]">⏣</span><span>PoE2<span class="text-[#10B981]"> Settings</span></span></a>
+      <div class="flex items-center gap-6"><a href="/" class="nav-link">Config Generator</a><a href="poe2-0-5-0-performance-guide.html" class="nav-link">0.5.0 Guide</a><a href="/#guides" class="nav-link">All Guides</a></div>
+    </div>
+  </nav>
+
+  <main class="pt-28 pb-20 px-4 md:px-8">
+    <div class="max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8B5CF6]/10 border border-[#8B5CF6]/20 text-[#8B5CF6] text-xs font-medium mb-4">
+        Patch Analysis &mdash; Updated May 31
+      </div>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">PoE2 0.5.0b Hotfix — Full Patch Notes & Performance Analysis</h1>
+      <p class="text-sm text-[#8B949E]/60 mb-8">May 31, 2026 · Covering 0.5.0b Hotfix 1 + Hotfix 2</p>
+
+      <article class="glass-card p-6 md:p-10">
+        <p>GGG shipped <strong>two hotfixes</strong> (0.5.0b) over the launch weekend, addressing the most critical crashes, progression blockers, and balance issues from the Return of the Ancients release. Here is the full breakdown of what changed, what got better, and what performance issues are <em>still</em> affecting players.</p>
+
+        <div class="glass p-4 md:p-5 rounded-xl my-8" style="border-left:3px solid var(--accent-green);">
+          <p class="text-sm" style="margin-bottom:0;"><strong>Need a working config right now?</strong> Use our <a href="/">PoE2 Config Generator</a>, or check our <a href="poe2-0-5-0-stuttering-fix.html">Stuttering Fix Guide</a> for 11 proven solutions.</p>
+        </div>
+
+        <h2>0.5.0b Overview</h2>
+        <p>Release date: <strong>May 30, 2026</strong> (Hotfix 1) + <strong>May 31</strong> (Hotfix 2). Size: ~200 MB each. The hotfixes targeted three areas:</p>
+        <ul>
+          <li><strong>Crash fixes</strong> — Client crashes (including Japanese client), "Buffer overflow" crash, instance crashes on Leylines zones</li>
+          <li><strong>Performance</strong> — Boss VFX preloading (fixes stutter when entering boss arenas), audio MTX restart after alt-tab</li>
+          <li><strong>Progression & balance</strong> — Waystone sustain improvements, Martial Artist buffs, Kelaris Deception damage cap</li>
+        </ul>
+
+        <h2>Performance Improvements in 0.5.0b</h2>
+
+        <p><strong>✅ Boss VFX preloading.</strong> The most impactful performance fix in 0.5.0b. Previously, boss arena visual effects (Arbiter of Ash, Xesht, the new Runes of Aldur bosses) were loaded on-demand when you entered the arena, causing a hard stutter spike. Now they preload during zone transitions. Players with NVMe SSDs report nearly seamless boss entries post-patch.</p>
+
+        <p><strong>✅ General client crash fixed.</strong> Several crash-to-desktop scenarios from 0.5.0 launch (particularly in party play and on the Japanese client) are resolved.</p>
+
+        <p><strong>❌ Network-spike stutter near monster packs — NOT fixed.</strong> The #1 player complaint post-0.5.0b: FPS looks fine in the F1 overlay, but characters "stutter-walk" when near monster packs. This appears to be a server-side congestion issue from the 400K+ concurrent players, not a client rendering bug. <a href="poe2-0-5-0-stuttering-fix.html">See fix #11 in our stuttering guide</a> for workarounds.</p>
+
+        <p><strong>❌ Dynamic Culling behavior — NOT addressed.</strong> GGG has not modified the Dynamic Culling system in 0.5.0b. The recommendation to disable it (Settings → Graphics → Dynamic Culling → OFF) still applies.</p>
+
+        <h2>Full Bug Fix List</h2>
+
+        <h3>Crash Fixes (Hotfix 1)</h3>
+        <ul>
+          <li>Fixed a general client crash occurring in various scenarios</li>
+          <li>Fixed a client crash on Japanese clients (localization-specific)</li>
+          <li>Fixed "Buffer overflow" crash when taking items from NPCs</li>
+          <li>Fixed instance crash when transitioning between areas with active Leylines</li>
+        </ul>
+
+        <h3>Atlas & Progression (Hotfix 1 + 2)</h3>
+        <ul>
+          <li>Ocean maps no longer unreachable due to missing map connections</li>
+          <li>Final Atlas Passive Tree skills now allocable</li>
+          <li>Hilda Atlas Master quest now updates properly after client restart</li>
+          <li>Present-Day Temples generate correctly</li>
+          <li><strong>Waystone sustain improved</strong> for higher-tier maps — Atlas Passive Tree bonuses added. This is a significant QoL fix for players stuck at T13-T15</li>
+          <li>Abyss quest progression fixed (blocked markers now trigger properly)</li>
+        </ul>
+
+        <h3>Combat & Balance (Hotfix 1 + 2)</h3>
+        <ul>
+          <li><strong>Martial Artist's Martial Master passive</strong> now generates combo correctly — this is a meaningful buff after initial reports of the skill not working</li>
+          <li>Killing Palm and Staggering Palm dashes now hit targets reliably</li>
+          <li>Channelled skill move-speed penalty no longer bypassable by tapping</li>
+          <li><strong>Kelaris Deception</strong> damage bonus capped at 300% more damage (was uncapped — exploitable)</li>
+          <li><strong>Pyromantic Pact</strong> now works inside boss arenas</li>
+          <li>Lunar Blessing cooldown recovers while buff is active</li>
+        </ul>
+
+        <h3>Items & Crafting (Hotfix 1)</h3>
+        <ul>
+          <li>Olroth's Conviction now requires proper level and isn't available from remnant crafting</li>
+          <li>Fragments of the Past and Conductive Runes usable while shapeshifted</li>
+          <li>Perfect Exalted Orb Runeshape Combination in correct crafting category</li>
+          <li>Breach Tablet modifiers display properly</li>
+        </ul>
+
+        <h2>Player Count Context</h2>
+        <p>The launch weekend peaked at <strong>~407,739 concurrent players on Steam</strong> alone (total cross-platform likely 500K+). This massive spike caused gateway congestion — particularly on California, Frankfurt, and Singapore servers — which is the root cause of the network-spike stutter that 0.5.0b didn't fully resolve. As the player count stabilizes in week 2, this should improve naturally.</p>
+
+        <h2>What to Expect in 0.5.0c or 0.6.0</h2>
+        <ul>
+          <li>GGG has acknowledged the Dynamic Culling complaints but hasn't committed to changes yet</li>
+          <li>Network stutter near monsters is likely server-side and may require infrastructure upgrades</li>
+          <li>Further balance adjustments to the new Spirit Walker and Martial Artist ascendancies are expected</li>
+          <li>Path of Exile 2 1.0 full release is still targeted for late 2026</li>
+        </ul>
+
+        <hr class="border-white/5 my-8" />
+
+        <h2>Related Guides</h2>
+        <ul>
+          <li><strong><a href="poe2-0-5-0-stuttering-fix.html">PoE2 0.5.0 Stuttering Fix Guide</a></strong> — 11 proven fixes including fix #11 for network-spike stutter</li>
+          <li><strong><a href="poe2-0-5-0-performance-guide.html">Ultimate 0.5.0 Performance Guide</a></strong> — Full settings deep-dive with benchmark data</li>
+          <li><strong><a href="poe2-dx12-vs-vulkan.html">DX12 vs Vulkan Benchmark</a></strong> — Which renderer performs best on your hardware</li>
+        </ul>
+
+        <p class="text-sm text-[#8B949E]/60 mt-4">We are monitoring the 0.5.0c patch cycle and will update this guide as new information emerges. Bookmark <a href="/">PoE2Settings.com</a> for the latest PoE2 optimization content.</p>
+      </article>
+    </div>
+  </main>
+
+  <footer class="border-t border-white/5 py-8 px-4 md:px-8"><div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4"><p class="text-xs text-[#8B949E]">&copy; 2026 PoE2Settings.com — Unofficial fan site</p><div class="flex gap-4 text-xs"><a href="/" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Config Generator</a><a href="/privacy" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Privacy Policy</a><a href="/disclaimer" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Disclaimer</a><a href="/about" class="text-[#8B949E] hover:text-[#10B981] transition-colors">About</a></div></div></footer>
+</body>
+</html>

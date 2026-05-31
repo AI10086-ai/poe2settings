@@ -36,6 +36,9 @@
       <p class="text-sm text-[#8B949E]/60 mb-8">May 29, 2026 · Return of the Ancients Launch Day · Community-tested solutions</p>
 
       <article class="glass-card p-6 md:p-10">
+        <div class="glass p-4 md:p-5 rounded-xl mb-6" style="border:1px solid rgba(239,68,68,0.2);background:rgba(239,68,68,0.05);">
+          <p class="text-sm" style="margin-bottom:0;"><span class="text-[#EF4444] font-bold">Updated for 0.5.0b Hotfix (May 31):</span> GGG released a hotfix addressing client crashes, instance crashes, and boss VFX preloading. However, <strong>network-spike stuttering near monster packs</strong> remains a widespread issue — see fix #11 below.</p>
+        </div>
         <p>The 0.5.0 "Return of the Ancients" patch is live, and with it comes the usual Early Access growing pains. Even high-end systems (9800X3D + RTX 4090) are reporting stuttering, FPS drops, and freezes — especially in dense endgame content with Breach, Delirium, and the new Runes of Aldur league mechanic.</p>
         <p>These 10 fixes are <strong>community-tested and confirmed working</strong> on launch day. Try them in order — the first two solve ~80% of reported issues.</p>
 
@@ -91,6 +94,16 @@
 
         <h2>10. Disable Hardware Acceleration in Background Apps</h2>
         <p>Discord's hardware acceleration can hook into PoE2's texture buffer and cause frame-time variance. Also close Chrome's hardware-accelerated tabs and disable Xbox Game Bar's background recording. Each of these consumes GPU encoder resources that compete with the game.</p>
+
+        <h2>11. [0.5.0b] Network-Spike Stutter Near Monsters</h2>
+        <p><em>Reported in 0.5.0b — still affecting many players after the May 31 hotfix.</em> If your FPS and CPU look fine in the F1 overlay but you experience <strong>"character stutter-walking" near monster packs</strong>, this is a network-related stutter, not a graphics issue. Try these:</p>
+        <ul>
+          <li><strong>Switch to Lockstep mode</strong> if you're on Predictive. Settings → Gameplay → Networking Mode → <strong>Lockstep</strong>. Lockstep eliminates rubber-banding at the cost of feeling every ping spike. For most players with stable connections, this is the better choice.</li>
+          <li><strong>Try a different gateway server</strong> in the launcher settings. The 0.5.0 launch weekend saw 400K+ concurrent Steam players, causing gateway congestion on popular servers (California, Frankfurt, Singapore). Switching to a less-loaded gateway can resolve proximity-based stutter.</li>
+          <li><strong>Verify game files</strong> via Steam → Properties → Installed Files → Verify integrity. 0.5.0b patches touched engine files and corrupted installations are common.</li>
+          <li><strong>Reduce max_packet_size</strong> in production_Config.ini from 1400 to 1200. This lowers the MTU for game traffic, which can help with packet loss on congested routes.</li>
+        </ul>
+        <p>If the stutter only happens near enemies and disappears in town/hideout, it's <strong>almost certainly network-side</strong> — either gateway congestion or packet routing. The graphics fixes above won't help here.</p>
 
         <hr class="border-white/5 my-8" />
 
