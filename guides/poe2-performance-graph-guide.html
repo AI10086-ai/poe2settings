@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PoE2 How to Read F1 Performance Graphs — Frame Time & Latency Guide</title>
+  <meta name="description" content="Learn to read PoE2's F1 performance overlay. Understand frame time graphs, CPU/GPU timing, network latency spikes, and diagnose stutter like a pro in 0.5.0." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://poe2settings.com/guides/poe2-performance-graph-guide" />
+  <meta property="og:title" content="PoE2 How to Read F1 Performance Graphs — Frame Time & Latency Guide" />
+  <meta property="og:description" content="Learn to read PoE2's F1 performance overlay. Diagnose stutter, frame time spikes, and network latency like a pro in 0.5.0." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://poe2settings.com/guides/poe2-performance-graph-guide" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"PoE2 How to Read F1 Performance Graphs — Frame Time & Latency Guide","description":"Learn to read PoE2's F1 performance overlay. Diagnose stutter, frame time spikes, and network latency in 0.5.0.","datePublished":"2026-06-02","dateModified":"2026-06-02"}</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');:root{--bg-primary:#0B0F1A;--bg-card:#161B22;--accent-green:#10B981;--accent-blue:#3B82F6;--border-subtle:rgba(255,255,255,0.06);--text-primary:#E6EDF3;--text-secondary:#8B949E;--glass-bg:rgba(22,27,34,0.6);}*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Inter',system-ui,-apple-system,sans-serif;background-color:var(--bg-primary);color:var(--text-primary);line-height:1.8;-webkit-font-smoothing:antialiased;}.glass{background:var(--glass-bg);backdrop-filter:blur(16px);border:1px solid var(--border-subtle);border-radius:12px;}.glass-card{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border-subtle);border-radius:16px;}.nav-link{color:var(--text-secondary);font-size:.875rem;font-weight:500;transition:color .2s;}.nav-link:hover{color:var(--text-primary);}::selection{background:rgba(16,185,129,.25);color:#fff;}::-webkit-scrollbar{width:8px;}::-webkit-scrollbar-track{background:var(--bg-primary);}::-webkit-scrollbar-thumb{background:#1E293B;border-radius:4px;}article h2{color:var(--accent-green);font-size:1.5rem;font-weight:700;margin-top:2.5rem;margin-bottom:1rem;}article p{color:var(--text-secondary);margin-bottom:1rem;font-size:.95rem;}article ul{color:var(--text-secondary);padding-left:1.5rem;margin-bottom:1rem;font-size:.95rem;}article li{margin-bottom:.4rem;}article strong{color:var(--text-primary);}article a{color:var(--accent-blue);}article code{color:var(--accent-green);background:rgba(16,185,129,.08);padding:.1rem .4rem;border-radius:4px;font-size:.85rem;}</style>
+</head>
+<body>
+  <nav class="glass fixed top-0 left-0 right-0 z-50 px-4 md:px-8" style="border-radius:0;background:rgba(11,15,26,.85);">
+    <div class="max-w-7xl mx-auto flex items-center justify-between h-16">
+      <a href="/#home" class="flex items-center gap-2 font-bold text-lg"><span class="text-[#10B981]">⏣</span><span>PoE2<span class="text-[#10B981]"> Settings</span></span></a>
+      <div class="flex items-center gap-6"><a href="/" class="nav-link">Config Generator</a><a href="poe2-0-5-0-performance-guide.html" class="nav-link">0.5.0 Guide</a><a href="/#guides" class="nav-link">All Guides</a></div>
+    </div>
+  </nav>
+  <main class="pt-28 pb-20 px-4 md:px-8">
+    <div class="max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10B981]/10 border border-[#10B981]/20 text-[#10B981] text-xs font-medium mb-4">Diagnostics &mdash; Performance Graphs</div>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">PoE2 How to Read F1 Performance Graphs (0.5.0)</h1>
+      <p class="text-sm text-[#8B949E]/60 mb-8">June 2, 2026 · Diagnose stutter, frame drops, and latency like a pro</p>
+      <article class="glass-card p-6 md:p-10">
+        <p>Press <strong>F1</strong> in PoE2 to open the performance overlay. Most players glance at the FPS number and close it. But the overlay contains <strong>four critical graphs</strong> that tell you exactly what is causing your performance issues — and whether the fix is a graphics setting, a network change, or a hardware upgrade. Here is how to read each one.</p>
+        <div class="glass p-4 md:p-5 rounded-xl my-8" style="border-left:3px solid var(--accent-green);"><p class="text-sm" style="margin-bottom:0;"><strong>Found the problem?</strong> Use our <a href="/">PoE2 Config Generator</a> to apply the correct fix based on your diagnosis.</p></div>
+        <h2>Graph 1: Frame Time (The Most Important One)</h2>
+        <p>FPS is an average — it hides spikes. Frame time (measured in milliseconds) shows the actual time each frame takes to render. <strong>A flat line = smooth. Spikes = stutter.</strong></p>
+        <ul>
+          <li><strong>Ideal:</strong> Flat line at 6.9 ms (for 144 FPS) or 16.7 ms (for 60 FPS), with occasional micro-spikes under 2 ms variance.</li>
+          <li><strong>Regular spikes every 1-2 seconds:</strong> Background process interrupting rendering (antivirus, Discord hardware acceleration, Windows Defender scan). Check background apps.</li>
+          <li><strong>Spikes only when entering new zones/areas:</strong> Shader compilation stutter. Set Nvidia Shader Cache to 100 GB in NVCP, clear old cache files.</li>
+          <li><strong>Spikes only when near monster packs:</strong> Could be CPU bottleneck (too many draw calls) or network stutter. Check Graph 4 (Network).</li>
+          <li><strong>Gradually increasing frame times over a session:</strong> Memory leak or VRAM filling up. Restart the game every 2-3 hours. Consider using ISLC (Intelligent Standby List Cleaner).</li>
+        </ul>
+        <h2>Graph 2: CPU & GPU Timing</h2>
+        <p>This graph overlays CPU frame time (orange) and GPU frame time (blue). The taller bar tells you who is the bottleneck.</p>
+        <ul>
+          <li><strong>CPU higher than GPU → CPU bottleneck.</strong> PoE2's endgame is heavily CPU-bound. Fixes: reduce sound channels (FMOD), disable Dynamic Culling, set engine_multithreading=false on 6-core CPUs, disable background apps.</li>
+          <li><strong>GPU higher than CPU → GPU bottleneck.</strong> Lower Graphics settings: GI to Low, Shadows to Low, reduce render scaling. Use DLSS/FSR.</li>
+          <li><strong>Both high and equal → balanced but slow.</strong> Your hardware is at its limit. Lower both graphics and CPU-intensive (sound, effects) settings.</li>
+          <li><strong>Both low but stutter persists →</strong> Problem is network or I/O, not rendering.</li>
+        </ul>
+        <h2>Graph 3: Memory (RAM + VRAM)</h2>
+        <p>Shows system RAM and GPU VRAM usage. <strong>If VRAM is near 100%</strong> (e.g., 7.8 GB / 8 GB on an RTX 3070), the game is swapping textures to system memory, causing hard stutter. Fix: reduce <code>streaming_cache_pool_size</code> in production_Config.ini, lower texture quality to Medium, or drop render resolution.</p>
+        <h2>Graph 4: Network Latency</h2>
+        <p>Shows ping, variance (jitter), and packet loss. <strong>This is the graph to watch if your FPS looks fine but the game "feels" stuttery.</strong></p>
+        <ul>
+          <li><strong>Ping spikes above 100 ms:</strong> Gateway congestion. Switch to a different gateway in the launcher. The 0.5.0 launch saw 400K+ concurrent players — gateway switching helps.</li>
+          <li><strong>High jitter (variance >20 ms):</strong> WiFi interference. Use Ethernet. If Ethernet isn't possible, use 5 GHz WiFi with dedicated router.</li>
+          <li><strong>Packet loss >0%:</strong> Network congestion or ISP routing issues. Use the Network Throttling registry fix (see our <a href="poe2-windows-11-optimization.html">Windows 11 Guide</a>).</li>
+          <li><strong>Latency spikes when near monsters</strong> (FPS looks fine, character stutter-walks): This is the 0.5.0 network-spike bug. Switch to Lockstep mode in Settings → Gameplay → Networking. See our <a href="poe2-0-5-0-stuttering-fix.html">Stuttering Fix Guide</a> for full details.</li>
+        </ul>
+        <h2>How to Benchmark Properly</h2>
+        <ul>
+          <li>Stand in <strong>hideout</strong> for baseline FPS.</li>
+          <li>Run <strong>one juiced T16 map</strong> with the same scarab setup for comparison.</li>
+          <li>Record <strong>both average FPS and 1% lows</strong> — 1% lows tell you about stutter, average tells you about throughput.</li>
+          <li>Always benchmark with the <strong>same content</strong>. Comparing a Breach map to a Ritual map is meaningless.</li>
+        </ul>
+        <p class="text-sm text-[#8B949E]/60 mt-8">For the complete settings guide to fix what you find in the graphs, see our <a href="poe2-0-5-0-performance-guide.html">Ultimate 0.5.0 Performance Guide</a>.</p>
+      </article>
+    </div>
+  </main>
+  <footer class="border-t border-white/5 py-8 px-4 md:px-8"><div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4"><p class="text-xs text-[#8B949E]">&copy; 2026 PoE2Settings.com</p><div class="flex gap-4 text-xs"><a href="/" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Config Generator</a><a href="/privacy" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Privacy Policy</a><a href="/disclaimer" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Disclaimer</a><a href="/about" class="text-[#8B949E] hover:text-[#10B981] transition-colors">About</a></div></div></footer>
+</body>
+</html>

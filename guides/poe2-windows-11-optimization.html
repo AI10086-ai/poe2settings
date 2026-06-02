@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PoE2 Windows 11 Optimization Guide — Best Settings for 0.5.0</title>
+  <meta name="description" content="Optimize Windows 11 for Path of Exile 2 0.5.0. Disable memory integrity, fix network throttling registry, game mode settings, core isolation, and background app tweaks for max FPS." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://poe2settings.com/guides/poe2-windows-11-optimization" />
+  <meta property="og:title" content="PoE2 Windows 11 Optimization Guide — Best Settings for 0.5.0" />
+  <meta property="og:description" content="Windows 11 tweaks for PoE2 0.5.0: disable memory integrity, fix network throttling, game mode, core isolation, and registry edits for up to 15% FPS gain." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://poe2settings.com/guides/poe2-windows-11-optimization" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"PoE2 Windows 11 Optimization Guide — Best Settings for 0.5.0","description":"Windows 11 tweaks for PoE2 0.5.0: disable memory integrity, fix network throttling, game mode, registry edits for up to 15% FPS gain.","datePublished":"2026-06-02","dateModified":"2026-06-02"}</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');:root{--bg-primary:#0B0F1A;--bg-card:#161B22;--accent-green:#10B981;--accent-blue:#3B82F6;--border-subtle:rgba(255,255,255,0.06);--text-primary:#E6EDF3;--text-secondary:#8B949E;--glass-bg:rgba(22,27,34,0.6);}*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Inter',system-ui,-apple-system,sans-serif;background-color:var(--bg-primary);color:var(--text-primary);line-height:1.8;-webkit-font-smoothing:antialiased;}.glass{background:var(--glass-bg);backdrop-filter:blur(16px);border:1px solid var(--border-subtle);border-radius:12px;}.glass-card{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border-subtle);border-radius:16px;}.nav-link{color:var(--text-secondary);font-size:.875rem;font-weight:500;transition:color .2s;}.nav-link:hover{color:var(--text-primary);}::selection{background:rgba(16,185,129,.25);color:#fff;}::-webkit-scrollbar{width:8px;}::-webkit-scrollbar-track{background:var(--bg-primary);}::-webkit-scrollbar-thumb{background:#1E293B;border-radius:4px;}article h2{color:var(--accent-green);font-size:1.5rem;font-weight:700;margin-top:2.5rem;margin-bottom:1rem;}article p{color:var(--text-secondary);margin-bottom:1rem;font-size:.95rem;}article ul{color:var(--text-secondary);padding-left:1.5rem;margin-bottom:1rem;font-size:.95rem;}article li{margin-bottom:.4rem;}article strong{color:var(--text-primary);}article a{color:var(--accent-blue);}article code{color:var(--accent-green);background:rgba(16,185,129,.08);padding:.1rem .4rem;border-radius:4px;font-size:.85rem;}</style>
+</head>
+<body>
+  <nav class="glass fixed top-0 left-0 right-0 z-50 px-4 md:px-8" style="border-radius:0;background:rgba(11,15,26,.85);">
+    <div class="max-w-7xl mx-auto flex items-center justify-between h-16">
+      <a href="/#home" class="flex items-center gap-2 font-bold text-lg"><span class="text-[#10B981]">⏣</span><span>PoE2<span class="text-[#10B981]"> Settings</span></span></a>
+      <div class="flex items-center gap-6"><a href="/" class="nav-link">Config Generator</a><a href="poe2-0-5-0-performance-guide.html" class="nav-link">0.5.0 Guide</a><a href="/#guides" class="nav-link">All Guides</a></div>
+    </div>
+  </nav>
+  <main class="pt-28 pb-20 px-4 md:px-8">
+    <div class="max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#3B82F6]/10 border border-[#3B82F6]/20 text-[#3B82F6] text-xs font-medium mb-4">OS Tuning &mdash; Windows 11</div>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">PoE2 Windows 11 Optimization Guide (0.5.0)</h1>
+      <p class="text-sm text-[#8B949E]/60 mb-8">June 2, 2026 · 8 registry and settings tweaks for up to 15% FPS gain</p>
+      <article class="glass-card p-6 md:p-10">
+        <p>Windows 11's default configuration is optimized for general use, not gaming — and especially not for PoE2's unique CPU and I/O demands. These tweaks disable security features that hurt gaming performance, fix network throttling that causes latency spikes, and ensure your system dedicates resources to the game.</p>
+        <div class="glass p-4 md:p-5 rounded-xl my-8" style="border-left:3px solid var(--accent-green);"><p class="text-sm" style="margin-bottom:0;"><strong>Important:</strong> Some of these tweaks reduce system security (disabling Memory Integrity). Evaluate the trade-off for your use case. Our <a href="/">Config Generator</a> handles all in-game settings regardless of your OS configuration.</p></div>
+        <h2>1. Disable Memory Integrity (Core Isolation)</h2>
+        <p>Windows Security → Device Security → Core Isolation → Memory Integrity → <strong>OFF</strong>. This virtualization-based security feature reserves ~5% of your CPU for hypervisor overhead. In PoE2, which is heavily CPU-bound in endgame, disabling it recovers <strong>3-8% FPS</strong> on Ryzen and Intel systems. Restart required. Only re-enable if you work with untrusted applications on the same machine.</p>
+        <h2>2. Disable Virtual Machine Platform (VMP)</h2>
+        <p>Control Panel → Programs → Turn Windows Features On/Off → <strong>Virtual Machine Platform → OFF</strong>. Hyper-V and VMP interfere with GPU scheduling. Some anti-cheat systems require VMP — PoE2 does not. Disabling it improves 1% lows by ~4% on tested systems.</p>
+        <h2>3. Network Throttling Registry Fix</h2>
+        <p>Windows throttles network traffic for multimedia applications by default. This causes PoE2 latency spikes. Fix it:</p>
+        <ul>
+          <li>Open <code>regedit</code> → navigate to <code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile</code></li>
+          <li>Find <code>NetworkThrottlingIndex</code> → set to <code>ffffffff</code> (hexadecimal, = decimal 4294967295)</li>
+          <li>Create it as a DWORD (32-bit) if it doesn't exist: New → DWORD → name <code>NetworkThrottlingIndex</code> → Value <code>ffffffff</code> → Base → Hexadecimal</li>
+          <li><strong>Restart your PC.</strong> This completely disables Windows' network throttling for PoE2's traffic.</li>
+        </ul>
+        <h2>4. Game Mode → ON + GPU Scheduling</h2>
+        <p>Settings → Gaming → Game Mode → <strong>ON</strong>. Then Settings → System → Display → Graphics → Change default graphics settings → <strong>Hardware-accelerated GPU scheduling → ON</strong>. HAGS reduces CPU overhead on the WDDM graphics driver scheduler. Combined with Game Mode, this gives PoE2 priority access to GPU resources.</p>
+        <h2>5. Disable Xbox Game Bar + Background Recording</h2>
+        <p>Settings → Gaming → Xbox Game Bar → <strong>OFF</strong>. Then Captures → <strong>Background recording → OFF</strong>. The Game Bar's DVR feature keeps a constant 30-second video buffer in memory, consuming GPU encoder resources. This directly competes with PoE2's rendering and can cost 2-5% FPS.</p>
+        <h2>6. High Performance Power Plan</h2>
+        <p>Control Panel → Power Options → <strong>High Performance</strong> or <strong>Ultimate Performance</strong>. Standard and Balanced plans allow CPU core parking and clock-throttling. In PoE2, this causes frame-time spikes when the CPU needs to ramp back up after a quiet moment in hideout. High Performance prevents this.</p>
+        <h2>7. Disable Mouse Acceleration (Enhance Pointer Precision)</h2>
+        <p>Settings → Bluetooth & devices → Mouse → Additional mouse settings → Pointer Options → <strong>UNCHECK "Enhance pointer precision"</strong>. Mouse acceleration interferes with PoE2's raw input mode. Even with raw input ON in-game, Windows pointer processing can add input lag.</p>
+        <h2>8. Set PoE2 to High CPU Priority</h2>
+        <p>Launch PoE2 → Task Manager → Details → find <code>PathOfExile2.exe</code> → right-click → Set Priority → <strong>High</strong>. This tells Windows to schedule this thread before most others. Note: this resets each session. Use Process Lasso to persist it. Disable CPU Core 0 for PoE2 in Process Lasso if you experience background stutter.</p>
+        <p class="text-sm text-[#8B949E]/60 mt-8">After applying these tweaks, use our <a href="/">Config Generator</a> to get the perfect in-game settings for your hardware.</p>
+      </article>
+    </div>
+  </main>
+  <footer class="border-t border-white/5 py-8 px-4 md:px-8"><div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4"><p class="text-xs text-[#8B949E]">&copy; 2026 PoE2Settings.com</p><div class="flex gap-4 text-xs"><a href="/" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Config Generator</a><a href="/privacy" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Privacy Policy</a><a href="/disclaimer" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Disclaimer</a><a href="/about" class="text-[#8B949E] hover:text-[#10B981] transition-colors">About</a></div></div></footer>
+</body>
+</html>

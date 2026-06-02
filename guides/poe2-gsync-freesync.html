@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PoE2 G-Sync & FreeSync Guide — Best VRR Settings (0.5.0)</title>
+  <meta name="description" content="Complete G-Sync and FreeSync optimization guide for PoE2 0.5.0. Eliminate screen tearing, reduce input lag, and set up VRR correctly with Nvidia and AMD GPUs." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://poe2settings.com/guides/poe2-gsync-freesync" />
+  <meta property="og:title" content="PoE2 G-Sync & FreeSync Guide — Best VRR Settings (0.5.0)" />
+  <meta property="og:description" content="Fix screen tearing and reduce input lag in PoE2 0.5.0 with correct G-Sync/FreeSync setup. Full Nvidia and AMD VRR configuration." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://poe2settings.com/guides/poe2-gsync-freesync" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"PoE2 G-Sync & FreeSync Guide — Best VRR Settings (0.5.0)","description":"Optimize G-Sync/FreeSync for PoE2 0.5.0. Eliminate tearing, reduce lag, configure VRR correctly.","datePublished":"2026-06-02","dateModified":"2026-06-02"}</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');:root{--bg-primary:#0B0F1A;--bg-card:#161B22;--accent-green:#10B981;--accent-blue:#3B82F6;--border-subtle:rgba(255,255,255,0.06);--text-primary:#E6EDF3;--text-secondary:#8B949E;--glass-bg:rgba(22,27,34,0.6);}*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Inter',system-ui,-apple-system,sans-serif;background-color:var(--bg-primary);color:var(--text-primary);line-height:1.8;-webkit-font-smoothing:antialiased;}.glass{background:var(--glass-bg);backdrop-filter:blur(16px);border:1px solid var(--border-subtle);border-radius:12px;}.glass-card{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border-subtle);border-radius:16px;}.nav-link{color:var(--text-secondary);font-size:.875rem;font-weight:500;transition:color .2s;}.nav-link:hover{color:var(--text-primary);}::selection{background:rgba(16,185,129,.25);color:#fff;}::-webkit-scrollbar{width:8px;}::-webkit-scrollbar-track{background:var(--bg-primary);}::-webkit-scrollbar-thumb{background:#1E293B;border-radius:4px;}article h2{color:var(--accent-green);font-size:1.5rem;font-weight:700;margin-top:2.5rem;margin-bottom:1rem;}article h3{color:var(--accent-blue);font-size:1.15rem;font-weight:600;margin-top:1.75rem;margin-bottom:.75rem;}article p{color:var(--text-secondary);margin-bottom:1rem;font-size:.95rem;}article ul{color:var(--text-secondary);padding-left:1.5rem;margin-bottom:1rem;font-size:.95rem;}article li{margin-bottom:.4rem;}article strong{color:var(--text-primary);}article a{color:var(--accent-blue);}</style>
+</head>
+<body>
+  <nav class="glass fixed top-0 left-0 right-0 z-50 px-4 md:px-8" style="border-radius:0;background:rgba(11,15,26,.85);">
+    <div class="max-w-7xl mx-auto flex items-center justify-between h-16">
+      <a href="/#home" class="flex items-center gap-2 font-bold text-lg"><span class="text-[#10B981]">⏣</span><span>PoE2<span class="text-[#10B981]"> Settings</span></span></a>
+      <div class="flex items-center gap-6"><a href="/" class="nav-link">Config Generator</a><a href="poe2-0-5-0-performance-guide.html" class="nav-link">0.5.0 Guide</a><a href="/#guides" class="nav-link">All Guides</a></div>
+    </div>
+  </nav>
+  <main class="pt-28 pb-20 px-4 md:px-8">
+    <div class="max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10B981]/10 border border-[#10B981]/20 text-[#10B981] text-xs font-medium mb-4">Display &mdash; VRR Optimization</div>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">PoE2 G-Sync & FreeSync Guide — Best VRR Settings (0.5.0)</h1>
+      <p class="text-sm text-[#8B949E]/60 mb-8">June 2, 2026 · Eliminate tearing and reduce input lag</p>
+      <article class="glass-card p-6 md:p-10">
+        <p>Variable Refresh Rate (VRR) technology — G-Sync on Nvidia, FreeSync on AMD — synchronizes your monitor's refresh rate to the game's FPS, eliminating screen tearing without the input lag penalty of traditional VSync. But <strong>most players configure VRR wrong</strong> in PoE2, often leaving FPS uncapped and wondering why they still see tearing. Here is the correct configuration for 0.5.0.</p>
+        <div class="glass p-4 md:p-5 rounded-xl my-8" style="border-left:3px solid var(--accent-green);"><p class="text-sm" style="margin-bottom:0;"><strong>Quick setup:</strong> Use our <a href="/">Config Generator</a> with your monitor's refresh rate to set the correct FPS limit automatically.</p></div>
+        <h2>The Correct VRR Formula</h2>
+        <p>The golden rule for VRR: <strong>VSync ON in control panel, OFF in-game, FPS capped 3 below your refresh rate.</strong> Here is why:</p>
+        <ul>
+          <li><strong>VSync ON in NVCP/AMD →</strong> Enables G-Sync/FreeSync to engage. Without it, VRR doesn't activate.</li>
+          <li><strong>VSync OFF in-game →</strong> Prevents the game's VSync from fighting the driver's VSync, which would add an extra frame of latency.</li>
+          <li><strong>FPS cap at refresh rate − 3 →</strong> Keeps you within the VRR range. At 144 Hz, cap at 141. If FPS exceeds the refresh rate, VRR disengages and VSync takes over — adding input lag.</li>
+        </ul>
+        <h2>Nvidia G-Sync Setup (Step by Step)</h2>
+        <ol style="color:var(--text-secondary);padding-left:1.5rem;margin-bottom:1rem;">
+          <li><strong>Nvidia Control Panel → Display → Set up G-Sync</strong> → Enable G-Sync for full-screen and windowed mode.</li>
+          <li><strong>Manage 3D Settings → Program Settings → PoE2:</strong>
+            <ul><li>Monitor Technology → G-Sync Compatible</li><li>Vertical Sync → On (this enables G-Sync)</li><li>Low Latency Mode → On (not Ultra — Ultra conflicts with G-Sync's frame pacing on some drivers)</li><li>Power Management → Prefer Maximum Performance</li></ul>
+          </li>
+          <li><strong>In PoE2 → Options → Graphics:</strong> VSync → OFF. FPS Limit → 141 (for 144 Hz) or 117 (for 120 Hz).</li>
+        </ol>
+        <h2>AMD FreeSync Setup</h2>
+        <ol style="color:var(--text-secondary);padding-left:1.5rem;margin-bottom:1rem;">
+          <li><strong>AMD Software → Display → FreeSync → ON.</strong></li>
+          <li><strong>AMD Software → Gaming → PoE2:</strong>
+            <ul><li>Wait for Vertical Refresh → Always On (this enables FreeSync)</li><li>Radeon Anti-Lag → On</li><li>Radeon Enhanced Sync → Off (redundant with FreeSync)</li></ul>
+          </li>
+          <li><strong>In PoE2 → Options → Graphics:</strong> VSync → OFF. FPS Limit → 141 or 117.</li>
+        </ol>
+        <h2>Dual Monitor & G-Sync</h2>
+        <p>If you use a second monitor and experience stutter in PoE2 with G-Sync enabled:</p>
+        <ul>
+          <li>Set the <strong>second monitor to 60 Hz</strong> (or match its native) rather than leaving it at a different refresh rate.</li>
+          <li>Disable hardware acceleration in Discord and Chrome on the second monitor — they can trigger G-Sync deactivation.</li>
+          <li>In Nvidia Control Panel, set "Vertical Sync → On" globally, not just for PoE2, to keep G-Sync active across both displays.</li>
+        </ul>
+        <h2>Triple Buffering: The G-Sync Mistake</h2>
+        <p>Many guides tell you to enable Triple Buffering with G-Sync. <strong>Don't.</strong> Triple Buffering adds a frame of latency that directly contradicts VRR's purpose. Keep it OFF in Nvidia Control Panel. The only exception is if you play with VSync ON without G-Sync — then triple buffering helps. But with G-Sync, it hurts.</p>
+        <p class="text-sm text-[#8B949E]/60 mt-8">For the complete FPS optimization guide including in-game settings, see our <a href="poe2-0-5-0-performance-guide.html">Ultimate 0.5.0 Performance Guide</a>.</p>
+      </article>
+    </div>
+  </main>
+  <footer class="border-t border-white/5 py-8 px-4 md:px-8"><div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4"><p class="text-xs text-[#8B949E]">&copy; 2026 PoE2Settings.com</p><div class="flex gap-4 text-xs"><a href="/" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Config Generator</a><a href="/privacy" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Privacy Policy</a><a href="/disclaimer" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Disclaimer</a><a href="/about" class="text-[#8B949E] hover:text-[#10B981] transition-colors">About</a></div></div></footer>
+</body>
+</html>
