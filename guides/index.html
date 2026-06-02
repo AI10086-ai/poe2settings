@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All PoE2 Guides — Performance, Settings & Optimization (29+ Guides)</title>
+  <meta name="description" content="Complete library of Path of Exile 2 optimization guides. GPU-specific settings, performance tweaks, stuttering fixes, and build guides for 0.5.0 Return of the Ancients." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://poe2settings.com/guides" />
+  <meta property="og:title" content="All PoE2 Guides — Performance, Settings & Optimization" />
+  <meta property="og:description" content="Complete library of Path of Exile 2 optimization guides. GPU-specific settings, performance tweaks, stuttering fixes for 0.5.0." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://poe2settings.com/guides" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    :root { --bg-primary:#0B0F1A; --bg-card:#161B22; --accent-green:#10B981; --accent-blue:#3B82F6; --border-subtle:rgba(255,255,255,0.06); --text-primary:#E6EDF3; --text-secondary:#8B949E; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',system-ui,-apple-system,sans-serif; background-color:var(--bg-primary); color:var(--text-primary); line-height:1.8; -webkit-font-smoothing:antialiased; }
+    .glass { background:rgba(22,27,34,0.6); backdrop-filter:blur(16px); border:1px solid var(--border-subtle); border-radius:12px; }
+    .glass-card { background:var(--bg-card); backdrop-filter:blur(12px); border:1px solid var(--border-subtle); border-radius:16px; transition:border-color 0.3s; }
+    .glass-card:hover { border-color:rgba(16,185,129,0.3); }
+    .nav-link { color:var(--text-secondary); font-size:.875rem; font-weight:500; transition:color .2s; }
+    .nav-link:hover { color:var(--text-primary); }
+    ::selection { background:rgba(16,185,129,.25); color:#fff; }
+    ::-webkit-scrollbar { width:8px; } ::-webkit-scrollbar-track { background:var(--bg-primary); } ::-webkit-scrollbar-thumb { background:#1E293B; border-radius:4px; }
+    h1 { color:var(--text-primary); } h2 { color:var(--accent-green); }
+  </style>
+</head>
+<body>
+  <nav class="glass fixed top-0 left-0 right-0 z-50 px-4 md:px-8" style="border-radius:0;background:rgba(11,15,26,.85);">
+    <div class="max-w-7xl mx-auto flex items-center justify-between h-16">
+      <a href="/#home" class="flex items-center gap-2 font-bold text-lg"><span class="text-[#10B981]">⏣</span><span>PoE2<span class="text-[#10B981]"> Settings</span></span></a>
+      <div class="flex items-center gap-6"><a href="/" class="nav-link">Config Generator</a><a href="/#guides" class="nav-link">Featured Guides</a></div>
+    </div>
+  </nav>
+
+  <main class="pt-28 pb-20 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto">
+      <h1 class="text-3xl md:text-4xl font-bold mb-4 text-glow">All PoE2 Optimization Guides</h1>
+      <p class="text-[#8B949E] text-lg mb-10">29 guides covering every GPU, every setting, and every fix for PoE2 0.5.0 Return of the Ancients.</p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5" id="guides-grid">
+
+        <!-- 1. 0.5.0 Performance Guide -->
+        <a href="poe2-0-5-0-performance-guide.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#10B981]/10 text-[#10B981]">Featured</span></div>
+          <h3 class="font-bold text-sm mb-1">Ultimate 0.5.0 Performance Guide</h3>
+          <p class="text-xs text-[#8B949E]">The definitive guide to max FPS in Return of the Ancients.</p>
+        </a>
+
+        <!-- 2. Stuttering Fix -->
+        <a href="poe2-0-5-0-stuttering-fix.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#EF4444]/10 text-[#EF4444]">Hotfix</span></div>
+          <h3 class="font-bold text-sm mb-1">0.5.0 Stuttering Fix — 11 Solutions</h3>
+          <p class="text-xs text-[#8B949E]">Launch day hotfix guide with community-tested stutter fixes.</p>
+        </a>
+
+        <!-- 3. DX12 vs Vulkan -->
+        <a href="poe2-dx12-vs-vulkan.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#3B82F6]/10 text-[#3B82F6]">Benchmark</span></div>
+          <h3 class="font-bold text-sm mb-1">DX12 vs Vulkan — Which API Is Better?</h3>
+          <p class="text-xs text-[#8B949E]">Real benchmark data across Nvidia, AMD, and Steam Deck.</p>
+        </a>
+
+        <!-- 4. RTX 4060 -->
+        <a href="poe2-settings-rtx-4060.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#3B82F6]/10 text-[#3B82F6]">GPU Guide</span></div>
+          <h3 class="font-bold text-sm mb-1">Best PoE2 Settings for RTX 4060</h3>
+          <p class="text-xs text-[#8B949E]">144+ FPS at 1080p. DLSS, Reflex, and config tweaks.</p>
+        </a>
+
+        <!-- 5. RTX 3060 -->
+        <a href="poe2-settings-rtx-3060.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#3B82F6]/10 text-[#3B82F6]">GPU Guide</span></div>
+          <h3 class="font-bold text-sm mb-1">Best PoE2 Settings for RTX 3060 12GB</h3>
+          <p class="text-xs text-[#8B949E]">12 GB VRAM advantage. 100+ FPS at 1080p.</p>
+        </a>
+
+        <!-- 6. GTX 1060 -->
+        <a href="poe2-settings-gtx-1060.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#F59E0B]/10 text-[#F59E0B]">Low-End</span></div>
+          <h3 class="font-bold text-sm mb-1">PoE2 on GTX 1060 — Still Viable?</h3>
+          <p class="text-xs text-[#8B949E]">Stable 60 FPS on the legendary 1060 in 0.5.0.</p>
+        </a>
+
+        <!-- 7. RX 6800 XT -->
+        <a href="poe2-settings-rx-6800-xt.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#8B5CF6]/10 text-[#8B5CF6]">AMD Guide</span></div>
+          <h3 class="font-bold text-sm mb-1">PoE2 RX 6800 XT — 1440p Settings</h3>
+          <p class="text-xs text-[#8B949E]">120+ FPS at 1440p with 16 GB VRAM config.</p>
+        </a>
+
+        <!-- 8. Steam Deck -->
+        <a href="poe2-steam-deck-settings.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#10B981]/10 text-[#10B981]">Handheld</span></div>
+          <h3 class="font-bold text-sm mb-1">Steam Deck & ROG Ally Settings</h3>
+          <p class="text-xs text-[#8B949E]">45-60 FPS on handheld PCs. Vulkan + aggressive cache pool.</p>
+        </a>
+
+        <!-- 9. 0.5.0b Hotfix -->
+        <a href="poe2-0-5-0b-hotfix.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#8B5CF6]/10 text-[#8B5CF6]">Patch Analysis</span></div>
+          <h3 class="font-bold text-sm mb-1">0.5.0b Hotfix — Full Analysis</h3>
+          <p class="text-xs text-[#8B949E]">Crash fixes, buffs, and what's still broken after 0.5.0b.</p>
+        </a>
+
+        <!-- 10 -->
+        <a href="poe2-settings-rtx-3070.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#3B82F6]/10 text-[#3B82F6]">GPU Guide</span></div>
+          <h3 class="font-bold text-sm mb-1">Best PoE2 Settings for RTX 3070</h3>
+          <p class="text-xs text-[#8B949E]">The 1440p sweet spot. Optimize your 8 GB VRAM for 0.5.0.</p>
+        </a>
+
+        <!-- 11 -->
+        <a href="poe2-settings-rtx-3080.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#3B82F6]/10 text-[#3B82F6]">GPU Guide</span></div>
+          <h3 class="font-bold text-sm mb-1">Best PoE2 Settings for RTX 3080</h3>
+          <p class="text-xs text-[#8B949E]">10 GB VRAM powerhouse. Max settings at 1440p 144+ FPS.</p>
+        </a>
+
+        <!-- 12 -->
+        <a href="poe2-settings-rtx-4070.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#3B82F6]/10 text-[#3B82F6]">GPU Guide</span></div>
+          <h3 class="font-bold text-sm mb-1">Best PoE2 Settings for RTX 4070</h3>
+          <p class="text-xs text-[#8B949E]">Ada Lovelace efficiency. DLSS 3 + Frame Gen for 1440p.</p>
+        </a>
+
+        <!-- 13 -->
+        <a href="poe2-settings-rtx-4080.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#3B82F6]/10 text-[#3B82F6]">GPU Guide</span></div>
+          <h3 class="font-bold text-sm mb-1">Best PoE2 Settings for RTX 4080</h3>
+          <p class="text-xs text-[#8B949E]">1440p/4K powerhouse. 16 GB VRAM for ultra textures.</p>
+        </a>
+
+        <!-- 14 -->
+        <a href="poe2-settings-rtx-4090.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#3B82F6]/10 text-[#3B82F6]">GPU Guide</span></div>
+          <h3 class="font-bold text-sm mb-1">Best PoE2 Settings for RTX 4090</h3>
+          <p class="text-xs text-[#8B949E]">The absolute best. 4K 200+ FPS config for the flagship GPU.</p>
+        </a>
+
+        <!-- 15 -->
+        <a href="poe2-settings-rtx-3050.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#F59E0B]/10 text-[#F59E0B]">Low-End</span></div>
+          <h3 class="font-bold text-sm mb-1">Best PoE2 Settings for RTX 3050</h3>
+          <p class="text-xs text-[#8B949E]">Entry-level 30 series. Budget config for stable 60 FPS.</p>
+        </a>
+
+        <!-- 16 -->
+        <a href="poe2-settings-rx-7600.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#8B5CF6]/10 text-[#8B5CF6]">AMD Guide</span></div>
+          <h3 class="font-bold text-sm mb-1">Best PoE2 Settings for RX 7600</h3>
+          <p class="text-xs text-[#8B949E]">RDNA 3 budget king. 1080p 100+ FPS config.</p>
+        </a>
+
+        <!-- 17 -->
+        <a href="poe2-settings-rx-7800xt.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#8B5CF6]/10 text-[#8B5CF6]">AMD Guide</span></div>
+          <h3 class="font-bold text-sm mb-1">Best PoE2 Settings for RX 7800 XT</h3>
+          <p class="text-xs text-[#8B949E]">1440p native gaming. 16 GB VRAM for 0.5.0 endgame.</p>
+        </a>
+
+        <!-- 18 -->
+        <a href="poe2-settings-rx-7900xtx.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#8B5CF6]/10 text-[#8B5CF6]">AMD Guide</span></div>
+          <h3 class="font-bold text-sm mb-1">Best PoE2 Settings for RX 7900 XTX</h3>
+          <p class="text-xs text-[#8B949E]">AMD flagship. 4K 120+ FPS with 24 GB VRAM.</p>
+        </a>
+
+        <!-- 19 -->
+        <a href="poe2-settings-gtx-1660.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#F59E0B]/10 text-[#F59E0B]">Low-End</span></div>
+          <h3 class="font-bold text-sm mb-1">PoE2 on GTX 1660 Super — Settings Guide</h3>
+          <p class="text-xs text-[#8B949E]">6 GB VRAM optimization for stable 60 FPS mapping.</p>
+        </a>
+
+        <!-- 20 -->
+        <a href="poe2-crashing-fix.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#EF4444]/10 text-[#EF4444]">Fix</span></div>
+          <h3 class="font-bold text-sm mb-1">PoE2 Crashing on Startup — 7 Fixes</h3>
+          <p class="text-xs text-[#8B949E]">Game crashes on launch? Solutions for 0.5.0 crashes.</p>
+        </a>
+
+        <!-- 21 -->
+        <a href="poe2-competitive-settings.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#10B981]/10 text-[#10B981]">Guide</span></div>
+          <h3 class="font-bold text-sm mb-1">PoE2 Competitive Graphics Settings</h3>
+          <p class="text-xs text-[#8B949E]">Min-max every setting for max visibility and FPS.</p>
+        </a>
+
+        <!-- 22 -->
+        <a href="poe2-network-settings.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#10B981]/10 text-[#10B981]">Guide</span></div>
+          <h3 class="font-bold text-sm mb-1">PoE2 Network Settings Guide</h3>
+          <p class="text-xs text-[#8B949E]">Lockstep vs Predictive, packet size, and gateway switching.</p>
+        </a>
+
+        <!-- 23 -->
+        <a href="poe2-town-fps-fix.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#EF4444]/10 text-[#EF4444]">Fix</span></div>
+          <h3 class="font-bold text-sm mb-1">PoE2 Town FPS Drop Fix</h3>
+          <p class="text-xs text-[#8B949E]">Fix low FPS in towns with MTX-heavy players nearby.</p>
+        </a>
+
+        <!-- 24 -->
+        <a href="poe2-ssd-vs-hdd.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#10B981]/10 text-[#10B981]">Guide</span></div>
+          <h3 class="font-bold text-sm mb-1">PoE2 SSD vs HDD Performance</h3>
+          <p class="text-xs text-[#8B949E]">Does an SSD really matter for PoE2? Benchmark data inside.</p>
+        </a>
+
+        <!-- 25 -->
+        <a href="poe2-input-lag-fix.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#EF4444]/10 text-[#EF4444]">Fix</span></div>
+          <h3 class="font-bold text-sm mb-1">PoE2 Input Lag & Latency Fix</h3>
+          <p class="text-xs text-[#8B949E]">Reduce system latency with Nvidia Reflex and Windows tweaks.</p>
+        </a>
+
+        <!-- 26 -->
+        <a href="poe2-best-endgame-settings.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#10B981]/10 text-[#10B981]">Guide</span></div>
+          <h3 class="font-bold text-sm mb-1">Best Endgame Mapping Settings</h3>
+          <p class="text-xs text-[#8B949E]">Settings for juiced T16+ maps, breaches, and deli content.</p>
+        </a>
+
+        <!-- 27 -->
+        <a href="poe2-beginner-builds.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#10B981]/10 text-[#10B981]">Builds</span></div>
+          <h3 class="font-bold text-sm mb-1">Best Beginner Builds — 0.5.0</h3>
+          <p class="text-xs text-[#8B949E]">Six starter builds tested on the new 0.5.0 passive tree.</p>
+        </a>
+
+        <!-- 28 -->
+        <a href="poe2-loot-filter-guide.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#10B981]/10 text-[#10B981]">Guide</span></div>
+          <h3 class="font-bold text-sm mb-1">PoE2 Loot Filter Guide</h3>
+          <p class="text-xs text-[#8B949E]">Best loot filters for 0.5.0. How to install and customize.</p>
+        </a>
+
+        <!-- 29 -->
+        <a href="poe2-cpu-bottleneck-fix.html" class="glass-card p-5">
+          <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#F59E0B]/10 text-[#F59E0B]">Hardware</span></div>
+          <h3 class="font-bold text-sm mb-1">PoE2 CPU Bottleneck — Fix Guide</h3>
+          <p class="text-xs text-[#8B949E]">Fix 100% CPU usage, C-States, power plan, and threading.</p>
+        </a>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="border-t border-white/5 py-8 px-4 md:px-8"><div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4"><p class="text-xs text-[#8B949E]">&copy; 2026 PoE2Settings.com — Unofficial fan site</p><div class="flex gap-4 text-xs"><a href="/" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Config Generator</a><a href="/privacy" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Privacy Policy</a><a href="/disclaimer" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Disclaimer</a><a href="/about" class="text-[#8B949E] hover:text-[#10B981] transition-colors">About</a></div></div></footer>
+</body>
+</html>

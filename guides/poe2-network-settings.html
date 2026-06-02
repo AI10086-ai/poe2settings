@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PoE2 Network Settings Guide — Lockstep vs Predictive, Gateway Switching (0.5.0)</title>
+  <meta name="description" content="PoE2 network settings explained: Lockstep vs Predictive mode, gateway switching guide, max_packet_size tweak, and how to reduce server congestion issues from the 0.5.0 launch." />
+  <meta name="keywords" content="PoE2, network settings, Lockstep, Predictive, gateway, max_packet_size, server congestion, lag, latency, 0.5.0, networking" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://poe2settings.com/guides/poe2-network-settings" />
+  <meta property="og:title" content="PoE2 Network Settings Guide — Lockstep vs Predictive, Gateway Switching (0.5.0)" />
+  <meta property="og:description" content="Complete PoE2 network settings guide: Lockstep vs Predictive explained, gateway switching, max_packet_size tweak, and 0.5.0 server congestion fixes." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://poe2settings.com/guides/poe2-network-settings" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PoE2 Network Settings Guide — Lockstep vs Predictive, Gateway Switching (0.5.0)" />
+  <meta name="twitter:description" content="Lockstep vs Predictive explained, gateway switching, and 0.5.0 network congestion fixes for PoE2." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "PoE2 Network Settings Guide — Lockstep vs Predictive, Gateway Switching (0.5.0)",
+    "description": "Complete guide to Path of Exile 2 network settings. Lockstep vs Predictive comparison, gateway selection guide, max_packet_size configuration, and 0.5.0 server congestion fixes.",
+    "datePublished": "2026-06-02",
+    "dateModified": "2026-06-02"
+  }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    :root { --bg-primary:#0B0F1A;--bg-card:#161B22;--accent-green:#10B981;--accent-blue:#3B82F6;--border-subtle:rgba(255,255,255,0.06);--text-primary:#E6EDF3;--text-secondary:#8B949E;--glass-bg:rgba(22,27,34,0.6); }
+    * { margin:0;padding:0;box-sizing:border-box; }
+    body { font-family:'Inter',system-ui,-apple-system,sans-serif;background-color:var(--bg-primary);color:var(--text-primary);line-height:1.8;-webkit-font-smoothing:antialiased; }
+    .glass { background:var(--glass-bg);backdrop-filter:blur(16px);border:1px solid var(--border-subtle);border-radius:12px; }
+    .glass-card { background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border-subtle);border-radius:16px; }
+    .nav-link { color:var(--text-secondary);font-size:.875rem;font-weight:500;transition:color .2s; }
+    .nav-link:hover { color:var(--text-primary); }
+    ::selection { background:rgba(16,185,129,.25);color:#fff; }
+    ::-webkit-scrollbar { width:8px; } ::-webkit-scrollbar-track { background:var(--bg-primary); } ::-webkit-scrollbar-thumb { background:#1E293B;border-radius:4px; }
+    article h2 { color:var(--accent-green);font-size:1.5rem;font-weight:700;margin-top:2.5rem;margin-bottom:1rem; }
+    article p { color:var(--text-secondary);margin-bottom:1rem;font-size:.95rem; }
+    article ul { color:var(--text-secondary);padding-left:1.5rem;margin-bottom:1rem;font-size:.95rem; }
+    article li { margin-bottom:.4rem; }
+    article strong { color:var(--text-primary); }
+    article a { color:var(--accent-blue); }
+    article a:hover { text-decoration:underline; }
+    article code { color:var(--accent-green);background:rgba(16,185,129,.08);padding:.1rem .4rem;border-radius:4px;font-size:.85rem; }
+    article pre { background:#0B0F1A;border:1px solid rgba(255,255,255,.04);border-radius:12px;padding:1.25rem;overflow-x:auto;margin-bottom:1rem; }
+    article pre code { background:none;padding:0;font-size:.8rem;color:var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <nav class="glass fixed top-0 left-0 right-0 z-50 px-4 md:px-8" style="border-radius:0;background:rgba(11,15,26,.85);">
+    <div class="max-w-7xl mx-auto flex items-center justify-between h-16">
+      <a href="/#home" class="flex items-center gap-2 font-bold text-lg"><span class="text-[#10B981]">⏣</span><span>PoE2<span class="text-[#10B981]"> Settings</span></span></a>
+      <div class="flex items-center gap-6">
+        <a href="/" class="nav-link">Config Generator</a>
+        <a href="/guides/poe2-0-5-0-performance-guide" class="nav-link">0.5.0 Guide</a>
+        <a href="/#guides" class="nav-link">All Guides</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-28 pb-20 px-4 md:px-8">
+    <div class="max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8B5CF6]/10 border border-[#8B5CF6]/20 text-[#8B5CF6] text-xs font-medium mb-4">Networking &mdash; 0.5.0</div>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">PoE2 Network Settings Guide — Lockstep vs Predictive, Gateway Switching (0.5.0)</h1>
+      <p class="text-sm text-[#8B949E]/60 mb-8">June 2026 &middot; Updated for 0.5.0 Return of the Ancients</p>
+
+      <article class="glass-card p-6 md:p-10">
+
+        <p>The 0.5.0 "Return of the Ancients" launch brought record player counts to Path of Exile 2, and with that came <strong>server congestion, packet loss, and increased latency</strong> on certain gateways. While GGG quickly deployed additional server capacity, many of the networking issues players experience can be mitigated by understanding PoE2's two networking modes — Lockstep and Predictive — and knowing how to choose the right gateway and tweak <code>max_packet_size</code> for your connection.</p>
+
+        <div class="glass p-4 md:p-5 rounded-xl my-8" style="border-left:3px solid var(--accent-blue);">
+          <p class="text-sm" style="margin-bottom:0;"><strong>Not sure which mode to use?</strong> If your ping is consistently under 80ms with <strong>no packet loss</strong>, use Lockstep. If your connection has spikes or packet loss, use Predictive. We explain why below.</p>
+        </div>
+
+        <h2>Lockstep Mode</h2>
+        <p>Lockstep synchronizes your client with the server on every action. Your character does not move, use a skill, or pick up an item until the server confirms the action. This means <strong>zero desync</strong> — what you see is exactly what the server sees. The trade-off is that <strong>any latency spike directly freezes your game</strong>. If your connection drops from 30ms to 200ms for half a second, your character stops responding until the server catches up.</p>
+        <p><strong>Use Lockstep when:</strong> You have a stable connection with ping under 80ms and no packet loss. This is the default recommendation for hardcore characters and competitive racing where desync can kill you. Most fiber and cable broadband connections in major metro areas qualify.</p>
+        <p><strong>Avoid Lockstep when:</strong> You experience periodic latency spikes, use Wi-Fi (especially 2.4 GHz), play on a congested ISP during peak hours, or have a satellite/4G/5G connection. Lockstep on an unstable connection feels like constant freezing.</p>
+
+        <h2>Predictive Mode</h2>
+        <p>Predictive mode runs the game client locally and reconciles with the server periodically. Your character moves immediately when you press a key, and the server corrects your position if there is a discrepancy. This means <strong>no input freezing</strong> during latency spikes, but you can experience <strong>rubber-banding</strong> when the server corrects your position. The amount of rubber-banding depends on how far the client's prediction diverges from the server's truth.</p>
+        <p><strong>Use Predictive when:</strong> Your connection is unstable, you have intermittent packet loss, your ping exceeds 80ms, or you play on Wi-Fi. Predictive mode makes the game feel playable on connections where Lockstep would be unplayable. The 0.5.0 update improved Predictive's reconciliation algorithm, reducing the severity of rubber-banding events.</p>
+
+        <h2>How to Switch Modes</h2>
+        <p>In-game, go to Settings > Game > Networking > Networking Mode and select Lockstep or Predictive. You can switch between modes at any time — even in the middle of a map — but it is best to do it in your hideout to avoid a brief freeze during the transition. There is also a <code>networking_mode=lockstep</code> or <code>networking_mode=predictive</code> key in <code>production_Config.ini</code> if you prefer to set it there.</p>
+
+        <h2>Gateway Switching Guide</h2>
+        <p>PoE2 routes your connection through regional gateways (servers). Choosing the wrong gateway adds unnecessary latency. Here is how to select the optimal one:</p>
+        <ul>
+          <li><strong>Auto-Select is usually wrong.</strong> GGG's auto-select algorithm chooses based on ping alone, not packet loss or route stability. Manually test gateways to find the best one.</li>
+          <li><strong>Test each gateway:</strong> In the login screen, click the gateway selector at the bottom. Note the ping displayed. Join a level 1 character on each gateway and run around for 30 seconds. The best gateway is the one with the <strong>lowest stable ping and no spikes</strong>, not necessarily the lowest ping overall.</li>
+          <li><strong>California vs. Washington (NA):</strong> Both are good for western NA. California often has lower ping for west coast players but Washington can be more stable. Test both.</li>
+          <li><strong>London vs. Amsterdam (EU):</strong> For most EU players, London is best. Amsterdam can have routing issues with certain ISPs. Frankfurt is faster for central/eastern Europe.</li>
+          <li><strong>Singapore vs. Japan (Asia):</strong> Singapore is generally better for SEA players. Japan is better for China/Korea connections. Test both during peak hours.</li>
+          <li><strong>Australia:</strong> Use the Sydney gateway. The Melbourne gateway is sometimes less stable.</li>
+          <li><strong>After 0.5.0:</strong> Due to the player surge, some gateways are congested. If your usual gateway shows spiking latency, switch to a nearby alternative. For example, if Washington DC is congested, try Texas or California.</li>
+        </ul>
+
+        <h2>max_packet_size Tweak</h2>
+        <p>The <code>max_packet_size</code> setting in <code>production_Config.ini</code> controls the maximum size (in bytes) of network packets the game sends. The default is 1500 (standard Ethernet MTU). If your connection has a lower effective MTU (common with VPNs, PPPoE DSL connections, or certain mobile hotspots), sending packets larger than the path MTU causes fragmentation and increased latency:</p>
+        <ul>
+          <li><strong>Default:</strong> 1500 (standard Ethernet)</li>
+          <li><strong>VPN users:</strong> Try 1400 or 1350 (VPN overhead reduces effective MTU)</li>
+          <li><strong>DSL (PPPoE):</strong> Try 1492 (standard PPPoE MTU)</li>
+          <li><strong>Mobile hotspot / 4G:</strong> Try 1300 or 1200</li>
+        </ul>
+        <p>To change it, add <code>max_packet_size=1400</code> under <code>[NETWORK]</code> in production_Config.ini. You will need to create the <code>[NETWORK]</code> section if it does not exist. Test with a ping plotter or in-game latency graph after changing.</p>
+
+        <h2>Reducing 0.5.0 Server Congestion Issues</h2>
+        <p>The 0.5.0 launch day saw queue times of 30+ minutes on popular gateways. While GGG has added capacity, here are steps you can take to minimize congestion-related issues:</p>
+        <ul>
+          <li><strong>Play during off-peak hours</strong> for your gateway. Weekend evenings on Washington DC or London are the most congested.</li>
+          <li><strong>Use a less populated gateway.</strong> For EU players, try Milan or Paris instead of London/Frankfurt. For NA, try Texas instead of Washington DC or California.</li>
+          <li><strong>Disable global chat</strong> — chat message processing consumes client-side networking resources on congested servers. Use <code>/dnd</code> or disable the global chat channel.</li>
+          <li><strong>Avoid trading during peak hours</strong> — the API server load from trade requests adds overhead that affects instance server performance.</li>
+        </ul>
+
+        <p class="text-sm text-[#8B949E]/60 mt-8">For more PoE2 optimization guides, check our <a href="poe2-0-5-0-performance-guide">0.5.0 Performance Guide</a> or use the <a href="/">Config Generator</a> for a full production_Config.ini.</p>
+      </article>
+    </div>
+  </main>
+
+  <footer class="border-t border-white/5 py-8 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <p class="text-xs text-[#8B949E]">&copy; 2026 PoE2Settings.com &mdash; Unofficial fan site</p>
+      <div class="flex gap-4 text-xs">
+        <a href="/" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Config Generator</a>
+        <a href="/privacy" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Privacy Policy</a>
+        <a href="/disclaimer" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Disclaimer</a>
+        <a href="/about" class="text-[#8B949E] hover:text-[#10B981] transition-colors">About</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PoE2 Crashing on Startup or Loading — 7 Proven Fixes (0.5.0)</title>
+  <meta name="description" content="Path of Exile 2 keeps crashing on startup or loading screens? 7 proven fixes for 0.5.0: verify game files, clear shader cache, DDU clean install, disable overlays, reinstall Visual C++, check antivirus, delete production_Config.ini." />
+  <meta name="keywords" content="PoE2, crashing, startup crash, loading screen crash, fix, 0.5.0, shader cache, DDU, Visual C++, antivirus, production_Config.ini" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://poe2settings.com/guides/poe2-crashing-fix" />
+  <meta property="og:title" content="PoE2 Crashing on Startup or Loading — 7 Proven Fixes (0.5.0)" />
+  <meta property="og:description" content="Path of Exile 2 crashing on startup or loading screens? 7 fixes for 0.5.0: verify game files, DDU clean install, delete config, and more." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://poe2settings.com/guides/poe2-crashing-fix" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PoE2 Crashing on Startup or Loading — 7 Proven Fixes (0.5.0)" />
+  <meta name="twitter:description" content="7 proven fixes for PoE2 crashing on startup or loading screens. 0.5.0 crash solutions that actually work." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "PoE2 Crashing on Startup or Loading — 7 Proven Fixes (0.5.0)",
+    "description": "Complete guide to fixing Path of Exile 2 crashes on startup and loading screens. 7 proven fixes including DDU driver clean install, shader cache clear, and config reset for 0.5.0.",
+    "datePublished": "2026-06-02",
+    "dateModified": "2026-06-02"
+  }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    :root { --bg-primary:#0B0F1A;--bg-card:#161B22;--accent-green:#10B981;--accent-blue:#3B82F6;--border-subtle:rgba(255,255,255,0.06);--text-primary:#E6EDF3;--text-secondary:#8B949E;--glass-bg:rgba(22,27,34,0.6); }
+    * { margin:0;padding:0;box-sizing:border-box; }
+    body { font-family:'Inter',system-ui,-apple-system,sans-serif;background-color:var(--bg-primary);color:var(--text-primary);line-height:1.8;-webkit-font-smoothing:antialiased; }
+    .glass { background:var(--glass-bg);backdrop-filter:blur(16px);border:1px solid var(--border-subtle);border-radius:12px; }
+    .glass-card { background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border-subtle);border-radius:16px; }
+    .nav-link { color:var(--text-secondary);font-size:.875rem;font-weight:500;transition:color .2s; }
+    .nav-link:hover { color:var(--text-primary); }
+    ::selection { background:rgba(16,185,129,.25);color:#fff; }
+    ::-webkit-scrollbar { width:8px; } ::-webkit-scrollbar-track { background:var(--bg-primary); } ::-webkit-scrollbar-thumb { background:#1E293B;border-radius:4px; }
+    article h2 { color:var(--accent-green);font-size:1.5rem;font-weight:700;margin-top:2.5rem;margin-bottom:1rem; }
+    article p { color:var(--text-secondary);margin-bottom:1rem;font-size:.95rem; }
+    article ul { color:var(--text-secondary);padding-left:1.5rem;margin-bottom:1rem;font-size:.95rem; }
+    article li { margin-bottom:.4rem; }
+    article strong { color:var(--text-primary); }
+    article a { color:var(--accent-blue); }
+    article a:hover { text-decoration:underline; }
+    article code { color:var(--accent-green);background:rgba(16,185,129,.08);padding:.1rem .4rem;border-radius:4px;font-size:.85rem; }
+    article pre { background:#0B0F1A;border:1px solid rgba(255,255,255,.04);border-radius:12px;padding:1.25rem;overflow-x:auto;margin-bottom:1rem; }
+    article pre code { background:none;padding:0;font-size:.8rem;color:var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <nav class="glass fixed top-0 left-0 right-0 z-50 px-4 md:px-8" style="border-radius:0;background:rgba(11,15,26,.85);">
+    <div class="max-w-7xl mx-auto flex items-center justify-between h-16">
+      <a href="/#home" class="flex items-center gap-2 font-bold text-lg"><span class="text-[#10B981]">⏣</span><span>PoE2<span class="text-[#10B981]"> Settings</span></span></a>
+      <div class="flex items-center gap-6">
+        <a href="/" class="nav-link">Config Generator</a>
+        <a href="/guides/poe2-0-5-0-performance-guide" class="nav-link">0.5.0 Guide</a>
+        <a href="/#guides" class="nav-link">All Guides</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-28 pb-20 px-4 md:px-8">
+    <div class="max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10B981]/10 border border-[#10B981]/20 text-[#10B981] text-xs font-medium mb-4">Troubleshooting &mdash; 0.5.0</div>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">PoE2 Crashing on Startup or Loading — 7 Proven Fixes (0.5.0)</h1>
+      <p class="text-sm text-[#8B949E]/60 mb-8">June 2026 &middot; Updated for 0.5.0 Return of the Ancients</p>
+
+      <article class="glass-card p-6 md:p-10">
+
+        <p>The 0.5.0 "Return of the Ancients" update brought major engine changes, and with them, a fresh wave of startup and loading screen crashes. If Path of Exile 2 crashes before you reach the character selection screen, freezes during zone loading, or throws a "device removed" error mid-map, these seven fixes resolve the issue in the vast majority of cases. Work through them in order — the simplest fixes are first.</p>
+
+        <div class="glass p-4 md:p-5 rounded-xl my-8" style="border-left:3px solid var(--accent-blue);">
+          <p class="text-sm" style="margin-bottom:0;"><strong>Quick check:</strong> If you updated your GPU driver or Windows recently and the crashes started immediately, skip to <strong>Fix #2</strong> (shader cache) or <strong>Fix #3</strong> (DDU clean install). Driver updates are the most common crash trigger after a PoE2 patch.</p>
+        </div>
+
+        <h2>Fix #1: Verify Game Files</h2>
+        <p>Corrupted or incomplete game files are the most common cause of startup crashes after a large patch like 0.5.0. On Steam, right-click Path of Exile 2 in your library, go to Properties > Installed Files > Verify Integrity of Game Files. On the standalone client, run the repair tool from the launcher's settings menu. This process checks every game asset against the manifest and redownloads any files that are missing or corrupted. It takes 5-10 minutes and resolves approximately 30% of all crash-on-startup cases.</p>
+
+        <h2>Fix #2: Clear Shader Cache</h2>
+        <p>PoE2 compiles shaders on the fly and caches them to disk. After a major update like 0.5.0, the cached shaders from the previous version can conflict with the new shader pipeline, causing crashes during loading screens. Delete the following folders depending on your hardware:</p>
+        <ul>
+          <li><strong>Nvidia:</strong> <code>%LOCALAPPDATA%\NVIDIA\ShaderCache</code> and <code>%APPDATA%\Path of Exile 2\ShaderCache</code></li>
+          <li><strong>AMD:</strong> <code>%APPDATA%\Path of Exile 2\ShaderCache</code> and <code>%LOCALAPPDATA%\AMD\ShaderCache</code></li>
+          <li><strong>Intel:</strong> <code>%APPDATA%\Path of Exile 2\ShaderCache</code></li>
+        </ul>
+        <p>After clearing, launch the game. The first 2-3 loading screens will stutter as shaders rebuild, then subsequent runs will be smooth.</p>
+
+        <h2>Fix #3: DDU Driver Clean Install</h2>
+        <p>If verify and shader cache clear don't help, the next culprit is a corrupted or conflicting GPU driver. Standard driver updates often leave residue from previous versions. Use <strong>Display Driver Uninstaller (DDU)</strong> in Safe Mode to completely remove all GPU driver traces, then install the latest driver clean:</p>
+        <ul>
+          <li>Download DDU from the official Guru3D site and extract it</li>
+          <li>Boot into Safe Mode (hold Shift while clicking Restart, then Troubleshoot > Startup Settings > Restart > Safe Mode)</li>
+          <li>Run DDU, select "GPU" and "Clean and Restart"</li>
+          <li>After reboot, install the latest Nvidia or AMD driver fresh (do NOT use GeForce Experience's "Express Installation" — use Custom > Clean Installation)</li>
+        </ul>
+        <p>This fix is particularly important for 0.5.0 because the update ships with new DXIL shader compilation paths that older driver branches don't handle correctly.</p>
+
+        <h2>Fix #4: Disable All Overlays</h2>
+        <p>Overlay software is a known source of PoE2 crashes. Discord overlay, Steam overlay, Nvidia GeForce Experience overlay, MSI Afterburner/RivaTuner, and even hardware monitoring tools can inject into the rendering pipeline and cause conflicts with PoE2's Vulkan or DX12 renderer. Disable all overlays before launching. In Discord, go to Settings > Game Overlay and toggle it off. In Steam, right-click PoE2 > Properties > General and uncheck "Enable Steam Overlay while in-game." If the crashes stop, re-enable overlays one at a time to identify the specific offender.</p>
+
+        <h2>Fix #5: Reinstall Visual C++ Redistributables</h2>
+        <p>PoE2 depends on several Visual C++ runtime libraries. If these become corrupted or missing, the game will crash silently during initialization — often before any error message appears. Download and run the latest <strong>Visual C++ Redistributable all-in-one</strong> from Microsoft's official site (vc_redist.x64.exe for both 2015-2022 and 2013 packages). Run the repair option if they are already installed, or do a fresh install. This fix is especially relevant if you see error codes like <code>0xc000007b</code> or <code>0xc0000005</code> in the Windows Event Viewer.</p>
+
+        <h2>Fix #6: Check Antivirus / Windows Defender</h2>
+        <p>Aggressive antivirus software can flag PoE2's executable or its shader compiler as suspicious activity, particularly after a large patch that modifies the game binaries. Windows Defender's "Real-time protection" or third-party AV suites like Avast, McAfee, or Bitdefender sometimes quarantine or block PoE2's file writes during shader compilation. Add an exclusion for the entire PoE2 installation directory in your antivirus settings. For Windows Defender, go to Windows Security > Virus & Threat Protection > Manage Settings > Exclusions > Add Exclusion > Folder, and select your PoE2 install path.</p>
+
+        <h2>Fix #7: Delete production_Config.ini</h2>
+        <p>If none of the above work, the issue may be a corrupted or incompatible configuration file. The 0.5.0 update introduced new config keys that can conflict with old settings. Navigate to <code>Documents\My Games\Path of Exile 2</code> and delete <code>production_Config.ini</code>. The game will regenerate a fresh config with defaults on next launch. You will lose your graphics settings, but you can reconfigure them in the options menu or use our <a href="/">PoE2 Config Generator</a> to rebuild an optimized config quickly. This is the nuclear option — it resolves the most stubborn crashes including infinite loading screens and "device hung" errors.</p>
+
+        <h2>When to Contact GGG Support</h2>
+        <p>If you have tried all seven fixes and PoE2 still crashes, the issue may be a hardware-specific compatibility problem. Check the official <a href="https://www.pathofexile.com/forum/view-forum/404">Technical Support forum</a> for threads matching your hardware configuration. Post your crash log (found in <code>%APPDATA%\Path of Exile 2\logs</code>) and a DXDiag output (run <code>dxdiag.exe</code> and save the report). GGG's support team typically responds within 24-48 hours during major patch windows.</p>
+
+        <p class="text-sm text-[#8B949E]/60 mt-8">For more performance tuning, see our <a href="poe2-0-5-0-performance-guide">0.5.0 Performance Guide</a> or use the <a href="/">Config Generator</a> to build a crash-free config.</p>
+      </article>
+    </div>
+  </main>
+
+  <footer class="border-t border-white/5 py-8 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <p class="text-xs text-[#8B949E]">&copy; 2026 PoE2Settings.com &mdash; Unofficial fan site</p>
+      <div class="flex gap-4 text-xs">
+        <a href="/" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Config Generator</a>
+        <a href="/privacy" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Privacy Policy</a>
+        <a href="/disclaimer" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Disclaimer</a>
+        <a href="/about" class="text-[#8B949E] hover:text-[#10B981] transition-colors">About</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

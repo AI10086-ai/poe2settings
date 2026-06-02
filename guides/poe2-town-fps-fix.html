@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PoE2 Town FPS Fix — Stop Lag in Hideouts &amp; Queues (0.5.0)</title>
+  <meta name="description" content="Fix low FPS in Path of Exile 2 towns and hideouts. Hide player MTX, reduce sound channels, disable dynamic culling, restart instance. Make towns playable in 0.5.0." />
+  <meta name="keywords" content="PoE2, town FPS, hideout lag, low FPS fix, MTX, sound channels, dynamic culling, instance restart, 0.5.0, stutter" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://poe2settings.com/guides/poe2-town-fps-fix" />
+  <meta property="og:title" content="PoE2 Town FPS Fix — Stop Lag in Hideouts &amp; Queues (0.5.0)" />
+  <meta property="og:description" content="Fix low FPS in PoE2 towns and hideouts. Hide player MTX, reduce sound channels, disable dynamic culling, and restart instances. 0.5.0 town FPS fixes that work." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://poe2settings.com/guides/poe2-town-fps-fix" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PoE2 Town FPS Fix — Stop Lag in Hideouts &amp; Queues (0.5.0)" />
+  <meta name="twitter:description" content="Make towns playable in PoE2. Hide MTX, reduce sound channels, disable dynamic culling. 0.5.0 town FPS fixes." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "PoE2 Town FPS Fix — Stop Lag in Hideouts &amp; Queues (0.5.0)",
+    "description": "Proven fixes for low FPS in Path of Exile 2 towns, hideouts, and queue zones. Hide player MTX, reduce sound channels, disable dynamic culling, and restart instances for 0.5.0.",
+    "datePublished": "2026-06-02",
+    "dateModified": "2026-06-02"
+  }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    :root { --bg-primary:#0B0F1A;--bg-card:#161B22;--accent-green:#10B981;--accent-blue:#3B82F6;--border-subtle:rgba(255,255,255,0.06);--text-primary:#E6EDF3;--text-secondary:#8B949E;--glass-bg:rgba(22,27,34,0.6); }
+    * { margin:0;padding:0;box-sizing:border-box; }
+    body { font-family:'Inter',system-ui,-apple-system,sans-serif;background-color:var(--bg-primary);color:var(--text-primary);line-height:1.8;-webkit-font-smoothing:antialiased; }
+    .glass { background:var(--glass-bg);backdrop-filter:blur(16px);border:1px solid var(--border-subtle);border-radius:12px; }
+    .glass-card { background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border-subtle);border-radius:16px; }
+    .nav-link { color:var(--text-secondary);font-size:.875rem;font-weight:500;transition:color .2s; }
+    .nav-link:hover { color:var(--text-primary); }
+    ::selection { background:rgba(16,185,129,.25);color:#fff; }
+    ::-webkit-scrollbar { width:8px; } ::-webkit-scrollbar-track { background:var(--bg-primary); } ::-webkit-scrollbar-thumb { background:#1E293B;border-radius:4px; }
+    article h2 { color:var(--accent-green);font-size:1.5rem;font-weight:700;margin-top:2.5rem;margin-bottom:1rem; }
+    article p { color:var(--text-secondary);margin-bottom:1rem;font-size:.95rem; }
+    article ul { color:var(--text-secondary);padding-left:1.5rem;margin-bottom:1rem;font-size:.95rem; }
+    article li { margin-bottom:.4rem; }
+    article strong { color:var(--text-primary); }
+    article a { color:var(--accent-blue); }
+    article a:hover { text-decoration:underline; }
+    article code { color:var(--accent-green);background:rgba(16,185,129,.08);padding:.1rem .4rem;border-radius:4px;font-size:.85rem; }
+    article pre { background:#0B0F1A;border:1px solid rgba(255,255,255,.04);border-radius:12px;padding:1.25rem;overflow-x:auto;margin-bottom:1rem; }
+    article pre code { background:none;padding:0;font-size:.8rem;color:var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <nav class="glass fixed top-0 left-0 right-0 z-50 px-4 md:px-8" style="border-radius:0;background:rgba(11,15,26,.85);">
+    <div class="max-w-7xl mx-auto flex items-center justify-between h-16">
+      <a href="/#home" class="flex items-center gap-2 font-bold text-lg"><span class="text-[#10B981]">⏣</span><span>PoE2<span class="text-[#10B981]"> Settings</span></span></a>
+      <div class="flex items-center gap-6">
+        <a href="/" class="nav-link">Config Generator</a>
+        <a href="/guides/poe2-0-5-0-performance-guide" class="nav-link">0.5.0 Guide</a>
+        <a href="/#guides" class="nav-link">All Guides</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-28 pb-20 px-4 md:px-8">
+    <div class="max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EF4444]/10 border border-[#EF4444]/20 text-[#EF4444] text-xs font-medium mb-4">Performance Fix &mdash; 0.5.0</div>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">PoE2 Town FPS Fix — Stop Lag in Hideouts &amp; Queues (0.5.0)</h1>
+      <p class="text-sm text-[#8B949E]/60 mb-8">June 2026 &middot; Updated for 0.5.0 Return of the Ancients</p>
+
+      <article class="glass-card p-6 md:p-10">
+
+        <p>If your Path of Exile 2 runs smoothly in maps but <strong>drops to 20-40 FPS in town or your hideout</strong>, you are not alone. Town FPS has been a persistent issue since Early Access launch, and the 0.5.0 update's player surge has made it worse — towns are more crowded than ever. The problem is not your GPU being too slow; it is specific game systems (MTX rendering, audio processing, and player count handling) that scale poorly with large numbers of players in a single instance. Here is exactly how to fix it.</p>
+
+        <div class="glass p-4 md:p-5 rounded-xl my-8" style="border-left:3px solid var(--accent-green);">
+          <p class="text-sm" style="margin-bottom:0;"><strong>Quick win:</strong> If you just need 30 seconds of smooth performance to trade or access your stash, go to Settings > Audio > Channel Count and drop it to <strong>Low (64)</strong> temporarily. This single change recovers 5-15% FPS in towns immediately.</p>
+        </div>
+
+        <h2>Fix #1: Hide Player MTX</h2>
+        <p>This is the #1 cause of town FPS drops. PoE2 renders every cosmetic MTX effect for every player in your instance — wings, weapon effects, character effects, portal effects, pet MTX, and skill MTX from their equipped gems. In a full town instance with 20+ players, this can mean <strong>hundreds of additional particle and mesh draws per frame</strong>, each with transparency and overdraw costs.</p>
+        <ul>
+          <li>Go to Settings > UI > Hide Other Players' MTX Effects and set it to <strong>Enabled</strong> (or use <code>/hideout_mtx off</code> in chat).</li>
+          <li>Alternatively, set <code>show_party_mtx=false</code> and <code>show_other_player_mtx=false</code> in <code>production_Config.ini</code> under the <code>[DISPLAY]</code> section.</li>
+          <li>New in 0.5.0: There is also a <strong>"Hide MTX in Towns"</strong> checkbox under Game > Display. Enable it.</li>
+        </ul>
+        <p>Players report 30-50% FPS recovery in towns after disabling MTX rendering. The effect is most dramatic in high-population instances like the League NPC area or hideout queues.</p>
+
+        <h2>Fix #2: Reduce Sound Channels</h2>
+        <p>PoE2's FMOD audio engine processes every sound source independently. In towns, <strong>every nearby player generates sounds</strong>: footsteps, ability effects, portal sounds, MTX ambient audio, and NPC dialogue. With 512 concurrent voice channels (the default), the audio mixer becomes a significant CPU bottleneck.</p>
+        <ul>
+          <li><strong>Drop max_concurrent_voices to 64</strong> in production_Config.ini for towns. This is aggressive but necessary for crowded areas.</li>
+          <li>In the in-game Audio settings, set Channel Count to <strong>Low (64 channels)</strong>.</li>
+          <li>Reduce Ambience Volume to 20 or lower — ambient audio layers in towns consume CPU cycles with no gameplay benefit.</li>
+          <li>Set Music Volume to 0 if you have not already.</li>
+        </ul>
+        <p>Reducing sound channels from 512 to 64 can recover 5-15% CPU headroom in towns, which directly translates to higher FPS when your GPU is waiting on draw calls that are CPU-bound.</p>
+
+        <h2>Fix #3: Disable Dynamic Culling</h2>
+        <p>Dynamic Culling is designed to reduce rendering load by hiding distant or less important objects when FPS drops. However, the culling process itself introduces <strong>frame-time spikes</strong> because it recalculates visibility every frame. In towns where the culling system is constantly evaluating dozens of characters and their MTX, the overhead can actually <strong>reduce</strong> performance.</p>
+        <ul>
+          <li>Go to Settings > Graphics > Dynamic Culling > <strong>Off</strong>.</li>
+          <li>Alternatively, set <code>dynamic_culling=false</code> in production_Config.ini under <code>[RENDER]</code>.</li>
+        </ul>
+        <p>Disabling dynamic culling paradoxically improves frame-time consistency because the rendering pipeline no longer spends CPU time deciding what to hide.</p>
+
+        <h2>Fix #4: Instance Restart (The Nuclear Option)</h2>
+        <p>Town instances accumulate memory fragmentation and script processing overhead the longer they are alive. If your town FPS has been getting progressively worse over a play session, the instance itself may be the problem:</p>
+        <ul>
+          <li>Press <strong>Ctrl + Left Click</strong> on the town waypoint and select <strong>"Create New Instance"</strong> to generate a fresh town.</li>
+          <li>For hideouts, leave and re-enter your hideout, or right-click the hideout waypoint and select "Create New Instance."</li>
+          <li>If you are in a queue for a league mechanic (like the Runes of Aldur NPC area), <strong>Ctrl + Click</strong> to enter a new instance with fewer players.</li>
+        </ul>
+        <p>Instance restart is particularly effective after the 0.5.0 update because the new endgame systems create more objects per instance. A fresh instance can recover 20-40% FPS compared to one that has been running for hours.</p>
+
+        <h2>Fix #5: General Graphics Settings for Towns</h2>
+        <p>These settings help specifically in high-population areas without affecting your map performance (you can toggle them per-zone if you want):</p>
+        <ul>
+          <li><strong>Global Illumination: Off.</strong> GI computes light bounce contributions from every player and MTX effect. In towns, this is wasted computation. Disable it.</li>
+          <li><strong>Shadow Quality: Low.</strong> Each player casts dynamic shadows. With 20 players, that is 20x shadow cascades. Low shadows reduce per-player shadow cost significantly.</li>
+          <li><strong>Water Detail: Low.</strong> Town water effects in areas like Lioneye's Watch or Bridge Encampment are expensive for their visual impact.</li>
+          <li><strong>Disable Depth of Field.</strong> Blur effects in the background are wasted GPU time in towns where you need maximum clarity to navigate your stash and NPCs.</li>
+        </ul>
+
+        <h2>0.5.0-Specific Town Performance Notes</h2>
+        <p>The Return of the Ancients update added new NPCs, visual effects, and environmental details to town hubs. The Runes of Aldur league NPC in town generates additional particle effects that compound the MTX problem. Combined with higher player counts due to the update's popularity, towns in 0.5.0 are the most demanding they have ever been. GGG has acknowledged town performance as a known issue and is working on engine-level optimizations for a future patch, but the fixes above are your best options right now. For extreme cases, consider using <code>/hideout</code> and doing all your trading and crafting there instead of in town instances.</p>
+
+        <p class="text-sm text-[#8B949E]/60 mt-8">For more performance fixes, see our <a href="poe2-0-5-0-performance-guide">0.5.0 Performance Guide</a> or use the <a href="/">Config Generator</a> for a full production_Config.ini.</p>
+      </article>
+    </div>
+  </main>
+
+  <footer class="border-t border-white/5 py-8 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <p class="text-xs text-[#8B949E]">&copy; 2026 PoE2Settings.com &mdash; Unofficial fan site</p>
+      <div class="flex gap-4 text-xs">
+        <a href="/" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Config Generator</a>
+        <a href="/privacy" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Privacy Policy</a>
+        <a href="/disclaimer" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Disclaimer</a>
+        <a href="/about" class="text-[#8B949E] hover:text-[#10B981] transition-colors">About</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PoE2 Input Lag & Latency Fix Guide — 0.5.0 Return of the Ancients</title>
+  <meta name="description" content="Fix PoE2 input lag and system latency in 0.5.0. Nvidia Reflex settings, mouse polling rate 1000Hz, raw input, disable Game Mode, High Performance power plan, and more proven tweaks." />
+  <meta name="keywords" content="PoE2, input lag fix, latency, Nvidia Reflex, mouse polling rate, raw input, Game Mode, 0.5.0, Path of Exile 2, response time" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://poe2settings.com/guides/poe2-input-lag-fix" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="PoE2 Input Lag & Latency Fix Guide — 0.5.0 Return of the Ancients" />
+  <meta property="og:description" content="Reduce PoE2 input lag with proven fixes: Nvidia Reflex tuning, 1000Hz mouse polling, raw input, Windows Game Mode tweaks, and more." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://poe2settings.com/guides/poe2-input-lag-fix" />
+  <meta property="og:image" content="https://poe2settings.com/og.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PoE2 Input Lag & Latency Fix — 0.5.0 Guide" />
+  <meta name="twitter:description" content="7 proven ways to reduce PoE2 input lag: Nvidia Reflex, mouse polling rate, raw input, Game Mode off, and more." />
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "PoE2 Input Lag & Latency Fix Guide — 0.5.0 Return of the Ancients",
+    "description": "Fix PoE2 input lag and system latency in 0.5.0. Nvidia Reflex, mouse polling rate, raw input, Game Mode, and power plan tweaks.",
+    "datePublished": "2026-06-02",
+    "dateModified": "2026-06-02",
+    "author": {
+      "@type": "Person",
+      "name": "PoE2Settings"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "PoE2Settings.com"
+    }
+  }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    :root { --bg-primary:#0B0F1A; --bg-card:#161B22; --accent-green:#10B981; --accent-blue:#3B82F6; --border-subtle:rgba(255,255,255,0.06); --text-primary:#E6EDF3; --text-secondary:#8B949E; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',system-ui,-apple-system,sans-serif; background-color:var(--bg-primary); color:var(--text-primary); line-height:1.8; -webkit-font-smoothing:antialiased; }
+    .glass { background:rgba(22,27,34,0.6); backdrop-filter:blur(16px); border:1px solid var(--border-subtle); border-radius:12px; }
+    .glass-card { background:var(--bg-card); backdrop-filter:blur(12px); border:1px solid var(--border-subtle); border-radius:16px; }
+    .nav-link { color:var(--text-secondary); font-size:.875rem; font-weight:500; transition:color .2s; }
+    .nav-link:hover { color:var(--text-primary); }
+    .text-glow { text-shadow: 0 0 40px rgba(16,185,129,0.15); }
+    ::selection { background:rgba(16,185,129,.25); color:#fff; }
+    ::-webkit-scrollbar { width:8px; } ::-webkit-scrollbar-track { background:var(--bg-primary); } ::-webkit-scrollbar-thumb { background:#1E293B; border-radius:4px; }
+    article h2 { color:var(--accent-green); font-size:1.5rem; font-weight:700; margin-top:2.5rem; margin-bottom:1rem; }
+    article h3 { color:var(--accent-blue); font-size:1.15rem; font-weight:600; margin-top:1.75rem; margin-bottom:0.75rem; }
+    article p { color:var(--text-secondary); margin-bottom:1rem; font-size:.95rem; }
+    article ul { color:var(--text-secondary); padding-left:1.5rem; margin-bottom:1rem; font-size:.95rem; }
+    article li { margin-bottom:.4rem; }
+    article strong { color:var(--text-primary); }
+    article a { color:var(--accent-blue); }
+    article a:hover { text-decoration:underline; }
+    article code { color:var(--accent-green); background:rgba(16,185,129,.08); padding:.1rem .4rem; border-radius:4px; font-size:.85rem; }
+  </style>
+</head>
+<body>
+  <nav class="glass fixed top-0 left-0 right-0 z-50 px-4 md:px-8" style="border-radius:0;background:rgba(11,15,26,.85);">
+    <div class="max-w-7xl mx-auto flex items-center justify-between h-16">
+      <a href="/#home" class="flex items-center gap-2 font-bold text-lg"><span class="text-[#10B981]">&#x29E3;</span><span>PoE2<span class="text-[#10B981]"> Settings</span></span></a>
+      <div class="flex items-center gap-6"><a href="/" class="nav-link">Config Generator</a><a href="poe2-0-5-0-performance-guide.html" class="nav-link">0.5.0 Guide</a><a href="/#guides" class="nav-link">All Guides</a></div>
+    </div>
+  </nav>
+
+  <main class="pt-28 pb-20 px-4 md:px-8">
+    <div class="max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EF4444]/10 border border-[#EF4444]/20 text-[#EF4444] text-xs font-medium mb-4">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#EF4444] animate-pulse"></span>
+        Latency Guide &mdash; Updated for 0.5.0
+      </div>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">PoE2 Input Lag & Latency: 7 Proven Fixes for 0.5.0</h1>
+      <p class="text-sm text-[#8B949E]/60 mb-8">June 2, 2026 &middot; Path of Exile 2 0.5.0 Return of the Ancients &middot; Input Latency Reduction</p>
+
+      <article class="glass-card p-6 md:p-10">
+
+        <p>Input lag in Path of Exile 2 is the difference between surviving a juiced T16 breach and dying before you can hit your flask. The 0.5.0 "Return of the Ancients" update introduces more visual density than ever with the Runes of Aldur league mechanic, making responsive controls critical. This guide covers every Windows and in-game tweak that reduces system latency &mdash; from Nvidia Reflex configuration to hidden mouse polling rate settings.</p>
+
+        <div class="glass p-4 md:p-5 rounded-xl my-8" style="border-left:3px solid var(--accent-green);">
+          <p class="text-sm" style="margin-bottom:0;"><strong>TL;DR:</strong> Enable Nvidia Reflex (On + Boost), set mouse polling rate to 1000Hz, enable Raw Input in-game, disable VSync, and switch to High Performance power plan. These five changes eliminate most input lag.</p>
+        </div>
+
+        <h2>1. Nvidia Reflex: On + Boost (But Test On vs Off)</h2>
+        <p>Nvidia Reflex is the single most impactful setting for reducing system latency in PoE2. It synchronizes the CPU and GPU to minimize the render queue, reducing the time between your mouse click and the frame appearing on screen. In PoE2's Settings &rarr; Graphics, set <strong>Nvidia Reflex to "On + Boost"</strong>. Boost mode forces the GPU to maintain its maximum clock speed during CPU-bound scenes, which is especially valuable in dense maps where the GPU might otherwise clock down between frame spikes.</p>
+        <p>However, some 0.5.0 players report that Reflex On + Boost <em>introduces</em> micro-stutter on certain driver versions (particularly 572.x and later). If you notice frame-time spikes, test Reflex Off. The difference is measurable but for some hardware configurations, stable frame-pacing without Reflex beats lower latency with stutter.</p>
+
+        <h2>2. Mouse Polling Rate: 1000Hz Is the Sweet Spot</h2>
+        <p>Higher mouse polling rates (4000Hz, 8000Hz) sound better in theory, but in practice PoE2's engine processes input on the game's render loop. A 4000Hz mouse sends packets every 0.25ms, but the game only polls input once per frame &mdash; roughly every 8-16ms at 60-120 FPS. The extra USB interrupts from high polling rates can actually <strong>increase CPU overhead</strong> and cause frame-time variance.</p>
+        <p><strong>Set your mouse polling rate to 1000Hz</strong> in your mouse manufacturer's software (Logitech G Hub, Razer Synapse, etc.). This provides 1ms input resolution with minimal CPU overhead. Some wireless mice at 4000Hz also drain battery faster, which can cause polling rate instability when battery drops below 20%.</p>
+
+        <h2>3. Enable Raw Input</h2>
+        <p>In PoE2's Settings &rarr; Input, enable <strong>Raw Input</strong>. This bypasses Windows' mouse acceleration and smoothing layers, sending the raw mouse movement data directly to the game. Without Raw Input, Windows applies pointer precision (mouse acceleration) which introduces variable sensitivity based on how fast you move the mouse. This is especially detrimental in PoE2 where precise cursor placement for skills matters.</p>
+
+        <h2>4. Disable VSync</h2>
+        <p>VSync adds a full frame of latency because it forces the GPU to wait for the monitor's refresh cycle before presenting a frame. In PoE2, go to Settings &rarr; Graphics &rarr; <strong>VSync → Off</strong>. If you experience screen tearing, use G-Sync or FreeSync instead (variable refresh rate technology that does not add latency). With G-Sync, cap your FPS to 3 below your monitor's refresh rate (e.g., 141 FPS for a 144Hz monitor) using <code>fps_limit</code> in <code>production_Config.ini</code>.</p>
+
+        <h2>5. Disable Windows Game Mode and Xbox Game Bar</h2>
+        <p>Windows Game Mode and Xbox Game Bar introduce background processes that compete for GPU and CPU resources. Game Mode's "optimizations" often backfire with PoE2, causing increased input latency. <strong>Disable both:</strong></p>
+        <ul>
+          <li>Settings &rarr; Gaming &rarr; Game Mode &rarr; <strong>Off</strong></li>
+          <li>Settings &rarr; Gaming &rarr; Xbox Game Bar &rarr; <strong>Off</strong></li>
+          <li>Also disable "Captures" &rarr; "Record in the background while I'm playing a game"</li>
+        </ul>
+
+        <h2>6. High Performance Power Plan</h2>
+        <p>The Balanced power plan allows Windows to park CPU cores and reduce clock speeds to save power. When a sudden input spike hits (like a flask macro in a breach), the CPU must wake from a low-power state, introducing latency. <strong>Switch to High Performance</strong>:</p>
+        <ul>
+          <li>Control Panel &rarr; Hardware and Sound &rarr; Power Options &rarr; <strong>High Performance</strong></li>
+          <li>Alternatively, use the Ultimate Performance plan (available on Windows 10/11 Pro via <code>powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61</code> in an admin terminal)</li>
+          <li>In Power Options &rarr; Change plan settings &rarr; Change advanced power settings &rarr; Processor power management &rarr; <strong>Minimum processor state → 100%</strong></li>
+        </ul>
+
+        <h2>7. Close Background Applications with Hardware Acceleration</h2>
+        <p>Several common applications hook into the GPU's rendering pipeline and add latency. Discord's hardware acceleration, Chrome/Edge with hardware-accelerated video, and OBS Studio all consume GPU resources and introduce input processing delays. <strong>Close these before launching PoE2</strong>. For Discord, disable "Advanced &rarr; Hardware Acceleration" in its settings. For browsers, disable "Use hardware acceleration when available" in Chrome's System settings.</p>
+
+        <hr class="border-white/5 my-8" />
+
+        <h2>Bonus: production_Config.ini Input Tweaks</h2>
+        <p>You can fine-tune input behavior further in <code>Documents/My Games/Path of Exile 2/production_Config.ini</code>. Add or edit these lines:</p>
+        <ul>
+          <li><code>mouse_polling_rate=1000</code> &mdash; Forces the engine to use 1000Hz polling</li>
+          <li><code>raw_input=true</code> &mdash; Ensures Raw Input is enabled</li>
+          <li><code>fps_limit=141</code> &mdash; Caps FPS for G-Sync (adjust for your monitor)</li>
+          <li><code>vsync=false</code> &mdash; Disables VSync</li>
+          <li><code>render_scaling=75</code> &mdash; Competitive scaling reduces GPU load, lowering input latency</li>
+        </ul>
+        <p>Use our <a href="/">PoE2 Config Generator</a> to apply all these settings correctly without editing the config file manually.</p>
+
+        <hr class="border-white/5 my-8" />
+
+        <p class="text-sm text-[#8B949E]/60">Input lag compounds with every layer of the rendering pipeline, so applying all seven fixes together produces the best result. For more optimization guides, check our <a href="poe2-0-5-0-performance-guide.html">Ultimate 0.5.0 Performance Guide</a> or the <a href="/">Config Generator</a> for a one-click setup.</p>
+
+      </article>
+    </div>
+  </main>
+
+  <footer class="border-t border-white/5 py-8 px-4 md:px-8"><div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4"><p class="text-xs text-[#8B949E]">&copy; 2026 PoE2Settings.com &mdash; Unofficial fan site</p><div class="flex gap-4 text-xs"><a href="/" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Config Generator</a><a href="/privacy" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Privacy Policy</a><a href="/disclaimer" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Disclaimer</a><a href="/about" class="text-[#8B949E] hover:text-[#10B981] transition-colors">About</a></div></div></footer>
+</body>
+</html>

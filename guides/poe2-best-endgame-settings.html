@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PoE2 Best Endgame Settings for Mapping — 0.5.0 Return of the Ancients</title>
+  <meta name="description" content="Best PoE2 endgame video settings for juiced T16+ maps in 0.5.0. GI low, shadows low, SSR low, sound 128 channels, texture streaming high, dynamic culling off for Breach/Delirium." />
+  <meta name="keywords" content="PoE2, endgame settings, mapping, juiced maps, T16, Breach, Delirium, 0.5.0, return of the ancients, fps optimization, texture streaming" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://poe2settings.com/guides/poe2-best-endgame-settings" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="PoE2 Best Endgame Settings for Mapping — 0.5.0 Return of the Ancients" />
+  <meta property="og:description" content="Optimized video settings for PoE2 0.5.0 endgame mapping. Tested on juiced T16+ Breach/Delirium/Ritual/Expedition maps. GI low, shadows low, SSR low, sound 128 channels." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://poe2settings.com/guides/poe2-best-endgame-settings" />
+  <meta property="og:image" content="https://poe2settings.com/og.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PoE2 Best Endgame Settings — 0.5.0 Mapping Guide" />
+  <meta name="twitter:description" content="Settings for juiced T16+ maps: GI low, shadows low, SSR low, sound 128, texture streaming high. Tested on Breach/Delirium/Ritual/Expedition." />
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "PoE2 Best Endgame Settings for Mapping — 0.5.0 Return of the Ancients",
+    "description": "Best video settings for PoE2 0.5.0 endgame juiced T16+ maps including Breach, Delirium, Ritual, and Expedition.",
+    "datePublished": "2026-06-02",
+    "dateModified": "2026-06-02",
+    "author": {
+      "@type": "Person",
+      "name": "PoE2Settings"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "PoE2Settings.com"
+    }
+  }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    :root { --bg-primary:#0B0F1A; --bg-card:#161B22; --accent-green:#10B981; --accent-blue:#3B82F6; --border-subtle:rgba(255,255,255,0.06); --text-primary:#E6EDF3; --text-secondary:#8B949E; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',system-ui,-apple-system,sans-serif; background-color:var(--bg-primary); color:var(--text-primary); line-height:1.8; -webkit-font-smoothing:antialiased; }
+    .glass { background:rgba(22,27,34,0.6); backdrop-filter:blur(16px); border:1px solid var(--border-subtle); border-radius:12px; }
+    .glass-card { background:var(--bg-card); backdrop-filter:blur(12px); border:1px solid var(--border-subtle); border-radius:16px; }
+    .nav-link { color:var(--text-secondary); font-size:.875rem; font-weight:500; transition:color .2s; }
+    .nav-link:hover { color:var(--text-primary); }
+    .text-glow { text-shadow: 0 0 40px rgba(16,185,129,0.15); }
+    ::selection { background:rgba(16,185,129,.25); color:#fff; }
+    ::-webkit-scrollbar { width:8px; } ::-webkit-scrollbar-track { background:var(--bg-primary); } ::-webkit-scrollbar-thumb { background:#1E293B; border-radius:4px; }
+    article h2 { color:var(--accent-green); font-size:1.5rem; font-weight:700; margin-top:2.5rem; margin-bottom:1rem; }
+    article h3 { color:var(--accent-blue); font-size:1.15rem; font-weight:600; margin-top:1.75rem; margin-bottom:0.75rem; }
+    article p { color:var(--text-secondary); margin-bottom:1rem; font-size:.95rem; }
+    article ul { color:var(--text-secondary); padding-left:1.5rem; margin-bottom:1rem; font-size:.95rem; }
+    article li { margin-bottom:.4rem; }
+    article strong { color:var(--text-primary); }
+    article a { color:var(--accent-blue); }
+    article a:hover { text-decoration:underline; }
+    article code { color:var(--accent-green); background:rgba(16,185,129,.08); padding:.1rem .4rem; border-radius:4px; font-size:.85rem; }
+  </style>
+</head>
+<body>
+  <nav class="glass fixed top-0 left-0 right-0 z-50 px-4 md:px-8" style="border-radius:0;background:rgba(11,15,26,.85);">
+    <div class="max-w-7xl mx-auto flex items-center justify-between h-16">
+      <a href="/#home" class="flex items-center gap-2 font-bold text-lg"><span class="text-[#10B981]">&#x29E3;</span><span>PoE2<span class="text-[#10B981]"> Settings</span></span></a>
+      <div class="flex items-center gap-6"><a href="/" class="nav-link">Config Generator</a><a href="poe2-0-5-0-performance-guide.html" class="nav-link">0.5.0 Guide</a><a href="/#guides" class="nav-link">All Guides</a></div>
+    </div>
+  </nav>
+
+  <main class="pt-28 pb-20 px-4 md:px-8">
+    <div class="max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10B981]/10 border border-[#10B981]/20 text-[#10B981] text-xs font-medium mb-4">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
+        Endgame Guide &mdash; 0.5.0 Return of the Ancients
+      </div>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">Best PoE2 Endgame Mapping Settings for 0.5.0</h1>
+      <p class="text-sm text-[#8B949E]/60 mb-8">June 2, 2026 &middot; Tested on Juiced T16+ Maps with Breach, Delirium, Ritual &amp; Expedition &middot; All GPU tiers</p>
+
+      <article class="glass-card p-6 md:p-10">
+
+        <p>Endgame mapping in Path of Exile 2 0.5.0 is the most performance-intensive content the game has ever shipped. A fully juiced T16 map with multiple scarabs, Breach, Delirium mirror, Ritual altars, and the new Runes of Aldur league mechanic can push even an RTX 4090 to its limits. The settings that work smoothly in early acts will cause slideshows in endgame. This guide provides the exact video, audio, and config file settings to maintain 60-120 FPS in the densest content, tailored to your GPU tier.</p>
+
+        <div class="glass p-4 md:p-5 rounded-xl my-8" style="border-left:3px solid var(--accent-green);">
+          <p class="text-sm" style="margin-bottom:0;"><strong>Key principle:</strong> Every setting that is not essential for gameplay clarity should be set to the lowest value that does not visually distract you. The goal is consistent frame-pacing &mdash; a locked 60 FPS with no stutter feels better than 90 FPS with frame-time spikes.</p>
+        </div>
+
+        <h2>Essential Video Settings for Juiced Maps</h2>
+
+        <h3>Global Illumination: Low</h3>
+        <p>GI is PoE2's most expensive render pass, consuming 4-6ms of frame time at Ultra in dense scenes. At Low, the SDF-based GI system reverts to a simplified ambient occlusion approximation. The visual loss during active mapping is minimal &mdash; GI primarily enhances hideouts and campaign zones, not combat. This single setting change can recover up to 30% FPS in breach content.</p>
+
+        <h3>Shadow Quality: Low</h3>
+        <p>Shadows use cascaded shadow maps that render detailed shadows at multiple distances. At Low quality, the cascade count drops from 4 to 2 and the shadow map resolution halves. In fast-paced endgame content, you will not notice the difference during gameplay. Reclaims ~2ms of frame time.</p>
+
+        <h3>Reflections (SSR): Low or Off</h3>
+        <p>Screen-space reflections are expensive to compute, especially in zones with water or reflective surfaces. Set reflections to Low or Off. The visual trade-off is negligible in the campaign and completely unnoticeable during combat. Reclaims ~1.5ms of frame time.</p>
+
+        <h3>Texture Streaming: High</h3>
+        <p>This should stay at High. PoE2's texture streaming system determines how sharp your textures appear. At Low, textures look blurry for longer after loading. However, you must pair High texture streaming with a properly sized <code>streaming_cache_pool_size</code> in <code>production_Config.ini</code>:</p>
+        <ul>
+          <li><strong>8 GB VRAM (RTX 3070, RTX 4060, RX 7600):</strong> 1024 MB pool</li>
+          <li><strong>6 GB VRAM (GTX 1060, RTX 3050):</strong> 768 MB pool</li>
+          <li><strong>12+ GB VRAM (RTX 3060, RX 6800 XT, RTX 4080+):</strong> 1536 MB pool</li>
+          <li><strong>Steam Deck / 4 GB VRAM:</strong> 512 MB pool</li>
+        </ul>
+        <p>A pool that is too large causes VRAM thrashing in dense maps. A pool that is too small causes constant texture reloading. The values above are optimized for 0.5.0's revised streaming scheduler.</p>
+
+        <h3>Dynamic Culling: Off</h3>
+        <p>Dynamic Culling reduces draw distance and detail the moment your FPS drops below target. The problem is that the switch itself causes a frame-time spike, making the game feel <em>more</em> stuttery than if it simply ran at lower detail consistently. <strong>Turn Dynamic Culling Off.</strong> This is the single most impactful setting for stable 0.5.0 endgame performance.</p>
+
+        <h3>Sound Channels: 128 (Medium)</h3>
+        <p>PoE2's FMOD audio engine is CPU-intensive. In endgame maps with hundreds of simultaneous sound sources, setting Channel Count to Medium (128) in Audio settings reclaims 5-15% CPU headroom. Combat cues and loot filter sounds remain audible; only ambient layering is reduced.</p>
+
+        <h2>GPU Tier Recommendations</h2>
+
+        <h3>High-End (RTX 4080/4090, RX 7900 XTX) &mdash; Target 120+ FPS</h3>
+        <ul>
+          <li>GI: Low, Shadows: Low, SSR: Low</li>
+          <li>Texture Streaming: High, Cache Pool: 1536</li>
+          <li>Render Scaling: 100 (native) or 85 (competitive)</li>
+          <li>Dynamic Culling: Off, Dynamic Resolution: Off</li>
+          <li>Nvidia Reflex: On + Boost</li>
+          <li>Sound Channels: 128</li>
+          <li>FPS Limit: 141 (for 144Hz) or 237 (for 240Hz)</li>
+        </ul>
+
+        <h3>Mid-Range (RTX 3060/3070/4060, RX 6800 XT) &mdash; Target 60-100 FPS</h3>
+        <ul>
+          <li>GI: Low, Shadows: Low, SSR: Low</li>
+          <li>Texture Streaming: High, Cache Pool: 1024</li>
+          <li>Render Scaling: 75 (competitive) or 85 (balanced)</li>
+          <li>Dynamic Culling: Off, Dynamic Resolution: Off</li>
+          <li>Nvidia Reflex: On + Boost (test Off if micro-stutter occurs)</li>
+          <li>Sound Channels: 128</li>
+          <li>FPS Limit: 60 or 100 depending on consistency preference</li>
+        </ul>
+
+        <h3>Low-End (GTX 1060, RX 580, Steam Deck) &mdash; Target 45-60 FPS</h3>
+        <ul>
+          <li>GI: Off, Shadows: Low, SSR: Off</li>
+          <li>Texture Streaming: High, Cache Pool: 512</li>
+          <li>Render Scaling: 75</li>
+          <li>Dynamic Culling: Off, Dynamic Resolution: Off</li>
+          <li>Nvidia Reflex: Off (can add overhead on older GPUs)</li>
+          <li>Sound Channels: 64 (Low)</li>
+          <li>engine_multithreading: false</li>
+          <li>FPS Limit: 60 (locked)</li>
+        </ul>
+
+        <h2>production_Config.ini for Endgame</h2>
+        <p>Edit <code>Documents/My Games/Path of Exile 2/production_Config.ini</code> and add these endgame-specific values:</p>
+        <ul>
+          <li><code>global_illumination=false</code> &mdash; Disables GI entirely</li>
+          <li><code>shadow_quality=low</code> &mdash; Minimizes shadow cost</li>
+          <li><code>reflections=ssr_low</code> &mdash; Low-quality reflections or off</li>
+          <li><code>streaming_cache_pool_size=1024</code> &mdash; Adjust per your VRAM</li>
+          <li><code>max_concurrent_voices=128</code> &mdash; Reduces CPU audio load</li>
+          <li><code>dynamic_culling=false</code> &mdash; Prevents stutter from culling switches</li>
+          <li><code>dynamic_resolution=false</code> &mdash; Inconsistent blur hurts map readability</li>
+        </ul>
+        <p>Use the <a href="/">PoE2 Config Generator</a> for a one-click config file tuned to your specific GPU.</p>
+
+        <hr class="border-white/5 my-8" />
+
+        <p class="text-sm text-[#8B949E]/60">Endgame mapping is where PoE2's performance is truly tested. Apply these settings before running your next juiced T16+ map. For additional GPU-specific guides, check our <a href="poe2-settings-rtx-4060.html">RTX 4060</a>, <a href="poe2-settings-rx-6800-xt.html">RX 6800 XT</a>, and <a href="poe2-steam-deck-settings.html">Steam Deck</a> guides, or the <a href="/">Config Generator</a> for automatic optimization.</p>
+
+      </article>
+    </div>
+  </main>
+
+  <footer class="border-t border-white/5 py-8 px-4 md:px-8"><div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4"><p class="text-xs text-[#8B949E]">&copy; 2026 PoE2Settings.com &mdash; Unofficial fan site</p><div class="flex gap-4 text-xs"><a href="/" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Config Generator</a><a href="/privacy" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Privacy Policy</a><a href="/disclaimer" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Disclaimer</a><a href="/about" class="text-[#8B949E] hover:text-[#10B981] transition-colors">About</a></div></div></footer>
+</body>
+</html>

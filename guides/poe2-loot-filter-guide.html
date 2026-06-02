@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PoE2 Loot Filter Guide — 0.5.0 Best Filters & How to Install</title>
+  <meta name="description" content="Complete PoE2 loot filter guide for 0.5.0. How to install NeverSink's FilterBlade filters, where to place .filter files, custom regex examples, and endgame filtering strategies." />
+  <meta name="keywords" content="PoE2, loot filter, NeverSink, FilterBlade, .filter file, install loot filter, path of exile 2, 0.5.0, item filter" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://poe2settings.com/guides/poe2-loot-filter-guide" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="PoE2 Loot Filter Guide — 0.5.0 Best Filters & How to Install" />
+  <meta property="og:description" content="Install and customize PoE2 loot filters for 0.5.0. NeverSink FilterBlade, manual .filter placement, regex examples, and endgame filtering tips." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://poe2settings.com/guides/poe2-loot-filter-guide" />
+  <meta property="og:image" content="https://poe2settings.com/og.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PoE2 Loot Filter Guide — 0.5.0 Installation & Customization" />
+  <meta name="twitter:description" content="Complete loot filter guide for PoE2 0.5.0. NeverSink FilterBlade install, .filter file location, regex customization, and endgame strategies." />
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "PoE2 Loot Filter Guide — 0.5.0 Best Filters & How to Install",
+    "description": "Complete Path of Exile 2 loot filter guide for 0.5.0. NeverSink FilterBlade installation, .filter file placement, custom regex, and endgame filtering strategies.",
+    "datePublished": "2026-06-02",
+    "dateModified": "2026-06-02",
+    "author": {
+      "@type": "Person",
+      "name": "PoE2Settings"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "PoE2Settings.com"
+    }
+  }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    :root { --bg-primary:#0B0F1A; --bg-card:#161B22; --accent-green:#10B981; --accent-blue:#3B82F6; --border-subtle:rgba(255,255,255,0.06); --text-primary:#E6EDF3; --text-secondary:#8B949E; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',system-ui,-apple-system,sans-serif; background-color:var(--bg-primary); color:var(--text-primary); line-height:1.8; -webkit-font-smoothing:antialiased; }
+    .glass { background:rgba(22,27,34,0.6); backdrop-filter:blur(16px); border:1px solid var(--border-subtle); border-radius:12px; }
+    .glass-card { background:var(--bg-card); backdrop-filter:blur(12px); border:1px solid var(--border-subtle); border-radius:16px; }
+    .nav-link { color:var(--text-secondary); font-size:.875rem; font-weight:500; transition:color .2s; }
+    .nav-link:hover { color:var(--text-primary); }
+    .text-glow { text-shadow: 0 0 40px rgba(16,185,129,0.15); }
+    ::selection { background:rgba(16,185,129,.25); color:#fff; }
+    ::-webkit-scrollbar { width:8px; } ::-webkit-scrollbar-track { background:var(--bg-primary); } ::-webkit-scrollbar-thumb { background:#1E293B; border-radius:4px; }
+    article h2 { color:var(--accent-green); font-size:1.5rem; font-weight:700; margin-top:2.5rem; margin-bottom:1rem; }
+    article h3 { color:var(--accent-blue); font-size:1.15rem; font-weight:600; margin-top:1.75rem; margin-bottom:0.75rem; }
+    article p { color:var(--text-secondary); margin-bottom:1rem; font-size:.95rem; }
+    article ul { color:var(--text-secondary); padding-left:1.5rem; margin-bottom:1rem; font-size:.95rem; }
+    article li { margin-bottom:.4rem; }
+    article strong { color:var(--text-primary); }
+    article a { color:var(--accent-blue); }
+    article a:hover { text-decoration:underline; }
+    article code { color:var(--accent-green); background:rgba(16,185,129,.08); padding:.1rem .4rem; border-radius:4px; font-size:.85rem; }
+  </style>
+</head>
+<body>
+  <nav class="glass fixed top-0 left-0 right-0 z-50 px-4 md:px-8" style="border-radius:0;background:rgba(11,15,26,.85);">
+    <div class="max-w-7xl mx-auto flex items-center justify-between h-16">
+      <a href="/#home" class="flex items-center gap-2 font-bold text-lg"><span class="text-[#10B981]">&#x29E3;</span><span>PoE2<span class="text-[#10B981]"> Settings</span></span></a>
+      <div class="flex items-center gap-6"><a href="/" class="nav-link">Config Generator</a><a href="poe2-0-5-0-performance-guide.html" class="nav-link">0.5.0 Guide</a><a href="/#guides" class="nav-link">All Guides</a></div>
+    </div>
+  </nav>
+
+  <main class="pt-28 pb-20 px-4 md:px-8">
+    <div class="max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10B981]/10 border border-[#10B981]/20 text-[#10B981] text-xs font-medium mb-4">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
+        Item Filter Guide &mdash; Updated for 0.5.0
+      </div>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">PoE2 Loot Filter Guide: How to Install & Customize for 0.5.0</h1>
+      <p class="text-sm text-[#8B949E]/60 mb-8">June 2, 2026 &middot; Path of Exile 2 0.5.0 Return of the Ancients &middot; NeverSink FilterBlade &amp; Custom Filters</p>
+
+      <article class="glass-card p-6 md:p-10">
+
+        <p>A good loot filter is not optional in Path of Exile 2 endgame. Without one, your screen is filled with white and blue items, making it nearly impossible to spot valuable currency drops, rare items, and high-value bases. The 0.5.0 "Return of the Ancients" update adds the Runes of Aldur league mechanic, which introduces even more loot drops per map. This guide covers installing NeverSink's FilterBlade filters (the most popular PoE2 filter), customizing them, and writing your own filter rules for specific items.</p>
+
+        <div class="glass p-4 md:p-5 rounded-xl my-8" style="border-left:3px solid var(--accent-green);">
+          <p class="text-sm" style="margin-bottom:0;"><strong>Quick start:</strong> Download NeverSink's PoE2 loot filter from <a href="https://filterblade.xyz">FilterBlade.xyz</a>, place the <code>.filter</code> file in <code>Documents/My Games/Path of Exile 2/</code>, then enable it in-game from Settings &rarr; Gameplay &rarr; Item Filter.</p>
+        </div>
+
+        <h2>Why You Need a Loot Filter</h2>
+        <p>In a single juiced T16 map with Breach and Delirium, over 500 items can drop. Without a filter, you would see every single white, magic, and rare item render on screen. This is not just visually overwhelming &mdash; it also impacts performance. Each item label and minimap icon consumes rendering resources. A good filter hides junk items and highlights valuable ones, improving both your efficiency and your frame rate.</p>
+        <p>PoE2 supports the same <code>.filter</code> file format as PoE1, so the community was able to port filters very quickly after Early Access launch. The 0.5.0 update added new item bases and modifiers, so make sure your filter version is updated for the new content.</p>
+
+        <h2>How to Install a Loot Filter (Step by Step)</h2>
+
+        <h3>Method 1: FilterBlade.xyz (Recommended)</h3>
+        <p>NeverSink's FilterBlade is the most comprehensive loot filter tool for PoE2:</p>
+        <ul>
+          <li>Go to <strong>FilterBlade.xyz</strong> and select "PoE2" at the top</li>
+          <li>Choose a preset: Regular (balanced), Semi-Strict (endgame), or Strict (efficient mapping)</li>
+          <li>Click "Download" to get your <code>.filter</code> file</li>
+          <li>Open File Explorer and navigate to <code>Documents\My Games\Path of Exile 2\</code></li>
+          <li>Place the downloaded <code>.filter</code> file in this folder</li>
+          <li>Launch PoE2, go to Settings &rarr; Gameplay &rarr; scroll to "Item Filter" &rarr; select your filter from the dropdown</li>
+          <li>The filter activates immediately &mdash; no restart required</li>
+        </ul>
+
+        <h3>Method 2: Manual Installation</h3>
+        <p>If you prefer to write or download a custom filter from another source:</p>
+        <ul>
+          <li>Create a new text file and rename it with the <code>.filter</code> extension (e.g., <code>my-custom-filter.filter</code>)</li>
+          <li>Place it in <code>Documents\My Games\Path of Exile 2\</code></li>
+          <li>Select it in-game from the Item Filter dropdown</li>
+          <li>To update a filter, simply replace the file &mdash; the game reloads it automatically when you change zones</li>
+        </ul>
+
+        <h2>Choosing the Right Strictness Level</h2>
+        <p>FilterBlade offers several strictness levels. Here is which one to use based on your progression:</p>
+        <table style="width:100%;border-collapse:collapse;margin-bottom:1rem;font-size:.9rem;color:var(--text-secondary);">
+          <tr><td style="padding:.5rem;border:1px solid var(--border-subtle);"><strong>Regular</strong></td><td style="padding:.5rem;border:1px solid var(--border-subtle);">Campaign through early maps. Shows most items.</td></tr>
+          <tr><td style="padding:.5rem;border:1px solid var(--border-subtle);"><strong>Semi-Strict</strong></td><td style="padding:.5rem;border:1px solid var(--border-subtle);">Yellow to early red maps. Hides most white items.</td></tr>
+          <tr><td style="padding:.5rem;border:1px solid var(--border-subtle);"><strong>Strict</strong></td><td style="padding:.5rem;border:1px solid var(--border-subtle);">T14+ maps and juiced content. Hides all normal/magic items.</td></tr>
+          <tr><td style="padding:.5rem;border:1px solid var(--border-subtle);"><strong>Very Strict</strong></td><td style="padding:.5rem;border:1px solid var(--border-subtle);">Maximum efficiency mapping. Only shows currency, rares, and high-value bases.</td></tr>
+          <tr><td style="padding:.5rem;border:1px solid var(--border-subtle);"><strong>Uber Strict</strong></td><td style="padding:.5rem;border:1px solid var(--border-subtle);">For 5-way rotations and max-density content. Minimal items shown.</td></tr>
+        </table>
+        <p>Most players settle on Semi-Strict or Strict for regular mapping. NeverSink updates his filters within 24-48 hours of major patches, so check FilterBlade after any PoE2 update.</p>
+
+        <h2>Customizing Your Loot Filter</h2>
+        <p>FilterBlade includes a web-based customization tool, but you can also edit <code>.filter</code> files directly in Notepad or any text editor. The filter syntax uses blocks with conditions and actions. Here are useful examples for PoE2 0.5.0:</p>
+
+        <h3>Highlight Specific Currency</h3>
+        <pre><code># Highlight Chaos Orbs with a large green beam
+Show
+	BaseType == "Chaos Orb"
+	SetFontSize 40
+	SetBorderColor 0 255 0
+	SetTextColor 0 255 0
+	SetBackgroundColor 0 0 0 200
+	PlayAlertSound 7 200
+	MinimapIcon 0 Green Star</code></pre>
+
+        <h3>Hide All White Items in Endgame</h3>
+        <pre><code># Hide normal quality items
+Hide
+	Rarity == Normal</code></pre>
+
+        <h3>Show Specific Item Bases for Crafting</h3>
+        <pre><code># Show specific high-value bases in endgame
+Show
+	BaseType == "Expert Ezomyte Staff" "Expert Vaal Rapier" "Expert Titan Greaves"
+	SetFontSize 32
+	SetBorderColor 180 120 60
+	SetTextColor 200 200 200
+	PlayAlertSound 6 150
+	MinimapIcon 1 Yellow Diamond</code></pre>
+
+        <h3>Custom Highlight for Runes (New in 0.5.0)</h3>
+        <pre><code># Runes of Aldur league: highlight rune drops
+Show
+	Class == "Rune"
+	SetFontSize 36
+	SetBorderColor 255 100 255
+	SetTextColor 255 100 255
+	PlayAlertSound 9 200
+	MinimapIcon 2 Purple Hexagon</code></pre>
+
+        <h2>Important: Change Filters for Different Content</h2>
+        <p>One filter does not suit all content. You should switch strictness depending on what you are doing:</p>
+        <ul>
+          <li><strong>Boss fights:</strong> Use a less strict filter to see all loot drops from the boss &mdash; you do not want to miss a valuable unique because your filter hid it.</li>
+          <li><strong>Heist / Sanctum:</strong> Semi-Strict is usually best &mdash; these mechanics drop fewer items but higher quality.</li>
+          <li><strong>Juiced maps:</strong> Use Strict or Very Strict &mdash; the sheer volume of drops means you will spend more time sorting loot than killing without aggressive filtering.</li>
+          <li><strong>Campaign:</strong> Regular or Semi-Strict &mdash; you still need to pick up gear upgrades.</li>
+        </ul>
+        <p>FilterBlade allows you to download multiple strictness levels and switch between them in-game with a single dropdown selection.</p>
+
+        <hr class="border-white/5 my-8" />
+
+        <p class="text-sm text-[#8B949E]/60">A good loot filter is as essential as a good GPU config for PoE2 endgame. If FPS drops when loot explodes on screen, a Strict filter can actually improve your frame rate by reducing the number of labels the game has to render. For more performance optimization, see our <a href="poe2-0-5-0-performance-guide.html">Ultimate 0.5.0 Performance Guide</a> or use the <a href="/">PoE2 Config Generator</a>.</p>
+
+      </article>
+    </div>
+  </main>
+
+  <footer class="border-t border-white/5 py-8 px-4 md:px-8"><div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4"><p class="text-xs text-[#8B949E]">&copy; 2026 PoE2Settings.com &mdash; Unofficial fan site</p><div class="flex gap-4 text-xs"><a href="/" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Config Generator</a><a href="/privacy" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Privacy Policy</a><a href="/disclaimer" class="text-[#8B949E] hover:text-[#10B981] transition-colors">Disclaimer</a><a href="/about" class="text-[#8B949E] hover:text-[#10B981] transition-colors">About</a></div></div></footer>
+</body>
+</html>
