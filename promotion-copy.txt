@@ -1,0 +1,33 @@
+10 条英文软文，用于 Reddit、X、Discord 等平台。每条语气自然，像玩家互助而非广告。
+
+---
+
+**1. 在卡顿抱怨帖回复：**
+Been fighting stutter in juiced T16s since 0.5.0b. What actually fixed it for me was disabling Dynamic Culling and dropping sound channels to 128. Also found this tool that generates a production_Config.ini based on your GPU — saved me from editing manually and breaking something. https://poe2settings.com
+
+**2. 在"有人有 RTX 4060 的配置吗"之类问题下回复：**
+I'm on a 4060 and spent way too long tweaking settings. Found this config generator that spits out a production_Config.ini tailored to your GPU and preset. Got me from 72 to 118 FPS in breach maps with their competitive preset. https://poe2settings.com
+
+**3. 在 Steam Deck 讨论帖回复：**
+For anyone trying to get PoE2 running on Steam Deck — switch to Vulkan, drop cache pool to 512, and set TDP to 12W. There's a preset in this generator that applies all the handheld-specific tweaks automatically if you pick "Steam Deck" as your GPU. https://poe2settings.com
+
+**4. 在新手求助帖回复：**
+If you're new to PoE2 and overwhelmed by the settings menu, this site has a one-click config generator plus 35+ guides on everything from driver settings to loot filters. Made my league start way smoother. https://poe2settings.com
+
+**5. 在 0.5.0b 更新讨论帖回复：**
+0.5.0b fixed boss VFX preloading but the network-spike stutter near packs is still there for me. Lockstep mode helped a bit. Also found a stuttering fix guide with 11 solutions on poe2settings.com — the Dynamic Culling tip alone recovered like 15% FPS in deli maps.
+
+**6. 在 "最低配置能玩吗" 帖回复：**
+GTX 1060 + Ryzen 5 here. Followed the low-end guide on poe2settings.com — aggressive render scaling, cache pool at 512, Vulkan instead of DX12. Went from slideshow to a stable 52 FPS in maps. Not pretty but very playable.
+
+**7. 在 DX12 vs Vulkan 争论帖回复：**
+I benchmarked both on my 6800 XT and Vulkan was ~18% better in 0.5.0. There's a full comparison on poe2settings.com with real numbers across 10+ GPUs including Steam Deck. TL;DR: Vulkan for AMD, either is fine for high-end Nvidia.
+
+**8. 在 SSD vs HDD 帖回复：**
+If you're still on an HDD and wondering why zones take forever to load — PoE2's texture streaming engine really needs an SSD. The difference in zone transition stutter is night and day. There's a benchmark comparison on poe2settings.com that shows the actual numbers if anyone needs proof to upgrade.
+
+**9. 在"分享你的配置"帖回复：**
+RTX 3070 / 5700X / 32GB / 1080p. Competitive preset with Vulkan. Locking FPS at 141 with G-Sync made everything feel way smoother than uncapped. Generated the whole config through poe2settings.com in about 10 seconds if anyone wants to compare.
+
+**10. 在新赛季开服帖回复：**
+New league tomorrow! Quick checklist for anyone returning: update your drivers, clear shader cache, and use a config generator to re-optimize for 0.5.0 (settings often need tweaking after big patches). I use poe2settings.com — takes 10 seconds and covers everything from GI to audio channels.
