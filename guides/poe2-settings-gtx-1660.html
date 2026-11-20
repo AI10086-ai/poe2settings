@@ -127,6 +127,7 @@ raw_input=true</code></pre>
         <p>The GTX 1660 Super's 6 GB VRAM is the biggest constraint. With <code>streaming_cache_pool_size=512</code>, the game keeps only essential textures in VRAM and streams the rest from system memory. This prevents the hard micro-stutter that occurs when VRAM overflows into page file. Set <code>engine_multithreading=false</code> as well — the 1660 Super is typically paired with 4-6 core CPUs where the thread synchronization overhead negates any benefit from multi-threaded rendering. Combined with <code>max_concurrent_voices=64</code> to cut FMOD audio CPU usage, these tweaks free up enough headroom for stable 60 FPS in all but the most extreme juiced maps.</p>
 
         <h2>Benchmark: GTX 1660 Super in 0.5.0</h2>
+        <p class="text-xs" style="color:var(--text-secondary);opacity:.65;margin-top:-.4rem;">Illustrative figures from community-reported runs, not a controlled benchmark by this site. Your hardware, drivers and content will produce different numbers.</p>
         <p>Tested at 1080p, juiced T16 map with Delirium + Beyond + Breach:</p>
         <ul>
           <li><strong>Stock settings:</strong> 38 FPS avg, 24 FPS 1% low</li>

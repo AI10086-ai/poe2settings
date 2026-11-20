@@ -36,7 +36,7 @@
         <p>Most PoE2 optimization guides stop at in-game settings — but the <strong>GPU driver control panel</strong> has settings that override or complement your in-game choices. One wrong driver setting can erase 20% of your FPS gains. Here is the exact Nvidia Control Panel and AMD Adrenalin configuration for PoE2 0.5.0.</p>
         <div class="glass p-4 md:p-5 rounded-xl my-8" style="border-left:3px solid var(--accent-green);"><p class="text-sm" style="margin-bottom:0;"><strong>Start with in-game first:</strong> Use our <a href="/">PoE2 Config Generator</a> to get your base settings, then apply these driver tweaks on top.</p></div>
         <h2>Nvidia Control Panel Settings</h2>
-        <p>Open Nvidia Control Panel → Manage 3D Settings → Program Settings → Add → select PoE2 or <code>PathOfExile2.exe</code>:</p>
+        <p>Open Nvidia Control Panel → Manage 3D Settings → Program Settings → Add → select the PoE2 process — commonly <code>PathOfExile_KG.exe</code> (confirm the exact name in Task Manager):</p>
         <ul>
           <li><strong>Shader Cache Size → 100 GB or Unlimited.</strong> This is the single most impactful driver fix for PoE2. The default 10 GB cache fills up fast with PoE2's massive shader count, forcing recompilation mid-map. Setting it to 100 GB or Unlimited eliminates a major source of stutter.</li>
           <li><strong>Power Management Mode → Prefer Maximum Performance.</strong> Prevents the GPU from downclocking between packs in maps, which causes frame-time spikes when it has to ramp back up.</li>
@@ -64,6 +64,7 @@
         <h2>Shader Cache Deep-Dive: Why 100 GB?</h2>
         <p>PoE2's engine compiles shaders on-the-fly as you encounter new skills, MTX effects, and environment combinations. In a single mapping session, the game can generate 15-30 GB of cached shader data. With the default 10 GB Nvidia cache, old entries are evicted as fast as new ones are written — meaning the same shader gets compiled, evicted, and recompiled repeatedly throughout a session. Setting it to 100 GB or Unlimited means <strong>"compile once, never recompile."</strong> First zone after setting it will have mild stutter, then smooth thereafter.</p>
         <h2>The ReBAR Benchmark</h2>
+        <p class="text-xs" style="color:var(--text-secondary);opacity:.65;margin-top:-.4rem;">Illustrative figures from community-reported runs, not a controlled benchmark by this site. Your hardware, drivers and content will produce different numbers.</p>
         <p>Resizable BAR (ReBAR / Smart Access Memory) allows the CPU to access the full GPU VRAM rather than 256 MB segments. In PoE2 0.5.0, enabling ReBAR delivers:</p>
         <ul>
           <li><strong>RTX 3070:</strong> 8-12% higher 1% lows at 1080p</li>
