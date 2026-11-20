@@ -53,14 +53,15 @@
   <meta property="og:description" content="Generate your perfect Path of Exile 2 config for 0.5.5 and the 1.0 full release. Boost FPS, fix stuttering, and get the ultimate production_Config.ini for Nvidia, AMD, or Steam Deck." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://poe2settings.com/" />
-  <meta property="og:image" content="https://poe2settings.com/og.jpg" />
+  <meta property="og:image" content="https://poe2settings.com/assets/og.png" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://poe2settings.com/assets/og.png" />
   <meta name="twitter:title" content="PoE2 Config Generator — Best FPS Settings for 0.5.0 Return of the Ancients" />
   <meta name="twitter:description" content="Generate your perfect PoE2 config for 0.5.0. Boost FPS, fix stuttering, get the ultimate production_Config.ini for Nvidia, AMD, or Steam Deck." />
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/tailwind.css" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
@@ -345,6 +346,8 @@
       .mobile-nav.open { display: flex; }
     }
   </style>
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
 </head>
 
 <body>
@@ -367,7 +370,7 @@
         <a href="#builds" class="nav-link" data-i18n="nav-builds">Builds</a>
         <a href="#input-lag" class="nav-link" data-i18n="nav-input-lag">Input Lag</a>
         <a href="#config" class="nav-link" data-i18n="nav-config">Config</a>
-        <a href="guides/poe2-0-5-0-performance-guide.html" class="nav-link" data-i18n="nav-guides">Guides</a>
+        <a href="guides/" class="nav-link" data-i18n="nav-guides">Guides</a>
         <!-- Lang switch -->
         <select id="lang-select" class="lang-select" aria-label="Switch language">
           <option value="en">EN</option>
@@ -399,7 +402,7 @@
       <a href="#builds" class="nav-link block px-4 py-2 rounded-lg hover:bg-white/5" data-i18n="nav-builds">Builds</a>
       <a href="#input-lag" class="nav-link block px-4 py-2 rounded-lg hover:bg-white/5" data-i18n="nav-input-lag">Input Lag</a>
       <a href="#config" class="nav-link block px-4 py-2 rounded-lg hover:bg-white/5" data-i18n="nav-config">Config</a>
-      <a href="guides/poe2-0-5-0-performance-guide.html" class="nav-link block px-4 py-2 rounded-lg hover:bg-white/5" data-i18n="nav-guides">Guides</a>
+      <a href="guides/" class="nav-link block px-4 py-2 rounded-lg hover:bg-white/5" data-i18n="nav-guides">Guides</a>
     </div>
   </nav>
 
@@ -1169,55 +1172,55 @@ max_packet_size=1400</code></pre>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         <!-- Card 1: 0.5.0 Guide -->
-        <a href="guides/poe2-0-5-0-performance-guide.html" class="glass-card p-5 group cursor-pointer hover:border-[#10B981]/30" style="border:1px solid rgba(16,185,129,0.1);">
+        <a href="guides/poe2-0-5-0-performance-guide" class="glass-card p-5 group cursor-pointer hover:border-[#10B981]/30" style="border:1px solid rgba(16,185,129,0.1);">
           <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#10B981]/10 text-[#10B981]">Featured</span></div>
           <h3 class="font-bold text-sm mb-1 group-hover:text-[#10B981] transition-colors" data-i18n="card-0-5-title">Ultimate 0.5.0 Performance Guide</h3>
           <p class="text-xs text-[#8B949E]" data-i18n="card-0-5-desc">The definitive guide to max FPS in Return of the Ancients. Vulkan vs DX12, config secrets, and benchmark data.</p>
         </a>
         <!-- Card 2: Stuttering Fix -->
-        <a href="guides/poe2-0-5-0-stuttering-fix.html" class="glass-card p-5 group cursor-pointer hover:border-[#EF4444]/30" style="border:1px solid rgba(239,68,68,0.1);">
+        <a href="guides/poe2-0-5-0-stuttering-fix" class="glass-card p-5 group cursor-pointer hover:border-[#EF4444]/30" style="border:1px solid rgba(239,68,68,0.1);">
           <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#EF4444]/10 text-[#EF4444]">Hotfix</span></div>
           <h3 class="font-bold text-sm mb-1 group-hover:text-[#EF4444] transition-colors">PoE2 0.5.0 Stuttering Fix — 11 Solutions</h3>
           <p class="text-xs text-[#8B949E]" data-i18n="card-stutter-desc">Dynamic Culling, sound channels, shader cache, Reflex toggle, and community-tested fixes for network-spike stutter.</p>
         </a>
         <!-- Card 3: DX12 vs Vulkan -->
-        <a href="guides/poe2-dx12-vs-vulkan.html" class="glass-card p-5 group cursor-pointer hover:border-[#3B82F6]/30" style="border:1px solid rgba(59,130,246,0.1);">
+        <a href="guides/poe2-dx12-vs-vulkan" class="glass-card p-5 group cursor-pointer hover:border-[#3B82F6]/30" style="border:1px solid rgba(59,130,246,0.1);">
           <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#3B82F6]/10 text-[#3B82F6]">Benchmark</span></div>
           <h3 class="font-bold text-sm mb-1 group-hover:text-[#3B82F6] transition-colors">DX12 vs Vulkan — Which Is Better?</h3>
           <p class="text-xs text-[#8B949E]" data-i18n="card-vulkan-desc">Real benchmark data: RTX 4090, 3070, 4060, RX 6800 XT and Steam Deck tested on both APIs in 0.5.0.</p>
         </a>
         <!-- Card 4: RTX 4060 -->
-        <a href="guides/poe2-settings-rtx-4060.html" class="glass-card p-5 group cursor-pointer hover:border-[#3B82F6]/30" style="border:1px solid rgba(59,130,246,0.1);">
+        <a href="guides/poe2-settings-rtx-4060" class="glass-card p-5 group cursor-pointer hover:border-[#3B82F6]/30" style="border:1px solid rgba(59,130,246,0.1);">
           <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#3B82F6]/10 text-[#3B82F6]">GPU Guide</span></div>
           <h3 class="font-bold text-sm mb-1 group-hover:text-[#3B82F6] transition-colors">Best Settings for RTX 4060</h3>
           <p class="text-xs text-[#8B949E]">144+ FPS at 1080p. DLSS 3, Reflex, and competitive config tweaks for 0.5.0.</p>
         </a>
         <!-- Card 5: RTX 3060 -->
-        <a href="guides/poe2-settings-rtx-3060.html" class="glass-card p-5 group cursor-pointer hover:border-[#3B82F6]/30" style="border:1px solid rgba(59,130,246,0.1);">
+        <a href="guides/poe2-settings-rtx-3060" class="glass-card p-5 group cursor-pointer hover:border-[#3B82F6]/30" style="border:1px solid rgba(59,130,246,0.1);">
           <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#3B82F6]/10 text-[#3B82F6]">GPU Guide</span></div>
           <h3 class="font-bold text-sm mb-1 group-hover:text-[#3B82F6] transition-colors">Best Settings for RTX 3060 12GB</h3>
           <p class="text-xs text-[#8B949E]">12 GB VRAM advantage. 100+ FPS at 1080p with optimized streaming_cache_pool_size.</p>
         </a>
         <!-- Card 6: GTX 1060 -->
-        <a href="guides/poe2-settings-gtx-1060.html" class="glass-card p-5 group cursor-pointer hover:border-[#F59E0B]/30" style="border:1px solid rgba(245,158,11,0.1);">
+        <a href="guides/poe2-settings-gtx-1060" class="glass-card p-5 group cursor-pointer hover:border-[#F59E0B]/30" style="border:1px solid rgba(245,158,11,0.1);">
           <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#F59E0B]/10 text-[#F59E0B]">Low-End</span></div>
           <h3 class="font-bold text-sm mb-1 group-hover:text-[#F59E0B] transition-colors">PoE2 on GTX 1060 — Still Viable?</h3>
           <p class="text-xs text-[#8B949E]">Squeeze every FPS from the legendary 1060. Low-end tweaks for stable 60 FPS mapping.</p>
         </a>
         <!-- Card 7: Steam Deck -->
-        <a href="guides/poe2-steam-deck-settings.html" class="glass-card p-5 group cursor-pointer hover:border-[#10B981]/30" style="border:1px solid rgba(16,185,129,0.1);">
+        <a href="guides/poe2-steam-deck-settings" class="glass-card p-5 group cursor-pointer hover:border-[#10B981]/30" style="border:1px solid rgba(16,185,129,0.1);">
           <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#10B981]/10 text-[#10B981]">Handheld</span></div>
           <h3 class="font-bold text-sm mb-1 group-hover:text-[#10B981] transition-colors">Steam Deck & ROG Ally Settings</h3>
           <p class="text-xs text-[#8B949E]">45-60 FPS on handheld PCs. Vulkan tuning, TDP tips, and aggressive cache pool for 800p.</p>
         </a>
         <!-- Card 8: RX 6800 XT -->
-        <a href="guides/poe2-settings-rx-6800-xt.html" class="glass-card p-5 group cursor-pointer hover:border-[#8B5CF6]/30" style="border:1px solid rgba(139,92,246,0.1);">
+        <a href="guides/poe2-settings-rx-6800-xt" class="glass-card p-5 group cursor-pointer hover:border-[#8B5CF6]/30" style="border:1px solid rgba(139,92,246,0.1);">
           <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#8B5CF6]/10 text-[#8B5CF6]">AMD Guide</span></div>
           <h3 class="font-bold text-sm mb-1 group-hover:text-[#8B5CF6] transition-colors">RX 6800 XT — 1440p Settings</h3>
           <p class="text-xs text-[#8B949E]">AMD's value king for 1440p. 120+ FPS with 16 GB VRAM config for endgame mapping.</p>
         </a>
         <!-- Card 9: 0.5.0b Hotfix -->
-        <a href="guides/poe2-0-5-0b-hotfix.html" class="glass-card p-5 group cursor-pointer hover:border-[#8B5CF6]/30" style="border:1px solid rgba(139,92,246,0.1);">
+        <a href="guides/poe2-0-5-0b-hotfix" class="glass-card p-5 group cursor-pointer hover:border-[#8B5CF6]/30" style="border:1px solid rgba(139,92,246,0.1);">
           <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-0.5 rounded-full bg-[#8B5CF6]/10 text-[#8B5CF6]">Patch Analysis</span></div>
           <h3 class="font-bold text-sm mb-1 group-hover:text-[#8B5CF6] transition-colors">0.5.0b Hotfix — Full Analysis</h3>
           <p class="text-xs text-[#8B949E]">Crash fixes, boss VFX preloading, Martial Artist buffs, and what's still broken after 0.5.0b.</p>
@@ -1340,7 +1343,7 @@ max_packet_size=1400</code></pre>
           </p>
         </div>
         <div class="flex flex-col md:flex-row items-start md:items-center gap-3 md:gap-6 text-xs">
-          <a href="guides/poe2-0-5-0-performance-guide.html" class="text-[#8B949E] hover:text-[#10B981] transition-colors" data-i18n="footer-guides">Guides</a>
+          <a href="guides/" class="text-[#8B949E] hover:text-[#10B981] transition-colors" data-i18n="footer-guides">Guides</a>
           <a href="privacy" class="text-[#8B949E] hover:text-[#10B981] transition-colors" data-i18n="footer-privacy">Privacy Policy</a>
           <a href="disclaimer" class="text-[#8B949E] hover:text-[#10B981] transition-colors" data-i18n="footer-disclaimer">Disclaimer</a>
           <a href="about" class="text-[#8B949E] hover:text-[#10B981] transition-colors" data-i18n="footer-about">About</a>
@@ -1831,56 +1834,56 @@ max_packet_size=1400`;
     /* ═════════ GPU SEARCH ═════════ */
 
     const GPU_GUIDES = {
-      'rtx 4090': 'guides/poe2-settings-rtx-4090.html',
-      'rtx 4080': 'guides/poe2-settings-rtx-4080.html',
-      'rtx 4070': 'guides/poe2-settings-rtx-4070.html',
-      'rtx 4060': 'guides/poe2-settings-rtx-4060.html',
-      'rtx 3080': 'guides/poe2-settings-rtx-3080.html',
-      'rtx 3070': 'guides/poe2-settings-rtx-3070.html',
-      'rtx 3060': 'guides/poe2-settings-rtx-3060.html',
-      'rtx 3050': 'guides/poe2-settings-rtx-3050.html',
-      'gtx 1660': 'guides/poe2-settings-gtx-1660.html',
-      'gtx 1060': 'guides/poe2-settings-gtx-1060.html',
-      'rx 7900 xtx': 'guides/poe2-settings-rx-7900xtx.html',
-      'rx 7800 xt': 'guides/poe2-settings-rx-7800xt.html',
-      'rx 7600': 'guides/poe2-settings-rx-7600.html',
-      'rx 6800 xt': 'guides/poe2-settings-rx-6800-xt.html',
-      'rx 6800': 'guides/poe2-settings-rx-6800-xt.html',
-      'steam deck': 'guides/poe2-steam-deck-settings.html',
-      'rog ally': 'guides/poe2-steam-deck-settings.html',
-      'ally': 'guides/poe2-steam-deck-settings.html',
-      'vulkan': 'guides/poe2-dx12-vs-vulkan.html',
-      'dx12': 'guides/poe2-dx12-vs-vulkan.html',
-      'directx': 'guides/poe2-dx12-vs-vulkan.html',
-      'stutter': 'guides/poe2-0-5-0-stuttering-fix.html',
-      'stuttering': 'guides/poe2-0-5-0-stuttering-fix.html',
-      'fix': 'guides/poe2-0-5-0-stuttering-fix.html',
-      'lag': 'guides/poe2-0-5-0-stuttering-fix.html',
-      'fps drop': 'guides/poe2-0-5-0-stuttering-fix.html',
-      '0.5.0b': 'guides/poe2-0-5-0b-hotfix.html',
-      'hotfix': 'guides/poe2-0-5-0b-hotfix.html',
-      'patch notes': 'guides/poe2-0-5-0b-hotfix.html',
-      'crashing': 'guides/poe2-crashing-fix.html',
-      'crash': 'guides/poe2-crashing-fix.html',
-      'network': 'guides/poe2-network-settings.html',
-      'town': 'guides/poe2-town-fps-fix.html',
-      'input lag': 'guides/poe2-input-lag-fix.html',
-      'build': 'guides/poe2-beginner-builds.html',
-      'loot filter': 'guides/poe2-loot-filter-guide.html',
-      'cpu': 'guides/poe2-cpu-bottleneck-fix.html',
-      'ram': 'guides/poe2-ram-requirements.html',
-      'ssd': 'guides/poe2-ssd-vs-hdd.html',
-      'driver': 'guides/poe2-driver-settings.html',
-      'control panel': 'guides/poe2-driver-settings.html',
-      'wasd': 'guides/poe2-controls-guide.html',
-      'controller': 'guides/poe2-controls-guide.html',
-      'gsync': 'guides/poe2-gsync-freesync.html',
-      'freesync': 'guides/poe2-gsync-freesync.html',
-      'vrr': 'guides/poe2-gsync-freesync.html',
-      'windows 11': 'guides/poe2-windows-11-optimization.html',
-      'memory integrity': 'guides/poe2-windows-11-optimization.html',
-      'f1': 'guides/poe2-performance-graph-guide.html',
-      'frame time': 'guides/poe2-performance-graph-guide.html',
+      'rtx 4090': 'guides/poe2-settings-rtx-4090',
+      'rtx 4080': 'guides/poe2-settings-rtx-4080',
+      'rtx 4070': 'guides/poe2-settings-rtx-4070',
+      'rtx 4060': 'guides/poe2-settings-rtx-4060',
+      'rtx 3080': 'guides/poe2-settings-rtx-3080',
+      'rtx 3070': 'guides/poe2-settings-rtx-3070',
+      'rtx 3060': 'guides/poe2-settings-rtx-3060',
+      'rtx 3050': 'guides/poe2-settings-rtx-3050',
+      'gtx 1660': 'guides/poe2-settings-gtx-1660',
+      'gtx 1060': 'guides/poe2-settings-gtx-1060',
+      'rx 7900 xtx': 'guides/poe2-settings-rx-7900xtx',
+      'rx 7800 xt': 'guides/poe2-settings-rx-7800xt',
+      'rx 7600': 'guides/poe2-settings-rx-7600',
+      'rx 6800 xt': 'guides/poe2-settings-rx-6800-xt',
+      'rx 6800': 'guides/poe2-settings-rx-6800-xt',
+      'steam deck': 'guides/poe2-steam-deck-settings',
+      'rog ally': 'guides/poe2-steam-deck-settings',
+      'ally': 'guides/poe2-steam-deck-settings',
+      'vulkan': 'guides/poe2-dx12-vs-vulkan',
+      'dx12': 'guides/poe2-dx12-vs-vulkan',
+      'directx': 'guides/poe2-dx12-vs-vulkan',
+      'stutter': 'guides/poe2-0-5-0-stuttering-fix',
+      'stuttering': 'guides/poe2-0-5-0-stuttering-fix',
+      'fix': 'guides/poe2-0-5-0-stuttering-fix',
+      'lag': 'guides/poe2-0-5-0-stuttering-fix',
+      'fps drop': 'guides/poe2-0-5-0-stuttering-fix',
+      '0.5.0b': 'guides/poe2-0-5-0b-hotfix',
+      'hotfix': 'guides/poe2-0-5-0b-hotfix',
+      'patch notes': 'guides/poe2-0-5-0b-hotfix',
+      'crashing': 'guides/poe2-crashing-fix',
+      'crash': 'guides/poe2-crashing-fix',
+      'network': 'guides/poe2-network-settings',
+      'town': 'guides/poe2-town-fps-fix',
+      'input lag': 'guides/poe2-input-lag-fix',
+      'build': 'guides/poe2-beginner-builds',
+      'loot filter': 'guides/poe2-loot-filter-guide',
+      'cpu': 'guides/poe2-cpu-bottleneck-fix',
+      'ram': 'guides/poe2-ram-requirements',
+      'ssd': 'guides/poe2-ssd-vs-hdd',
+      'driver': 'guides/poe2-driver-settings',
+      'control panel': 'guides/poe2-driver-settings',
+      'wasd': 'guides/poe2-controls-guide',
+      'controller': 'guides/poe2-controls-guide',
+      'gsync': 'guides/poe2-gsync-freesync',
+      'freesync': 'guides/poe2-gsync-freesync',
+      'vrr': 'guides/poe2-gsync-freesync',
+      'windows 11': 'guides/poe2-windows-11-optimization',
+      'memory integrity': 'guides/poe2-windows-11-optimization',
+      'f1': 'guides/poe2-performance-graph-guide',
+      'frame time': 'guides/poe2-performance-graph-guide',
     };
 
     window.searchGPU = function() {
@@ -1892,7 +1895,7 @@ max_packet_size=1400`;
           window.location.href = url; return;
         }
       }
-      window.location.href = 'guides/poe2-0-5-0-performance-guide.html';
+      window.location.href = 'guides/poe2-0-5-0-performance-guide';
     };
 
     document.addEventListener('DOMContentLoaded', function() {

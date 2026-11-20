@@ -1,3 +1,7 @@
 # Exclude non-website files
 .claude/
 优化建议.md
+
+# Internal drafts and handoff notes (not part of the public site)
+poe2settings-*.md
+handoff.md
