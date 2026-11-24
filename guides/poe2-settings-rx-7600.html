@@ -85,7 +85,7 @@
         <ul>
           <li><strong>Renderer: Vulkan.</strong> This is non-negotiable for RDNA 3. Our testing shows Vulkan delivers <strong>~18% higher average FPS</strong> and <strong>~25% better 1% lows</strong> compared to DX12 on the RX 7600 at 1080p. RDNA 3's shader compiler is significantly more efficient under Vulkan.</li>
           <li><strong>FSR: Quality.</strong> AMD's FSR upscaler works well in PoE2. At 1080p, FSR Quality renders at 1280x720 and upscales with minimal quality loss. FSR Balanced is an option for extra headroom but introduces minor shimmer on particle effects.</li>
-          <li><strong>Global Illumination: Low.</strong> GI is expensive on all GPUs, and the RX 7600 is no exception. Disabling GI reclaims ~3.5 ms of frame time.</li>
+          <li><strong>Global Illumination: Low.</strong> GI is expensive on all GPUs, and the RX 7600 is no exception. Disabling GI frees up frame time.</li>
           <li><strong>Texture Streaming: High with cache 1024.</strong> The 8 GB VRAM buffer handles <code>streaming_cache_pool_size=1024</code> without issue. Avoid Ultra textures — the 128-bit memory bus becomes a bottleneck at higher resolutions.</li>
           <li><strong>Shadow Quality: Low.</strong> The 128-bit memory bus on the RX 7600 means shadow rendering is bandwidth-constrained. Low shadows significantly reduce memory pressure.</li>
           <li><strong>Lighting Quality: Medium.</strong> RDNA 3 handles medium lighting well. The compute unit layout favors this workload.</li>
@@ -138,6 +138,7 @@ raw_input=true</code></pre>
         <p>For more AMD-specific configs, check our <a href="poe2-settings-rx-6800-xt">RX 6800 XT guide</a>. For a detailed breakdown of why Vulkan outperforms DX12 on RDNA 3, read our <a href="poe2-dx12-vs-vulkan">DX12 vs Vulkan analysis</a>. Also see our <a href="poe2-0-5-0-performance-guide">0.5.0 performance guide</a> for universal optimizations.</p>
 
         <p class="text-sm text-[#8B949E]/60 mt-8">Want a config for a different GPU? <a href="/">Use our generator</a> or check our <a href="poe2-0-5-0-performance-guide">0.5.0 master guide</a>.</p>
+              <p class="text-xs" style="color:var(--text-secondary);opacity:.6;margin-top:2rem;">Performance figures throughout this guide are community-reported estimates, not controlled measurements by this site. Your results will vary with driver version, CPU and content.</p>
       </article>
     </div>
   </main>

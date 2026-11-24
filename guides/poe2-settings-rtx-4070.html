@@ -86,13 +86,13 @@
           <li><strong>Renderer: Vulkan.</strong> Ada Lovelace shows a moderate ~5% advantage with Vulkan over DX12 at 1440p. The gap is narrower than on Ampere due to better DX12 driver optimization, but Vulkan still wins on frame-pacing consistency.</li>
           <li><strong>DLSS 3 Frame Generation: On.</strong> This is the RTX 4070's killer feature. Frame Gen inserts an AI-generated frame between traditionally rendered frames, boosting perceived FPS by ~60-70%. At 1440p with a base of ~80 FPS, Frame Gen pushes you well past 144 FPS. Note: Frame Gen works best when your base FPS is above 60.</li>
           <li><strong>DLSS: Quality.</strong> Use DLSS Quality as the base upscaler, then let Frame Gen handle the interpolation. DLSS Quality at 1440p provides a clean, artifact-free image.</li>
-          <li><strong>Nvidia Reflex: On + Boost.</strong> Frame Gen adds latency if Reflex isn't active. Reflex synchronizes the CPU and GPU, keeping system latency under 25 ms even with generated frames.</li>
-          <li><strong>Texture Streaming Cache: 1536.</strong> With 12 GB VRAM, the 4070 comfortably handles a 1536 MB cache pool. This eliminates texture pop-in during breach encounters.</li>
+          <li><strong>Nvidia Reflex: On + Boost.</strong> Frame Gen adds latency if Reflex isn't active. Reflex synchronizes the CPU and GPU, keeping system latency low even with generated frames.</li>
+          <li><strong>Texture Streaming Cache: 1536.</strong> With 12 GB VRAM, the 4070 comfortably handles a 1536 MB cache pool. This can reduce texture pop-in during breach encounters.</li>
           <li><strong>Global Illumination: Medium.</strong> Thanks to Ada Lovelace's improved shader throughput, you can bump GI to Medium without dropping below your 144 FPS target. This noticeably improves ambient lighting quality.</li>
         </ul>
 
         <h2>Recommended production_Config.ini</h2>
-        <p>Tested values for the RTX 4070 at 1440p with DLSS 3. Paste into <code>Documents/My Games/Path of Exile 2/production_Config.ini</code>:</p>
+        <p>Recommended values for the RTX 4070 at 1440p with DLSS 3. Paste into <code>Documents/My Games/Path of Exile 2/production_Config.ini</code>:</p>
 
         <pre><code>[DISPLAY]
 fullscreen=true
@@ -138,6 +138,7 @@ raw_input=true</code></pre>
         <p>If you own a 40-series sibling, check our <a href="poe2-settings-rtx-4060">RTX 4060 guide</a> or the <a href="poe2-settings-rtx-4080">RTX 4080 4K guide</a>. For a comparison of upscaling technologies, read our <a href="poe2-dx12-vs-vulkan">DX12 vs Vulkan analysis</a>.</p>
 
         <p class="text-sm text-[#8B949E]/60 mt-8">Want a config for a different GPU? <a href="/">Use our generator</a> or check our <a href="poe2-0-5-0-performance-guide">0.5.0 master guide</a>.</p>
+              <p class="text-xs" style="color:var(--text-secondary);opacity:.6;margin-top:2rem;">Performance figures throughout this guide are community-reported estimates, not controlled measurements by this site. Your results will vary with driver version, CPU and content.</p>
       </article>
     </div>
   </main>

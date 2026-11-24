@@ -47,7 +47,7 @@
           <li>Open <code>regedit</code> → navigate to <code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile</code></li>
           <li>Find <code>NetworkThrottlingIndex</code> → set to <code>ffffffff</code> (hexadecimal, = decimal 4294967295)</li>
           <li>Create it as a DWORD (32-bit) if it doesn't exist: New → DWORD → name <code>NetworkThrottlingIndex</code> → Value <code>ffffffff</code> → Base → Hexadecimal</li>
-          <li><strong>Restart your PC.</strong> This completely disables Windows' network throttling for PoE2's traffic.</li>
+          <li><strong>Restart your PC.</strong> This disables Windows' network throttling for PoE2's traffic.</li>
         </ul>
         <h2>4. Game Mode → ON + GPU Scheduling</h2>
         <p>Settings → Gaming → Game Mode → <strong>ON</strong>. Then Settings → System → Display → Graphics → Change default graphics settings → <strong>Hardware-accelerated GPU scheduling → ON</strong>. HAGS reduces CPU overhead on the WDDM graphics driver scheduler. Combined with Game Mode, this gives PoE2 priority access to GPU resources.</p>

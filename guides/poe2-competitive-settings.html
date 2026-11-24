@@ -87,7 +87,7 @@
           <li><strong>Bloom: OFF.</strong> Bloom is the single worst offender for competitive visibility. It washes out contrast, obscures ground effects, and creates lens-flare artifacts around light sources. Turn it off immediately. The game looks flatter but you will see every volatile crystal and burning ground indicator clearly.</li>
           <li><strong>Post-Processing: OFF.</strong> Disables all screen-space effects including chromatic aberration, vignette, and film grain. These effects add zero gameplay information and reduce contrast perception. Turn them off.</li>
           <li><strong>Shadow Quality: Low.</strong> Low shadows provide the clearest distinction between walkable and obstructed terrain. High shadows create confusing occlusion patterns that can hide corpse explosions or ground degens in cluttered maps.</li>
-          <li><strong>Global Illumination: Off.</strong> GI is a frame-time hog (4-5ms) and adds ambient occlusion-like shading that makes it harder to read monster positions in dark zones. Disable it entirely.</li>
+          <li><strong>Global Illumination: Off.</strong> GI is a major frame-time cost and adds ambient occlusion-like shading that makes it harder to read monster positions in dark zones. Disable it entirely.</li>
           <li><strong>Reflections: Off.</strong> Screen-space reflections introduce noise and occasional frame-time spikes. They provide zero competitive benefit.</li>
           <li><strong>Lighting Quality: Low.</strong> Reduces the number of dynamic light sources and their draw distance. In combat, only the closest lights matter for gameplay readability.</li>
         </ul>
@@ -97,7 +97,7 @@
           <li><strong>Renderer: Vulkan.</strong> Vulkan offers lower driver overhead and more consistent frame-pacing than DX12 on both Nvidia and AMD hardware. For competitive play, consistent frame-pacing is more important than a higher average FPS.</li>
           <li><strong>Raw Input: ON.</strong> Bypasses Windows mouse acceleration and cursor positioning. Critical for muscle-memory consistency. Enable in Settings > Input > Raw Input.</li>
           <li><strong>Mouse Polling Rate: 1000 Hz.</strong> Set your mouse to 1000 Hz polling in its configuration software. Set <code>mouse_polling_rate=1000</code> in production_Config.ini.</li>
-          <li><strong>FPS Limit: 143.</strong> Capping 1 FPS below your monitor's refresh rate eliminates frame-buffer induced input lag while keeping G-Sync or FreeSync in the variable refresh rate window.</li>
+          <li><strong>FPS Limit: 143.</strong> Capping 1 FPS below your monitor's refresh rate reduces frame-buffer induced input lag while keeping G-Sync or FreeSync in the variable refresh rate window.</li>
           <li><strong>VSync: OFF.</strong> VSync adds at minimum 1 frame of input latency. Disable it. If you experience screen tearing at 143 FPS, enable G-Sync/FreeSync instead.</li>
         </ul>
 

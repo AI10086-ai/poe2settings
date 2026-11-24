@@ -87,9 +87,9 @@
           <li><strong>Render Scaling: 75%.</strong> This is the most impactful setting for the 3050. At 75% scaling the internal resolution drops to 1440x810 before upscaling to 1080p. The visual quality loss is moderate but FPS nearly doubles. Keep <code>dynamic_resolution=false</code> to maintain consistent quality.</li>
           <li><strong>Streaming Cache Pool: 768.</strong> For the 6 GB variant especially, 768 MB is the safe ceiling. The 8 GB variant can stretch to 1024, but 768 ensures headroom for texture streaming without triggering VRAM spills into system memory.</li>
           <li><strong>Global Illumination: Disabled (Low).</strong> GI is the most expensive render pass. Disabling it entirely is essential on the 3050. The visual loss at 1080p with 75% scaling is barely noticeable.</li>
-          <li><strong>Shadow Quality: Low.</strong> Minimum shadow setting. Saves ~2 ms frame time.</li>
+          <li><strong>Shadow Quality: Low.</strong> Minimum shadow setting. Frees up frame time.</li>
           <li><strong>Post Processing: Disabled.</strong> Turn off bloom, SSAO, and screen-space reflections. These effects consume disproportionate GPU time on low-end hardware.</li>
-          <li><strong>Nvidia Reflex: On.</strong> Even at 60 FPS, Reflex reduces input latency by ~10 ms. Use "On" rather than "On + Boost" to save a few watts on the power-limited 3050.</li>
+          <li><strong>Nvidia Reflex: On.</strong> Even at 60 FPS, Reflex can reduce input latency (community-reported). Use "On" rather than "On + Boost" to save a few watts on the power-limited 3050.</li>
         </ul>
 
         <h2>Recommended production_Config.ini</h2>
@@ -138,6 +138,7 @@ raw_input=true</code></pre>
         <p>If you find the 3050 still struggles, consider lowering to <a href="/">our config generator's</a> "Low Power" preset. For a similar budget option, check our <a href="poe2-settings-gtx-1060">GTX 1060 guide</a>. Also read our <a href="poe2-0-5-0-performance-guide">0.5.0 performance guide</a> for universal optimizations.</p>
 
         <p class="text-sm text-[#8B949E]/60 mt-8">Want a config for a different GPU? <a href="/">Use our generator</a> or check our <a href="poe2-0-5-0-performance-guide">0.5.0 master guide</a>.</p>
+              <p class="text-xs" style="color:var(--text-secondary);opacity:.6;margin-top:2rem;">Performance figures throughout this guide are community-reported estimates, not controlled measurements by this site. Your results will vary with driver version, CPU and content.</p>
       </article>
     </div>
   </main>

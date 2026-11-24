@@ -144,10 +144,10 @@
         <p>DX12 is only recommended if you encounter specific driver-level crashes with Vulkan — a rare edge case on older Nvidia driver branches (546.x and earlier).</p>
 
         <h3>Global Illumination Quality</h3>
-        <p>Still the single most expensive render pass. PoE2's SDF-based GI system is beautiful in the new Return of the Ancients zones, but it consumes 4-5ms of frame time at Ultra. <strong>Set it to Low for mapping.</strong> The visual difference during gameplay is negligible — GI is most noticeable in hideouts and cutscenes.</p>
+        <p>Still the single most expensive render pass. PoE2's SDF-based GI system is beautiful in the new Return of the Ancients zones, and it is the heaviest render pass at Ultra. <strong>Set it to Low for mapping.</strong> The visual difference during gameplay is negligible — GI is most noticeable in hideouts and cutscenes.</p>
 
         <h3>Shadow Quality</h3>
-        <p><strong>Low.</strong> Shadows in PoE2 use cascaded shadow maps with contact-hardening. At Low, the cascade distance is reduced but the perceptual difference in fast-paced gameplay is near zero. You reclaim ~2ms of frame time.</p>
+        <p><strong>Low.</strong> Shadows in PoE2 use cascaded shadow maps with contact-hardening. At Low, the cascade distance is reduced but the perceptual difference in fast-paced gameplay is near zero. You free up meaningful frame time.</p>
 
         <h3>Texture Streaming</h3>
         <p><strong>High.</strong> Keep this at High. 0.5.0 improved the streaming scheduler's priority logic, so texture pop-in is less aggressive than in 0.4.x. However, the underlying VRAM budget still matters — which brings us to the config file.</p>
@@ -210,7 +210,7 @@ raw_input=true</code></pre>
           <li><strong>Set <code>streaming_cache_pool_size</code> to 512</strong> — The 0.5.0 texture streaming improvements help, but 6 GB cards still need a tighter budget to avoid VRAM spills into system memory.</li>
           <li><strong>Disable <code>engine_multithreading</code></strong> — Low-core CPUs see a net regression from thread sync overhead. Benchmark with it off.</li>
           <li><strong>Force <code>renderer_type</code> to Vulkan</strong> — On low-end AMD cards (RX 500 series), Vulkan yields ~22% better 1% lows compared to DX12 in our tests.</li>
-          <li><strong>Set <code>reflections</code> to off</strong> — SSR at low resolutions looks noisy anyway. Disabling it entirely recovers ~1.5ms of frame time.</li>
+          <li><strong>Set <code>reflections</code> to off</strong> — SSR at low resolutions looks noisy anyway. Disabling it entirely frees up frame time.</li>
           <li><strong>Reduce <code>max_concurrent_voices</code> to 64</strong> — Extreme, but effective. You will lose some ambient audio layering; combat cues remain intact.</li>
           <li><strong>Target 60 FPS, not 144</strong> — Set <code>fps_limit=60</code> and use the GPU headroom to maintain consistent frame-pacing. Variable frame rates feel worse than a locked 60.</li>
         </ul>
@@ -258,7 +258,7 @@ raw_input=true</code></pre>
           <li><strong><a href="poe2-settings-gtx-1060">GTX 1060 Settings Guide</a></strong> — Low-end still viable</li>
           <li><strong><a href="poe2-steam-deck-settings">Steam Deck & ROG Ally Guide</a></strong> — Handheld 60 FPS</li>
           <li><strong><a href="poe2-dx12-vs-vulkan">DX12 vs Vulkan Benchmark</a></strong> — Which API to pick?</li>
-          <li><strong><a href="poe2-0-5-0-stuttering-fix">0.5.0 Launch Day Hotfixes</a></strong> — 10 proven stutter fixes</li>
+          <li><strong><a href="poe2-0-5-0-stuttering-fix">0.5.0 Launch Day Hotfixes</a></strong> — 10 community-tested stutter fixes</li>
           <li><strong><a href="poe2-0-5-0b-hotfix">0.5.0b Patch Analysis</a></strong> — Crash fixes, buffs, known issues</li>
         </ul>
 

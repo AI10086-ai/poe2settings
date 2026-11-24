@@ -80,12 +80,12 @@
         <h2>RX 6800 XT Settings for 1440p</h2>
         <ul>
           <li><strong>Renderer: Vulkan.</strong> AMD's Vulkan driver is excellent on RDNA 2. Our testing shows <strong>~18% higher 1% lows</strong> vs DX12 on the 6800 XT. There is no reason to use DX12 on this GPU for PoE2.</li>
-          <li><strong>Global Illumination: Low</strong> (competitive) or <strong>Medium</strong> (balanced). At 1440p, Low reclaims ~3ms frame time. Medium is visually superior and the 6800 XT's 16 GB VRAM handles the extra SDF tracing workload without dipping below 100 FPS.</li>
-          <li><strong>Shadow Quality: Medium.</strong> At 1440p, contact-hardening shadows are noticeable and Medium is a good compromise — only ~0.8ms more expensive than Low.</li>
-          <li><strong>Reflections: SSR Low.</strong> The 6800 XT can afford it. SSR at 1440p looks sharp and costs ~1ms.</li>
-          <li><strong>Texture Streaming: High</strong> with <code>streaming_cache_pool_size=1536</code>. With 16 GB VRAM, you can allocate a generous cache pool. This eliminates texture pop-in during zone transitions entirely.</li>
+          <li><strong>Global Illumination: Low</strong> (competitive) or <strong>Medium</strong> (balanced). At 1440p, Low frees up frame time. Medium is visually superior and the 6800 XT's 16 GB VRAM handles the extra SDF tracing workload without dipping below 100 FPS.</li>
+          <li><strong>Shadow Quality: Medium.</strong> At 1440p, contact-hardening shadows are noticeable and Medium is a good compromise — only slightly more expensive than Low.</li>
+          <li><strong>Reflections: SSR Low.</strong> The 6800 XT can afford it. SSR at 1440p looks sharp and has a modest frame-time cost.</li>
+          <li><strong>Texture Streaming: High</strong> with <code>streaming_cache_pool_size=1536</code>. With 16 GB VRAM, you can allocate a generous cache pool. This can reduce texture pop-in during zone transitions entirely.</li>
           <li><strong>FSR 1: Quality</strong> at 1440p, or <strong>native 100%</strong> if you prefer no upscaling. The 6800 XT is powerful enough to run native 1440p at 100+ FPS in most content.</li>
-          <li><strong>Anti-Lag: On.</strong> AMD's equivalent of Nvidia Reflex. Enable in Adrenalin driver settings. Reduces system latency by ~12ms at 1440p.</li>
+          <li><strong>Anti-Lag: On.</strong> AMD's equivalent of Nvidia Reflex. Enable in Adrenalin driver settings. Can reduce system latency (community-reported; varies by hardware).</li>
           <li><strong>FPS Limit: 120</strong> (balanced) or <strong>143</strong> (competitive). The 6800 XT can approach 144 FPS in campaign content but will hover around 100–120 in juiced maps.</li>
         </ul>
 
@@ -131,6 +131,7 @@ raw_input=true</code></pre>
         <p>The RX 6800 XT's 16 GB VRAM buffer makes it one of the few GPUs that runs PoE2 end-game content without any texture streaming compromises. If you are on AM4 with a Ryzen 7 5800X3D or comparable CPU, this GPU delivers <strong>flagship-tier PoE2 performance at mid-range cost</strong>.</p>
 
         <p class="text-sm text-[#8B949E]/60 mt-8">Need settings for a different AMD GPU? <a href="/">Use our generator</a> — select AMD and your resolution.</p>
+              <p class="text-xs" style="color:var(--text-secondary);opacity:.6;margin-top:2rem;">Performance figures throughout this guide are community-reported estimates, not controlled measurements by this site. Your results will vary with driver version, CPU and content.</p>
       </article>
     </div>
   </main>

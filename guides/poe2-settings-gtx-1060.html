@@ -84,7 +84,7 @@
         <ul>
           <li><strong>Renderer: Vulkan.</strong> The 1060's Pascal architecture sees <strong>~22% better 1% lows</strong> on Vulkan vs DX12 at 1080p. DX12's higher driver overhead causes frame-time spikes on Pascal-era GPUs.</li>
           <li><strong>Global Illumination: Off.</strong> Non-negotiable. The SDF tracing pass destroys frame rates on the 1060.</li>
-          <li><strong>Reflections: Off.</strong> Screen-space reflections at 1080p look noisy and cost ~1.5ms frame time. Disable entirely.</li>
+          <li><strong>Reflections: Off.</strong> Screen-space reflections at 1080p look noisy and cost noticeable frame time. Disable entirely.</li>
           <li><strong>Shadows: Low.</strong> The minimum viable setting. Shadows at Medium cause visible stutter when rotating the camera.</li>
           <li><strong>Texture Streaming: High</strong> but with <code>streaming_cache_pool_size=512</code> — this is the single most critical tweak. The default 2048 MB cache pool exceeds the 1060's VRAM budget.</li>
           <li><strong>Render Scaling: 75%.</strong> Internal resolution ~810p. FSR 1 upscaling is basic but effective at preserving frame rate.</li>
@@ -133,6 +133,7 @@ raw_input=true</code></pre>
         </ul>
         <p><strong>Bottom line:</strong> The GTX 1060 is still viable for PoE2 in 0.5.0, but you will sacrifice visual quality. If you are willing to play at 720p with 75% scaling (internal ~540p), you can lock 60 FPS in nearly all content. Use our <a href="/">Config Generator</a> to experiment with the Steam Deck preset for the most aggressive settings.</p>
 
+              <p class="text-xs" style="color:var(--text-secondary);opacity:.6;margin-top:2rem;">Performance figures throughout this guide are community-reported estimates, not controlled measurements by this site. Your results will vary with driver version, CPU and content.</p>
       </article>
     </div>
   </main>

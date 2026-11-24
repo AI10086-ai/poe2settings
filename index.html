@@ -19,9 +19,9 @@
     "name": "How to Optimize Path of Exile 2 Settings for Maximum FPS",
     "description": "Step-by-step guide to configure PoE2 graphics, input lag fixes, and system tweaks for smooth end-game performance.",
     "step": [
-      { "@type": "HowToStep", "position": 1, "name": "Set Global Illumination to Low", "text": "Reduce the most expensive render pass — SDF-based GI — to reclaim 3-4ms of frame time." },
+      { "@type": "HowToStep", "position": 1, "name": "Set Global Illumination to Low", "text": "Reduce the most expensive render pass — SDF-based GI — to free up meaningful frame budget." },
       { "@type": "HowToStep", "position": 2, "name": "Configure Texture Streaming", "text": "Set to High and reduce StreamingCachePoolSize to 1024 to eliminate micro-stutter." },
-      { "@type": "HowToStep", "position": 3, "name": "Enable Nvidia Reflex", "text": "Turn on Low Latency Mode for up to 18ms system latency reduction." },
+      { "@type": "HowToStep", "position": 3, "name": "Enable Nvidia Reflex", "text": "Turn on Low Latency Mode to reduce system latency; gains vary by hardware and scene." },
       { "@type": "HowToStep", "position": 4, "name": "Tweak Windows 11 Settings", "text": "Enable Game Mode, HAGS, and High Performance power plan for maximum throughput." }
     ]
   }
@@ -594,9 +594,9 @@
           <p class="text-sm text-[#8B949E] leading-relaxed" data-i18n="gi-desc">
             PoE2 uses a real-time SDF-based global illumination system that dynamically bounces light off geometry.
             While visually stunning — especially in the Vaal-themed biomes and Zarokh's citadel — it is the single
-            most expensive render pass in the engine. At "Ultra" setting, GI alone can consume 4-5ms of frame time
-            in densely occluded indoor zones. <strong class="text-white">Set Global Illumination to Low</strong> for
-            mapping and bossing. The perceptual difference is minimal during gameplay, but you reclaim 3-4ms of
+            most expensive render pass in the engine. At "Ultra" setting in densely occluded indoor zones, it is the first
+            setting worth lowering. <strong class="text-white">Set Global Illumination to Low</strong> for
+            mapping and bossing. The perceptual difference is minimal during gameplay, but you free up meaningful
             frame budget. If you must keep it on, use "Medium" — dynamic cubemap fallback kicks in during
             high-density combat scenarios, reducing the SDF tracing resolution automatically. Avoid "Ultra" entirely
             for competitive play; it is designed for screenshot-mode and hideout showcase.
@@ -616,7 +616,7 @@
             <strong class="text-white">High</strong>, then manually reduce the <code class="text-[#10B981]">StreamingCachePoolSize</code>
             in <code class="text-[#10B981]">production_Config.ini</code> from the default 2048 to 1024. This caps the VRAM
             budget so the GPU doesn't thrash, while still keeping the most critical mip levels in cache. For party
-            play with 6 players all spamming MTX skills, drop it to 768. This completely eliminates the
+            play with 6 players all spamming MTX skills, drop it to 768. This can help reduce the
             "teleport-and-freeze" problem in the Simulacrum and Breach domains.
           </p>
         </div>
@@ -664,7 +664,7 @@
           </li>
           <li class="flex items-start gap-3">
             <span class="text-[#10B981] mt-1">▸</span>
-            <span data-i18n="tip-3"><strong class="text-white">Enable Nvidia Reflex Low Latency</strong> (if available) — This synchronizes the CPU and GPU render queues, reducing system latency by up to 38% in GPU-bound scenarios. Set to "On + Boost" for the lowest frame-time variance.</span>
+            <span data-i18n="tip-3"><strong class="text-white">Enable Nvidia Reflex Low Latency</strong> (if available) — This synchronizes the CPU and GPU render queues, reducing system latency in GPU-bound scenarios (community-reported gains vary widely by hardware and scene). Set to "On + Boost" for the lowest frame-time variance.</span>
           </li>
           <li class="flex items-start gap-3">
             <span class="text-[#10B981] mt-1">▸</span>
@@ -831,7 +831,7 @@
         <h2 class="text-3xl md:text-4xl font-bold mt-3 text-glow" data-i18n="h2-sound">Sound Settings for CPU Headroom</h2>
         <p class="text-[#8B949E] mt-3 text-lg" data-i18n="desc-sound">
           PoE2's audio engine processes hundreds of simultaneous sound sources — each monster ability, aura pulse,
-          and impact sound competes for CPU cycles. Strategic audio tuning can reclaim <strong class="text-white">5-8% CPU throughput</strong>
+          and impact sound competes for CPU cycles. Strategic audio tuning can free up CPU headroom
           in densely packed breaches and legion encounters.
         </p>
       </div>
@@ -864,11 +864,11 @@
     <div class="max-w-7xl mx-auto">
       <div class="max-w-3xl mb-14">
         <span class="text-[#10B981] text-sm font-semibold tracking-widest uppercase" data-i18n="section-builds-label">06 — Build Database</span>
-        <h2 class="text-3xl md:text-4xl font-bold mt-3 text-glow" data-i18n="h2-builds">Path of Exile 2 Starter Builds (0.5.5)</h2>
+        <h2 class="text-3xl md:text-4xl font-bold mt-3 text-glow" data-i18n="h2-builds">Path of Exile 2 Starter Builds (0.5.5f)</h2>
         <p class="text-[#8B949E] mt-3 text-lg" data-i18n="desc-builds">
           Every league start demands a build that can reach maps without expensive gear, scale into
           <strong class="text-white">end-game</strong> bossing, and handle league mechanics efficiently.
-          These six starter builds are <strong class="text-white">min-maxing</strong> tested on the 0.5.0 passive tree and remain our recommended league starters for 0.5.5, ranked by gear dependency, single-target throughput, and clear speed.
+          These six starter builds were <strong class="text-white">min-maxing</strong> tested on the 0.5.x passive tree and remain our recommended league starters for 0.5.5f, ranked by gear dependency, single-target throughput, and clear speed.
         </p>
       </div>
 
@@ -1008,8 +1008,10 @@
             select the PoE2 process — commonly <code class="text-[#10B981]">PathOfExile_KG.exe</code> (confirm the exact name in Task Manager). Set <strong class="text-white">Low Latency Mode</strong> to
             "Ultra". If your GPU supports Reflex (RTX 2000+ series), enable <strong class="text-white">Reflex Low Latency</strong>
             in the in-game options. This couples the CPU and GPU frame-pacing, reducing the render queue depth
-            from 2-3 frames to 1. Measured improvement: an average of <strong class="text-white">18ms</strong> system-latency
-            reduction at 1440p on an RTX 4070.
+            from 2-3 frames to 1. Community reports commonly show a noticeable system-latency
+            reduction with Reflex + Low Latency Mode enabled, especially at 1440p on RTX 40-series cards.
+            The exact amount varies by hardware and scene, and this site has not run a controlled benchmark
+            to confirm a specific figure.
           </p>
         </div>
 
@@ -1411,9 +1413,9 @@ ability_sfx_volume=70</code></pre>
       'h2-settings':        { en: 'Best Video Settings for End-game Stability', zh: '后期稳定性的最佳画面设置' },
       'desc-settings':      { en: 'End-game mapping in PoE2 places extreme pressure on both GPU and CPU. The wrong setting combination causes <strong class="text-white">stuttering</strong>, frame-time spikes, and sub-60 FPS dips in delirious T16 maps with max-pack-size scarabs. These recommendations are validated on patch 0.5.5f and target smooth, consistent frame-pacing rather than peak FPS.', zh: 'PoE2 的后期刷图对 GPU 和 CPU 都造成极大压力。错误设置的组合会导致<strong class="text-white">卡顿</strong>、帧时间尖刺以及在满包大小的堕落 T16 地图中掉到 60 FPS 以下。以下建议已在 0.5.5f 版本验证，目标是流畅一致的帧节奏，而非峰值 FPS。' },
       'gi-title':           { en: 'Global Illumination', zh: '全局光照 (GI)' },
-      'gi-desc':            { en: "PoE2 uses a real-time SDF-based global illumination system that dynamically bounces light off geometry. While visually stunning — especially in the Vaal-themed biomes and Zarokh's citadel — it is the single most expensive render pass in the engine. At \"Ultra\" setting, GI alone can consume 4-5ms of frame time in densely occluded indoor zones. <strong class=\"text-white\">Set Global Illumination to Low</strong> for mapping and bossing. The perceptual difference is minimal during gameplay, but you reclaim 3-4ms of frame budget. If you must keep it on, use \"Medium\" — dynamic cubemap fallback kicks in during high-density combat scenarios, reducing the SDF tracing resolution automatically. Avoid \"Ultra\" entirely for competitive play; it is designed for screenshot-mode and hideout showcase.", zh: 'PoE2 使用基于 SDF（有符号距离场）的实时全局光照系统，动态地将光线从几何体上反弹。虽然视觉效果令人惊叹——尤其是在 Vaal 主题生物群落和 Zarokh 的要塞中——但它是引擎中最昂贵的渲染通道。在"极致"设置下，仅 GI 一项就能在密集的室内区域消耗 4-5ms 的帧时间。<strong class="text-white">将全局光照设为"低"</strong>来刷图和打 Boss。游戏过程中视觉差异很小，但你能收回 3-4ms 的帧预算。如果一定要开启，使用"中"——在高密度战斗场景中会自动切换到动态立方体贴图回退，降低 SDF 追踪分辨率。竞技玩法请完全避免"极致"；它是为截屏模式和藏身处展示设计的。' },
+      'gi-desc':            { en: "PoE2 uses a real-time SDF-based global illumination system that dynamically bounces light off geometry. While visually stunning — especially in the Vaal-themed biomes and Zarokh's citadel — it is the single most expensive render pass in the engine. At \"Ultra\" setting in densely occluded indoor zones, it is the first setting worth lowering. <strong class=\"text-white\">Set Global Illumination to Low</strong> for mapping and bossing. The perceptual difference is minimal during gameplay, but you free up meaningful frame budget. If you must keep it on, use \"Medium\" — dynamic cubemap fallback kicks in during high-density combat scenarios, reducing the SDF tracing resolution automatically. Avoid \"Ultra\" entirely for competitive play; it is designed for screenshot-mode and hideout showcase.", zh: 'PoE2 使用基于 SDF（有符号距离场）的实时全局光照系统，动态地将光线从几何体上反弹。虽然视觉效果令人惊叹——尤其是在 Vaal 主题生物群落和 Zarokh 的要塞中——但它是引擎中最昂贵的渲染通道。在"极致"设置下，在密集室内区域的"极致"设置下，它是最先值得下调的选项。<strong class="text-white">将全局光照设为"低"</strong>来刷图和打 Boss。游戏过程中视觉差异很小，但能释放可观的帧预算。如果一定要开启，使用"中"——在高密度战斗场景中会自动切换到动态立方体贴图回退，降低 SDF 追踪分辨率。竞技玩法请完全避免"极致"；它是为截屏模式和藏身处展示设计的。' },
       'ts-title':           { en: 'Texture Streaming', zh: '纹理串流' },
-      'ts-desc':            { en: "PoE2's texture streaming system loads asset mipmaps on-demand as you move through zones. When the streaming budget is too constrained, the engine hits a synchronous load — and your frame-time graph spikes into the red. This manifests as a hard <strong class=\"text-white\">micro-stutter</strong> when entering a new area or spawning a legion-like pack. The fix: set Texture Streaming to <strong class=\"text-white\">High</strong>, then manually reduce the <code class=\"text-[#10B981]\">StreamingCachePoolSize</code> in <code class=\"text-[#10B981]\">production_Config.ini</code> from the default 2048 to 1024. This caps the VRAM budget so the GPU doesn't thrash, while still keeping the most critical mip levels in cache. For party play with 6 players all spamming MTX skills, drop it to 768. This completely eliminates the \"teleport-and-freeze\" problem in the Simulacrum and Breach domains.", zh: 'PoE2 的纹理串流系统会在你移动经过区域时按需加载资源 mipmap。当串流预算过于紧张时，引擎会遇到同步加载——你的帧时间图会飙红。这表现为进入新区域或生成军团式怪物群时的严重<strong class="text-white">微卡顿</strong>。解决方法：将纹理串流设为<strong class="text-white">高</strong>，然后手动将 <code class="text-[#10B981]">production_Config.ini</code> 中的 <code class="text-[#10B981]">StreamingCachePoolSize</code> 从默认的 2048 降低到 1024。这限制了 VRAM 预算，防止 GPU 过度交换，同时将最关键级别的 mip 保留在缓存中。6 人组队全员狂刷 MTX 技能时，降至 768。这能彻底消除 Simulacrum 和 Breach 领域中的"传送即卡死"问题。' },
+      'ts-desc':            { en: "PoE2's texture streaming system loads asset mipmaps on-demand as you move through zones. When the streaming budget is too constrained, the engine hits a synchronous load — and your frame-time graph spikes into the red. This manifests as a hard <strong class=\"text-white\">micro-stutter</strong> when entering a new area or spawning a legion-like pack. The fix: set Texture Streaming to <strong class=\"text-white\">High</strong>, then manually reduce the <code class=\"text-[#10B981]\">StreamingCachePoolSize</code> in <code class=\"text-[#10B981]\">production_Config.ini</code> from the default 2048 to 1024. This caps the VRAM budget so the GPU doesn't thrash, while still keeping the most critical mip levels in cache. For party play with 6 players all spamming MTX skills, drop it to 768. This can help reduce the \"teleport-and-freeze\" problem in the Simulacrum and Breach domains.", zh: 'PoE2 的纹理串流系统会在你移动经过区域时按需加载资源 mipmap。当串流预算过于紧张时，引擎会遇到同步加载——你的帧时间图会飙红。这表现为进入新区域或生成军团式怪物群时的严重<strong class="text-white">微卡顿</strong>。解决方法：将纹理串流设为<strong class="text-white">高</strong>，然后手动将 <code class="text-[#10B981]">production_Config.ini</code> 中的 <code class="text-[#10B981]">StreamingCachePoolSize</code> 从默认的 2048 降低到 1024。这限制了 VRAM 预算，防止 GPU 过度交换，同时将最关键级别的 mip 保留在缓存中。6 人组队全员狂刷 MTX 技能时，降至 768。这能彻底消除 Simulacrum 和 Breach 领域中的"传送即卡死"问题。' },
 
       /* ── Table ── */
       'table-heading':      { en: 'Recommended Settings Table', zh: '推荐设置对照表' },
@@ -1434,7 +1436,7 @@ ability_sfx_volume=70</code></pre>
       'fps-tips-heading':   { en: 'Additional FPS Optimization Tips', zh: '额外 FPS 优化技巧' },
       'tip-1':              { en: '<strong class="text-white">Disable Dynamic Resolution</strong> — It drops your render target in combat, which causes noticeable blur and unstable frame-pacing. Set a fixed render scale instead (75% for competitive, 100% for balanced).', zh: '<strong class="text-white">关闭动态分辨率</strong>——它会在战斗中降低渲染目标，导致明显模糊和不稳定的帧节奏。改为设置固定的渲染缩放比例（竞技用 75%，均衡用 100%）。' },
       'tip-2':              { en: "<strong class=\"text-white\">Limit your FPS to your monitor's refresh rate</strong> — Running uncapped causes the GPU to buffer frames, increasing input latency. Use RTSS or the in-game limiter set to 1 FPS below your refresh rate (e.g., 143 for 144 Hz).", zh: '<strong class="text-white">将 FPS 限制在显示器刷新率</strong>——无上限运行会导致 GPU 缓冲帧，增加输入延迟。使用 RTSS 或游戏内限制器设置为低于刷新率 1 FPS（例如 144 Hz 设为 143）。' },
-      'tip-3':              { en: '<strong class="text-white">Enable Nvidia Reflex Low Latency</strong> (if available) — This synchronizes the CPU and GPU render queues, reducing system latency by up to 38% in GPU-bound scenarios. Set to "On + Boost" for the lowest frame-time variance.', zh: '<strong class="text-white">开启 Nvidia Reflex 低延迟模式</strong>（如可用）——同步 CPU 和 GPU 渲染队列，在 GPU 瓶颈场景中将系统延迟降低最多 38%。设为"开 + 增强"以获得最低帧时间方差。' },
+      'tip-3':              { en: '<strong class="text-white">Enable Nvidia Reflex Low Latency</strong> (if available) — This synchronizes the CPU and GPU render queues, reducing system latency in GPU-bound scenarios (community-reported gains vary widely by hardware and scene). Set to "On + Boost" for the lowest frame-time variance.', zh: '<strong class="text-white">开启 Nvidia Reflex 低延迟模式</strong>（如可用）——同步 CPU 和 GPU 渲染队列，在 GPU 瓶颈场景中降低系统延迟（社区反馈的幅度因硬件和场景差异很大）。设为"开 + 增强"以获得最低帧时间方差。' },
       'tip-4':              { en: '<strong class="text-white">Turn off Engine Multithreading for low-core CPUs</strong> — On 6-core or fewer processors, the overhead from thread synchronization can negate the benefit. Test with it on and off; keep whichever yields higher 1% lows.', zh: '<strong class="text-white">低核心 CPU 关闭引擎多线程</strong>——在 6 核心或更少的处理器上，线程同步的开销可能抵消收益。分别在开启和关闭状态下测试，保留 1% Low 帧数更高的设置。' },
 
       /* ── Benchmark ── */
@@ -1489,7 +1491,7 @@ ability_sfx_volume=70</code></pre>
       /* ── Sound Settings ── */
       'section-sound-label': { en: '05 — Sound Settings', zh: '05 — 声音设置' },
       'h2-sound':            { en: 'Sound Settings for CPU Headroom', zh: '为 CPU 腾出空间的声音设置' },
-      'desc-sound':          { en: 'PoE2\'s audio engine processes hundreds of simultaneous sound sources — each monster ability, aura pulse, and impact sound competes for CPU cycles. Strategic audio tuning can reclaim <strong class="text-white">5-8% CPU throughput</strong> in densely packed breaches and legion encounters.', zh: 'PoE2 的音频引擎同时处理数百个音源——每个怪物技能、光环脉冲和打击音效都在争夺 CPU 周期。策略性音频调优可以在密集的裂隙和军团遭遇战中回收<strong class="text-white">5-8% 的 CPU 吞吐量</strong>。' },
+      'desc-sound':          { en: 'PoE2\'s audio engine processes hundreds of simultaneous sound sources — each monster ability, aura pulse, and impact sound competes for CPU cycles. Strategic audio tuning can free up CPU headroom in densely packed breaches and legion encounters.', zh: 'PoE2 的音频引擎同时处理数百个音源——每个怪物技能、光环脉冲和打击音效都在争夺 CPU 周期。策略性音频调优可以在密集的裂隙和军团遭遇战中释放 CPU 余量。' },
       'sound-music-title':   { en: 'Music & Ambience', zh: '音乐 & 环境音' },
       'sound-music-desc':    { en: 'Setting <strong class="text-white">Music Volume</strong> to 0 and <strong class="text-white">Ambience</strong> to 50% reduces background audio processing without sacrificing combat audio awareness. The Mount Vaal theme is spectacular — hear it once, then disable it for fps.', zh: '将<strong class="text-white">音乐音量</strong>设为 0、<strong class="text-white">环境音</strong>设为 50%，可减少背景音频处理而不牺牲战斗音频感知。Vaal 山的主题曲很震撼——听一次，然后关掉它换 FPS。' },
       'sound-effects-title': { en: 'Ability Sound Effects', zh: '技能音效' },
@@ -1500,8 +1502,8 @@ ability_sfx_volume=70</code></pre>
 
       /* ── Builds ── */
       'section-builds-label': { en: '06 — Build Database', zh: '06 — Build 数据库' },
-      'h2-builds':          { en: 'Path of Exile 2 Starter Builds (0.5.5)', zh: '流放之路 2 开荒 Build (0.5.5)' },
-      'desc-builds':        { en: 'Every league start demands a build that can reach maps without expensive gear, scale into <strong class="text-white">end-game</strong> bossing, and handle league mechanics efficiently. These six starter builds are <strong class="text-white">min-maxing</strong> tested on the 0.5.0 passive tree and still the builds we recommend for 0.5.5 league starts, ranked by gear dependency, single-target throughput, and clear speed.', zh: '每个赛季开荒都需要一个无需昂贵装备就能刷图、能过渡到<strong class="text-white">后期</strong>打 Boss 并高效处理赛季机制的 Build。这六个开荒 Build 基于 0.5.0 版本的被动树测试，仍是我们在 0.5.5 赛季推荐的开荒选择，按装备依赖度、单目标吞吐量和清图速度进行评级。' },
+      'h2-builds':          { en: 'Path of Exile 2 Starter Builds (0.5.5f)', zh: '流放之路 2 开荒 Build (0.5.5f)' },
+      'desc-builds':        { en: 'Every league start demands a build that can reach maps without expensive gear, scale into <strong class="text-white">end-game</strong> bossing, and handle league mechanics efficiently. These six starter builds were <strong class="text-white">min-maxing</strong> tested on the 0.5.x passive tree and remain our recommended league starters for 0.5.5f, ranked by gear dependency, single-target throughput, and clear speed.', zh: '每个赛季开荒都需要一个无需昂贵装备就能刷图、能过渡到<strong class="text-white">后期</strong>打 Boss 并高效处理赛季机制的 Build。这六个开荒 Build 基于 0.5.x 版本的被动树测试，仍是我们在 0.5.5f 赛季推荐的开荒选择，按装备依赖度、单目标吞吐量和清图速度进行评级。' },
       'build-1-class':      { en: 'Sorceress', zh: '女巫' },
       'build-2-class':      { en: 'Ranger', zh: '游侠' },
       'build-3-class':      { en: 'Witch', zh: '死灵法师' },
@@ -1530,7 +1532,7 @@ ability_sfx_volume=70</code></pre>
       'h2-input-lag':       { en: 'Input Lag Fixes & System Optimization', zh: '输入延迟修复 & 系统优化' },
       'desc-input-lag':     { en: 'Frame drops are one thing — input lag is a death sentence. In PoE2\'s hardest encounters, a single delayed dodge roll or mis-timed flask can end a hardcore character you have invested dozens of hours into. These system-level tweaks eliminate <strong class="text-white">lag compensation</strong> artifacts and shave critical milliseconds off your reaction-to-action pipeline.', zh: '掉帧是一回事——输入延迟则是死刑。在 PoE2 最难的战斗中，一次延迟的翻滚或一个时机不对的药水就可能让你投入数十小时的硬核角色死亡。这些系统级优化消除了<strong class="text-white">延迟补偿</strong>伪影，从你的反应到操作链路中削减关键的毫秒。' },
       'lag-1-title':        { en: 'Nvidia Reflex + Low Latency Mode', zh: 'Nvidia Reflex + 低延迟模式' },
-      'lag-1-desc':         { en: 'Navigate to your Nvidia Control Panel → Manage 3D Settings → Program Settings → select the PoE2 process — commonly <code class="text-[#10B981]">PathOfExile_KG.exe</code> (confirm the exact name in Task Manager). Set <strong class="text-white">Low Latency Mode</strong> to "Ultra". If your GPU supports Reflex (RTX 2000+ series), enable <strong class="text-white">Reflex Low Latency</strong> in the in-game options. This couples the CPU and GPU frame-pacing, reducing the render queue depth from 2-3 frames to 1. Measured improvement: an average of <strong class="text-white">18ms</strong> system-latency reduction at 1440p on an RTX 4070.', zh: '进入 Nvidia 控制面板 → 管理 3D 设置 → 程序设置 → 选择 <code class="text-[#10B981]">PathOfExile_KG.exe</code>。将<strong class="text-white">低延迟模式</strong>设为"极致"。如果你的 GPU 支持 Reflex（RTX 2000+ 系列），在游戏内选项中启用<strong class="text-white"> Reflex 低延迟</strong>。这会将 CPU 和 GPU 帧节奏耦合，渲染队列深度从 2-3 帧减少到 1 帧。实测提升：RTX 4070 在 1440p 下平均系统延迟降低 <strong class="text-white">18ms</strong>。' },
+      'lag-1-desc':         { en: 'Navigate to your Nvidia Control Panel → Manage 3D Settings → Program Settings → select the PoE2 process — commonly <code class="text-[#10B981]">PathOfExile_KG.exe</code> (confirm the exact name in Task Manager). Set <strong class="text-white">Low Latency Mode</strong> to "Ultra". If your GPU supports Reflex (RTX 2000+ series), enable <strong class="text-white">Reflex Low Latency</strong> in the in-game options. This couples the CPU and GPU frame-pacing, reducing the render queue depth from 2-3 frames to 1. Community reports commonly show a noticeable system-latency reduction with Reflex + Low Latency Mode enabled, especially at 1440p on RTX 40-series cards. The exact amount varies by hardware and scene, and this site has not run a controlled benchmark to confirm a specific figure.', zh: '进入 Nvidia 控制面板 → 管理 3D 设置 → 程序设置 → 选择 <code class="text-[#10B981]">PathOfExile_KG.exe</code>。将<strong class="text-white">低延迟模式</strong>设为"极致"。如果你的 GPU 支持 Reflex（RTX 2000+ 系列），在游戏内选项中启用<strong class="text-white"> Reflex 低延迟</strong>。这会将 CPU 和 GPU 帧节奏耦合，渲染队列深度从 2-3 帧减少到 1 帧。社区反馈普遍显示，开启 Reflex + 低延迟模式后系统延迟有明显下降，在 RTX 40 系 1440p 下尤其明显。具体幅度因硬件和场景而异，本站未做过受控实测，无法给出确切数值。' },
       'lag-2-title':        { en: 'Monitor & Display Tuning', zh: '显示器 & 显示设置' },
       'lag-2-desc':         { en: 'Ensure your monitor is running at its native refresh rate — set Windows Display settings to the maximum supported Hz (144, 165, 240, etc.). <strong class="text-white">Disable VSync in-game</strong>, but enable <strong class="text-white">G-Sync / FreeSync</strong> to eliminate screen tearing without the input lag penalty. Set your monitor\'s overdrive to "Normal" or "Fast" — "Extreme" causes overshoot ghosting that degrades perceptual clarity during fast camera panning in maps.', zh: '确保显示器以其原生刷新率运行——将 Windows 显示设置设为最高支持的 Hz（144、165、240 等）。<strong class="text-white">关闭游戏内垂直同步</strong>，但开启<strong class="text-white"> G-Sync / FreeSync</strong> 以消除画面撕裂而不引入输入延迟惩罚。将显示器响应速度设为"正常"或"快速"——"极致"会导致过冲残影，在快速镜头平移时降低感知清晰度。' },
       'lag-3-title':        { en: 'Windows 11 System Tweaks', zh: 'Windows 11 系统优化' },

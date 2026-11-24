@@ -98,13 +98,13 @@
         <h2>Essential Video Settings for Juiced Maps</h2>
 
         <h3>Global Illumination: Low</h3>
-        <p>GI is PoE2's most expensive render pass, consuming 4-6ms of frame time at Ultra in dense scenes. At Low, the SDF-based GI system reverts to a simplified ambient occlusion approximation. The visual loss during active mapping is minimal &mdash; GI primarily enhances hideouts and campaign zones, not combat. This single setting change can recover up to 30% FPS in breach content.</p>
+        <p>GI is PoE2's most expensive render pass, and is especially expensive at Ultra in dense scenes. At Low, the SDF-based GI system reverts to a simplified ambient occlusion approximation. The visual loss during active mapping is minimal &mdash; GI primarily enhances hideouts and campaign zones, not combat. This single setting change can recover up to 30% FPS in breach content.</p>
 
         <h3>Shadow Quality: Low</h3>
-        <p>Shadows use cascaded shadow maps that render detailed shadows at multiple distances. At Low quality, the cascade count drops from 4 to 2 and the shadow map resolution halves. In fast-paced endgame content, you will not notice the difference during gameplay. Reclaims ~2ms of frame time.</p>
+        <p>Shadows use cascaded shadow maps that render detailed shadows at multiple distances. At Low quality, the cascade count drops from 4 to 2 and the shadow map resolution halves. In fast-paced endgame content, you will not notice the difference during gameplay. Frees up frame time.</p>
 
         <h3>Reflections (SSR): Low or Off</h3>
-        <p>Screen-space reflections are expensive to compute, especially in zones with water or reflective surfaces. Set reflections to Low or Off. The visual trade-off is negligible in the campaign and completely unnoticeable during combat. Reclaims ~1.5ms of frame time.</p>
+        <p>Screen-space reflections are expensive to compute, especially in zones with water or reflective surfaces. Set reflections to Low or Off. The visual trade-off is negligible in the campaign and effectively unnoticeable during combat. Frees up frame time.</p>
 
         <h3>Texture Streaming: High</h3>
         <p>This should stay at High. PoE2's texture streaming system determines how sharp your textures appear. At Low, textures look blurry for longer after loading. However, you must pair High texture streaming with a properly sized <code>streaming_cache_pool_size</code> in <code>production_Config.ini</code>:</p>
