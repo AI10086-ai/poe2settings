@@ -88,7 +88,7 @@
           <li>Alternatively, set <code>show_party_mtx=false</code> and <code>show_other_player_mtx=false</code> in <code>production_Config.ini</code> under the <code>[DISPLAY]</code> section.</li>
           <li>New in 0.5.0: There is also a <strong>"Hide MTX in Towns"</strong> checkbox under Game > Display. Enable it.</li>
         </ul>
-        <p>Players report 30-50% FPS recovery in towns after disabling MTX rendering. The effect is most dramatic in high-population instances like the League NPC area or hideout queues.</p>
+        <p>Players report substantial FPS recovery in towns after disabling MTX rendering. The effect is most dramatic in high-population instances like the League NPC area or hideout queues.</p>
 
         <h2>Fix #2: Reduce Sound Channels</h2>
         <p>PoE2's FMOD audio engine processes every sound source independently. In towns, <strong>every nearby player generates sounds</strong>: footsteps, ability effects, portal sounds, MTX ambient audio, and NPC dialogue. With 512 concurrent voice channels (the default), the audio mixer becomes a significant CPU bottleneck.</p>
@@ -98,7 +98,7 @@
           <li>Reduce Ambience Volume to 20 or lower — ambient audio layers in towns consume CPU cycles with no gameplay benefit.</li>
           <li>Set Music Volume to 0 if you have not already.</li>
         </ul>
-        <p>Reducing sound channels from 512 to 64 can recover 5-15% CPU headroom in towns, which directly translates to higher FPS when your GPU is waiting on draw calls that are CPU-bound.</p>
+        <p>Reducing sound channels from 512 to 64 can free up CPU headroom in towns, which directly translates to higher FPS when your GPU is waiting on draw calls that are CPU-bound.</p>
 
         <h2>Fix #3: Disable Dynamic Culling</h2>
         <p>Dynamic Culling is designed to reduce rendering load by hiding distant or less important objects when FPS drops. However, the culling process itself introduces <strong>frame-time spikes</strong> because it recalculates visibility every frame. In towns where the culling system is constantly evaluating dozens of characters and their MTX, the overhead can actually <strong>reduce</strong> performance.</p>
@@ -115,7 +115,7 @@
           <li>For hideouts, leave and re-enter your hideout, or right-click the hideout waypoint and select "Create New Instance."</li>
           <li>If you are in a queue for a league mechanic (like the Runes of Aldur NPC area), <strong>Ctrl + Click</strong> to enter a new instance with fewer players.</li>
         </ul>
-        <p>Instance restart is particularly effective after the 0.5.0 update because the new endgame systems create more objects per instance. A fresh instance can recover 20-40% FPS compared to one that has been running for hours.</p>
+        <p>Instance restart is particularly effective after the 0.5.0 update because the new endgame systems create more objects per instance. A fresh instance can recover a significant amount of FPS compared to one that has been running for hours.</p>
 
         <h2>Fix #5: General Graphics Settings for Towns</h2>
         <p>These settings help specifically in high-population areas without affecting your map performance (you can toggle them per-zone if you want):</p>
@@ -130,6 +130,7 @@
         <p>The Return of the Ancients update added new NPCs, visual effects, and environmental details to town hubs. The Runes of Aldur league NPC in town generates additional particle effects that compound the MTX problem. Combined with higher player counts due to the update's popularity, towns in 0.5.0 are the most demanding they have ever been. GGG has acknowledged town performance as a known issue and is working on engine-level optimizations for a future patch, but the fixes above are your best options right now. For extreme cases, consider using <code>/hideout</code> and doing all your trading and crafting there instead of in town instances.</p>
 
         <p class="text-sm text-[#8B949E]/60 mt-8">For more performance fixes, see our <a href="poe2-0-5-0-performance-guide">0.5.0 Performance Guide</a> or use the <a href="/">Config Generator</a> for a full production_Config.ini.</p>
+              <p class="text-xs" style="color:var(--text-secondary);opacity:.6;margin-top:2rem;">Performance figures throughout this guide are community-reported estimates, not controlled measurements by this site. Your results will vary with driver version, CPU and content.</p>
       </article>
     </div>
   </main>

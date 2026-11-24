@@ -24,7 +24,7 @@
 
 ## 二、全站指南排查（guides/）
 
-共检查 38 篇指南 + 索引页。修改 32 篇，6 篇确认无问题。
+共检查 38 篇指南 + 索引页。修改 33 篇，5 篇确认无问题。
 
 ### 2.1 逐页变更
 
@@ -67,7 +67,6 @@
 
 | 文件 | 结论 |
 | --- | --- |
-| poe2-beginner-builds.html | 已查，无无出处数字；"completely reworked passive tree" 属补丁事实描述 |
 | poe2-controls-guide.html | 已查，无性能数字断言 |
 | poe2-gsync-freesync.html | 已查，无性能数字断言 |
 | poe2-loot-filter-guide.html | 已查，无性能数字断言 |
@@ -102,6 +101,33 @@
 3. **Benchmark 小节内的 FPS/百分比**：保留，因为已有 "Illustrative figures from community-reported runs..." 免责说明。
 4. **`production_Config.ini` 键名**：不在本轮范围，等待真实客户端核对（见独立任务）。
 
+## 三点五、第二轮复核补改（同日）
+
+独立复核发现首轮排查有遗漏，已补改：
+
+| 编号 | 文件 | 原问题 | 处理 |
+| --- | --- | --- | --- |
+| F1 | poe2-settings-rx-7600 | "Our testing shows ~18% higher avg FPS / ~25% better 1% lows" | 改为 community reports，删除数字；meta 描述同步 |
+| F2 | poe2-settings-rx-6800-xt | "Our testing shows ~18% higher 1% lows"；"without dipping below 100 FPS" | 改为社区口径；删除具体帧数 |
+| F3 | poe2-ram-requirements | "We measured RAM usage..."、"5-10%"、"~8%/~15%"、"2-3%"、"our test system" | 全部改为社区口径；新增页末免责说明 |
+| F4 | poe2-0-5-0-stuttering-fix | "reclaims 5-15% CPU headroom" | 改为 can free up CPU headroom；新增页末说明 |
+| F5 | poe2-town-fps-fix | "recover 5-15% CPU headroom"；另有 30-50%、20-40% 两处 | 全部定性化；新增页末说明 |
+| F6 | poe2-best-endgame-settings | "can recover up to 30% FPS"、"5-15% CPU headroom" | 定性化；新增页末说明 |
+| F7 | dx12 / driver / performance / cpu 等 | 9 处 Vulkan 对比百分比、"in our testing"、"our benchmarks" | 改为社区口径；新增页末说明 |
+
+同轮顺带处理的其他同类残留：
+
+- 14 篇显卡指南正文里的 "~X% better 1% lows vs DX12" 全部改为定性
+- 3060/3070/3080/4070/4080/4090 的 DLSS 提升百分比改为定性
+- RX 7600 简介与 meta 中的 18% 删除
+- SSD 页 "load times improve by roughly 30%" 改为 noticeably
+- Windows 11 页 "up to 15% FPS gain"、"~5% CPU"、"3-8% FPS" 定性化
+- 新手 Build 页 "We tested six builds" 改为选择标准描述
+- CPU 页 ReBAR/C-State/Core Isolation/声道四处的百分比定性化
+- 驱动页 "~3% FPS improvement"、"~2% FPS cost"、ReBAR 4090 "3-5%" 定性化
+
+新增页末免责说明的页面（共 9 个非硬件页）：RAM、Stuttering、Town FPS、Best Endgame、DX12 vs Vulkan、Driver Settings、0.5.0 Performance、CPU Bottleneck、Competitive。
+
 ## 四、验收结果
 
 | 检查 | 结果 |
@@ -112,6 +138,9 @@
 | Tailwind CDN 引用 | 0 |
 | 带 `.html` 的站内链接 | 0 |
 | 占位/未完成文本（coming soon / TODO / TBD / lorem） | 0 |
+| `proven` 全站 | 0 |
+| 第一人称测试口吻（our testing / we tested / we measured / our benchmarks） | 0 |
+| 页末社区数据说明 | 25 个页面（15 个硬件页 + SSD 页 + 9 个专题页） |
 | 390px 移动端横向溢出 | 无 |
 
 所有改动页面的 `sitemap.xml` lastmod 已更新为 `2026-11-24`。

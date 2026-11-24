@@ -96,7 +96,7 @@
         </div>
 
         <h2>How Much RAM Does PoE2 0.5.0 Actually Use?</h2>
-        <p>We measured RAM usage across different scenarios using an RTX 3070 + Ryzen 5 7600 system at 1080p with texture streaming on High:</p>
+        <p>Community-reported RAM usage across scenarios (illustrative, not a controlled measurement; RTX 3070 + Ryzen 5 7600 class systems at 1080p with texture streaming on High):</p>
         <ul>
           <li><strong>In town (hideout):</strong> 4.5-6 GB total system RAM usage</li>
           <li><strong>Campaign zone (Clearfell):</strong> 6-8 GB</li>
@@ -122,14 +122,14 @@
           <li><strong>Intel:</strong> XMP (Extreme Memory Profile) &mdash; enter BIOS, find "XMP" or "AI Overclock Tuner", set to "XMP I" or "Profile 1"</li>
           <li><strong>AMD:</strong> EXPO (Extended Profiles for Overclocking) &mdash; enter BIOS, find "EXPO" or "DOCP" (on ASUS boards), enable Profile 1</li>
         </ul>
-        <p>After enabling XMP/EXPO, your RAM runs at its rated speed and timings. For PoE2, this directly improves 1% low frame rates because the CPU can access texture data faster. Expect a 5-10% improvement in 1% lows in CPU-bound scenarios after enabling XMP/EXPO.</p>
+        <p>After enabling XMP/EXPO, your RAM runs at its rated speed and timings. For PoE2, this directly improves 1% low frame rates because the CPU can access texture data faster. Expect a meaningful improvement in 1% lows in CPU-bound scenarios after enabling XMP/EXPO.</p>
 
         <h2>DDR4 vs DDR5: Does It Matter for PoE2?</h2>
         <p>If you are building a new system, the platform dictates your memory choice. On the same CPU generation, DDR5 provides measurable benefits for PoE2:</p>
         <ul>
-          <li><strong>DDR4-3600 CL16:</strong> Solid baseline. Good for Ryzen 5000 / Intel 12th Gen builds. Average 1% lows on our test system.</li>
-          <li><strong>DDR5-6000 CL30:</strong> Sweet spot for AM5 (Ryzen 7000/9000). ~8% higher average FPS and ~15% better 1% lows compared to DDR4-3600.</li>
-          <li><strong>DDR5-6400+ CL32:</strong> Diminishing returns. The performance gain over 6000 CL30 is 2-3% in PoE2 but costs significantly more.</li>
+          <li><strong>DDR4-3600 CL16:</strong> Solid baseline. Good for Ryzen 5000 / Intel 12th Gen builds. Average 1% lows in community comparisons.</li>
+          <li><strong>DDR5-6000 CL30:</strong> Sweet spot for AM5 (Ryzen 7000/9000). noticeably better average FPS and 1% lows compared to DDR4-3600.</li>
+          <li><strong>DDR5-6400+ CL32:</strong> Diminishing returns. The performance gain over 6000 CL30 is small in PoE2 but costs significantly more.</li>
         </ul>
         <p>For new AM5 builds, 32 GB (2x16 GB) of DDR5-6000 CL30 is the optimal choice for PoE2. For existing AM4 or LGA1700 builds, 32 GB of DDR4-3600 CL16 is perfectly adequate and does not justify a platform upgrade for PoE2 alone.</p>
 
@@ -147,6 +147,7 @@
 
         <p class="text-sm text-[#8B949E]/60">RAM is the hidden foundation of PoE2 performance. If your system has 16 GB and you experience stuttering in endgame, upgrading to 32 GB will deliver a more noticeable improvement than upgrading your GPU in many scenarios. For complete system optimization, combine with our <a href="poe2-0-5-0-performance-guide">Ultimate 0.5.0 Performance Guide</a> and <a href="/">PoE2 Config Generator</a>.</p>
 
+              <p class="text-xs" style="color:var(--text-secondary);opacity:.6;margin-top:2rem;">Performance figures throughout this guide are community-reported estimates, not controlled measurements by this site. Your results will vary with driver version, CPU and content.</p>
       </article>
     </div>
   </main>

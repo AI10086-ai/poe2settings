@@ -83,11 +83,11 @@
 
         <h2>RTX 3070-Specific In-Game Settings</h2>
         <ul>
-          <li><strong>Renderer: Vulkan.</strong> The RTX 3070 sees a measurable ~12% improvement in 1% low FPS with Vulkan over DX12 at 1080p. Ampere's scheduler benefits from Vulkan's explicit multi-threaded command submission.</li>
+          <li><strong>Renderer: Vulkan.</strong> The RTX 3070 generally sees better 1% low FPS with Vulkan over DX12 at 1080p. Ampere's scheduler benefits from Vulkan's explicit multi-threaded command submission.</li>
           <li><strong>Global Illumination: Low.</strong> GI is the single most expensive render pass in PoE2 0.5.0. Dropping it from High to Low frees up frame budget with minimal visual impact at 1080p.</li>
           <li><strong>Shadow Quality: Low.</strong> Contact-hardening shadows carry a frame-time cost. On an 8 GB card this tradeoff is mandatory for 144 FPS targeting.</li>
           <li><strong>Texture Streaming: High.</strong> With <code>streaming_cache_pool_size=1024</code>, the 8 GB VRAM handles high-res textures comfortably. Avoid Ultra — it spills into system memory and causes stutter.</li>
-          <li><strong>DLSS: Quality.</strong> At 1080p, DLSS Quality provides a clean image with ~25% FPS headroom. Avoid DLSS Performance at this resolution; the internal resolution (540p) introduces noticeable blur.</li>
+          <li><strong>DLSS: Quality.</strong> At 1080p, DLSS Quality provides a clean image with substantial FPS headroom. Avoid DLSS Performance at this resolution; the internal resolution (540p) introduces noticeable blur.</li>
           <li><strong>Nvidia Reflex: On + Boost.</strong> Can reduce system latency (community-reported; varies by hardware). The Boost variant also prevents the GPU clock from downclocking during lighter scenes.</li>
         </ul>
 

@@ -98,7 +98,7 @@
         <h2>Essential Video Settings for Juiced Maps</h2>
 
         <h3>Global Illumination: Low</h3>
-        <p>GI is PoE2's most expensive render pass, and is especially expensive at Ultra in dense scenes. At Low, the SDF-based GI system reverts to a simplified ambient occlusion approximation. The visual loss during active mapping is minimal &mdash; GI primarily enhances hideouts and campaign zones, not combat. This single setting change can recover up to 30% FPS in breach content.</p>
+        <p>GI is PoE2's most expensive render pass, and is especially expensive at Ultra in dense scenes. At Low, the SDF-based GI system reverts to a simplified ambient occlusion approximation. The visual loss during active mapping is minimal &mdash; GI primarily enhances hideouts and campaign zones, not combat. This single setting change can recover a meaningful share of FPS in breach content.</p>
 
         <h3>Shadow Quality: Low</h3>
         <p>Shadows use cascaded shadow maps that render detailed shadows at multiple distances. At Low quality, the cascade count drops from 4 to 2 and the shadow map resolution halves. In fast-paced endgame content, you will not notice the difference during gameplay. Frees up frame time.</p>
@@ -120,7 +120,7 @@
         <p>Dynamic Culling reduces draw distance and detail the moment your FPS drops below target. The problem is that the switch itself causes a frame-time spike, making the game feel <em>more</em> stuttery than if it simply ran at lower detail consistently. <strong>Turn Dynamic Culling Off.</strong> This is the single most impactful setting for stable 0.5.0 endgame performance.</p>
 
         <h3>Sound Channels: 128 (Medium)</h3>
-        <p>PoE2's FMOD audio engine is CPU-intensive. In endgame maps with hundreds of simultaneous sound sources, setting Channel Count to Medium (128) in Audio settings reclaims 5-15% CPU headroom. Combat cues and loot filter sounds remain audible; only ambient layering is reduced.</p>
+        <p>PoE2's FMOD audio engine is CPU-intensive. In endgame maps with hundreds of simultaneous sound sources, setting Channel Count to Medium (128) in Audio settings can free up CPU headroom. Combat cues and loot filter sounds remain audible; only ambient layering is reduced.</p>
 
         <h2>GPU Tier Recommendations</h2>
 
@@ -175,6 +175,7 @@
 
         <p class="text-sm text-[#8B949E]/60">Endgame mapping is where PoE2's performance is truly tested. Apply these settings before running your next juiced T16+ map. For additional GPU-specific guides, check our <a href="poe2-settings-rtx-4060">RTX 4060</a>, <a href="poe2-settings-rx-6800-xt">RX 6800 XT</a>, and <a href="poe2-steam-deck-settings">Steam Deck</a> guides, or the <a href="/">Config Generator</a> for automatic optimization.</p>
 
+              <p class="text-xs" style="color:var(--text-secondary);opacity:.6;margin-top:2rem;">Performance figures throughout this guide are community-reported estimates, not controlled measurements by this site. Your results will vary with driver version, CPU and content.</p>
       </article>
     </div>
   </main>

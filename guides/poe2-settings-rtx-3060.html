@@ -82,7 +82,7 @@
 
         <h2>RTX 3060-Specific Settings for 1080p</h2>
         <ul>
-          <li><strong>Renderer: Vulkan.</strong> The 3060's Ampere architecture runs PoE2's Vulkan path efficiently. ~12% better average FPS vs DX12.</li>
+          <li><strong>Renderer: Vulkan.</strong> The 3060's Ampere architecture runs PoE2's Vulkan path efficiently. Generally better average FPS vs DX12.</li>
           <li><strong>Global Illumination: Low.</strong> Still the single most expensive setting. The 3060's compute performance is fine for 1080p GI at Low, but Medium+ causes frame drops in dense particle scenarios.</li>
           <li><strong>Shadows: Low.</strong> Standard competitive recommendation. Frees up frame time for minimal visual loss at 1080p.</li>
           <li><strong>Texture Streaming: High</strong> with <code>streaming_cache_pool_size=1536</code> — this is the 12 GB VRAM sweet spot. Caches enough mip levels to eliminate transition stutter without wasting VRAM.</li>

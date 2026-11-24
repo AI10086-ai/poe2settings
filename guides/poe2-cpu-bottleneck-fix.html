@@ -99,7 +99,7 @@
         <p>The <code>engine_multithreading</code> setting in <code>production_Config.ini</code> controls whether PoE2 spreads its workload across all CPU cores. On paper, multithreading sounds better, but the thread synchronization overhead can actually <strong>reduce</strong> performance on CPUs with 6 cores or fewer:</p>
         <ul>
           <li><strong>4-core CPUs (Ryzen 3, older i3, Steam Deck):</strong> Set <code>engine_multithreading=false</code>. The synchronization penalty outweighs the parallelization benefit.</li>
-          <li><strong>6-core CPUs (Ryzen 5 5600/7600, Intel i5-12400/13600K):</strong> Test both settings. In our benchmarks, 6-core CPUs show mixed results. Some gain 5-10% with multithreading on, others lose performance.</li>
+          <li><strong>6-core CPUs (Ryzen 5 5600/7600, Intel i5-12400/13600K):</strong> Test both settings. Community benchmarks show mixed results on 6-core CPUs: some benefit from multithreading, others lose performance.</li>
           <li><strong>8+ core CPUs (Ryzen 7/9, Intel i7/i9):</strong> Keep <code>engine_multithreading=true</code>. These CPUs have enough cores to absorb the sync overhead and benefit from parallelized rendering.</li>
         </ul>
         <p>To change this, edit <code>Documents/My Games/Path of Exile 2/production_Config.ini</code> and add or modify: <code>engine_multithreading=false</code>. Our <a href="/">PoE2 Config Generator</a> sets this correctly based on your CPU core count.</p>
@@ -113,7 +113,7 @@
           <li>Set to <strong>Disabled</strong></li>
           <li>Save and exit (F10)</li>
         </ul>
-        <p><strong>Warning:</strong> Disabling C-States increases idle power consumption by 10-20 watts. On laptops, this reduces battery life. On desktops, the performance benefit in PoE2 (5-12% higher 1% lows) is worth the small power increase.</p>
+        <p><strong>Warning:</strong> Disabling C-States increases idle power consumption by 10-20 watts. On laptops, this reduces battery life. On desktops, the performance benefit in PoE2 (higher 1% lows) is worth the small power increase.</p>
 
         <h2>3. High Performance Power Plan</h2>
         <p>Windows' Balanced power plan allows the CPU to downclock and park cores to save power. When PoE2 needs burst performance, the CPU must ramp up from idle, causing a latency spike. Switch to High Performance:</p>
@@ -131,7 +131,7 @@
           <li><strong>In-game:</strong> Settings &rarr; Audio &rarr; Channel Count &rarr; Medium (128) or Low (64)</li>
           <li><strong>In production_Config.ini:</strong> Set <code>max_concurrent_voices=128</code></li>
         </ul>
-        <p>The difference between 512 channels (High) and 128 channels (Medium) is typically 5-10% CPU headroom recovery, with minimal audible difference &mdash; combat cues and loot filter sounds remain clear, only ambient sound layering is reduced.</p>
+        <p>The difference between 512 channels (High) and 128 channels (Medium) typically frees up CPU headroom, with minimal audible difference &mdash; combat cues and loot filter sounds remain clear, only ambient sound layering is reduced.</p>
 
         <h2>5. Disable Core Isolation / Memory Integrity</h2>
         <p>Windows' Core Isolation (Memory Integrity) is a virtualization-based security feature that puts the CPU into a hypervisor-like mode to protect against memory attacks. This feature adds 3-8% CPU overhead to <em>everything</em>, including games:</p>
@@ -140,7 +140,7 @@
           <li>Click "Core Isolation" &rarr; "Memory Integrity" &rarr; <strong>Off</strong></li>
           <li>Reboot to apply</li>
         </ul>
-        <p>After disabling Core Isolation, expect 3-8% higher FPS across the board in CPU-bound scenarios. The security trade-off is minimal if you practice basic online safety (no sketchy downloads, up-to-date antivirus).</p>
+        <p>After disabling Core Isolation, expect higher FPS across the board in CPU-bound scenarios. The security trade-off is minimal if you practice basic online safety (no sketchy downloads, up-to-date antivirus).</p>
 
         <h2>6. Close Background Applications Using CPU</h2>
         <p>Several common applications consume CPU resources silently:</p>
@@ -159,6 +159,7 @@
 
         <p class="text-sm text-[#8B949E]/60">CPU optimization is often the most overlooked aspect of PoE2 performance tuning. Apply these fixes in order, and check the F1 overlay to see which one makes the biggest difference on your specific CPU. For a complete system optimization, combine these with our <a href="poe2-0-5-0-performance-guide">Ultimate 0.5.0 Performance Guide</a> or use the <a href="/">PoE2 Config Generator</a> for automatic config file tuning.</p>
 
+              <p class="text-xs" style="color:var(--text-secondary);opacity:.6;margin-top:2rem;">Performance figures throughout this guide are community-reported estimates, not controlled measurements by this site. Your results will vary with driver version, CPU and content.</p>
       </article>
     </div>
   </main>

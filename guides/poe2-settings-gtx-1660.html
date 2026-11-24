@@ -83,7 +83,7 @@
 
         <h2>GTX 1660 Super-Specific In-Game Settings</h2>
         <ul>
-          <li><strong>Renderer: Vulkan.</strong> The GTX 1660 Super's Turing architecture (without RT cores) performs significantly better under Vulkan than DX12. Expect ~20% higher 1% lows. DX12 overhead on this card is noticeable in crowded areas.</li>
+          <li><strong>Renderer: Vulkan.</strong> The GTX 1660 Super's Turing architecture (without RT cores) performs significantly better under Vulkan than DX12. Expect better 1% lows. DX12 overhead on this card is noticeable in crowded areas.</li>
           <li><strong>Global Illumination: Off.</strong> The GTX 1660 Super cannot afford the frame-time cost of GI. Disable it entirely — the visual difference during fast-paced gameplay is negligible.</li>
           <li><strong>Shadow Quality: Low.</strong> Essential for 6 GB cards. Low shadows free up frame time and reduce VRAM pressure from shadow map allocations.</li>
           <li><strong>Texture Streaming: High.</strong> Even with 6 GB, keep streaming on High. The key is to reduce <code>streaming_cache_pool_size</code> to 512 in the config, which prevents VRAM thrashing while keeping textures streamed.</li>

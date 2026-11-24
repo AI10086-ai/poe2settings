@@ -83,7 +83,7 @@
 
         <h2>RX 7900 XTX-Specific In-Game Settings</h2>
         <ul>
-          <li><strong>Renderer: Vulkan.</strong> The 7900 XTX's compute units are better utilized under Vulkan's explicit multi-threading model. Expect ~18% better 1% lows at 4K compared to DX12, particularly in breach/delirium overlaps where particle count spikes.</li>
+          <li><strong>Renderer: Vulkan.</strong> The 7900 XTX's compute units are better utilized under Vulkan's explicit multi-threading model. Expect better 1% lows at 4K compared to DX12, particularly in breach/delirium overlaps where particle count spikes.</li>
           <li><strong>Global Illumination: Medium or Low.</strong> At 4K, Ultra GI is especially expensive. Medium is a good compromise for visual quality in campaign zones. Drop to Low for mapping.</li>
           <li><strong>Shadow Quality: Medium.</strong> The 7900 XTX has enough compute headroom for medium shadows at 4K without sacrificing frame-time consistency. Only drop to Low if you target 144+ FPS at 1440p instead.</li>
           <li><strong>Texture Streaming: High.</strong> With 24 GB VRAM, set <code>streaming_cache_pool_size=4096</code> for zero texture pop-in across all zones. The 7900 XTX is unlikely to hit VRAM limits limits in PoE2 even at 4K Ultra.</li>

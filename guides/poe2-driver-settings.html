@@ -43,7 +43,7 @@
           <li><strong>Shader Cache Size → 100 GB or Unlimited.</strong> This is the single most impactful driver fix for PoE2. The default 10 GB cache fills up fast with PoE2's massive shader count, forcing recompilation mid-map. Setting it to 100 GB or Unlimited can remove a major source of stutter.</li>
           <li><strong>Power Management Mode → Prefer Maximum Performance.</strong> Prevents the GPU from downclocking between packs in maps, which causes frame-time spikes when it has to ramp back up.</li>
           <li><strong>Low Latency Mode → On (or Ultra).</strong> On reduces render queue length. Ultra forces single-frame queue — ideal for competitive play but can cause micro-stutter on lower-end GPUs (RTX 3060 and below). Test both.</li>
-          <li><strong>Texture Filtering - Quality → High Performance.</strong> Negligible visual difference in PoE2, ~3% FPS improvement.</li>
+          <li><strong>Texture Filtering - Quality → High Performance.</strong> Negligible visual difference in PoE2, with a small FPS improvement.</li>
           <li><strong>Vertical Sync → Off</strong> (controlled by in-game or G-Sync).</li>
           <li><strong>Threaded Optimization → On.</strong> PoE2's multi-threaded renderer benefits from this.</li>
           <li><strong>Triple Buffering → Off.</strong> Adds latency with no benefit for PoE2.</li>
@@ -56,7 +56,7 @@
           <li><strong>Radeon Anti-Lag → On.</strong> AMD's counterpart to Nvidia Reflex. Reduces input latency by up to 25% in PoE2.</li>
           <li><strong>Radeon Chill → Off.</strong> Can introduce frame-pacing inconsistency.</li>
           <li><strong>Radeon Boost → Off.</strong> Dynamic resolution scaling via AMD causes more stutter than benefit in PoE2.</li>
-          <li><strong>Radeon Image Sharpening → On (80%).</strong> Improves clarity at 1080p with minimal FPS cost (~2%).</li>
+          <li><strong>Radeon Image Sharpening → On (80%).</strong> Improves clarity at 1080p with minimal FPS cost.</li>
           <li><strong>Radeon Enhanced Sync → Off.</strong> Use in-game VSync or Freesync instead.</li>
           <li><strong>Texture Filtering Quality → Performance.</strong></li>
           <li><strong>Surface Format Optimization → On.</strong></li>
@@ -69,12 +69,13 @@
         <p class="text-xs" style="color:var(--text-secondary);opacity:.65;margin-top:-.4rem;">Illustrative figures from community-reported runs, not a controlled benchmark by this site. Your hardware, drivers and content will produce different numbers.</p>
         <p>Resizable BAR (ReBAR / Smart Access Memory) allows the CPU to access the full GPU VRAM rather than 256 MB segments. In PoE2 0.5.0, enabling ReBAR delivers:</p>
         <ul>
-          <li><strong>RTX 3070:</strong> 8-12% higher 1% lows at 1080p</li>
-          <li><strong>RX 6800 XT:</strong> 12-15% higher 1% lows at 1440p</li>
-          <li><strong>RTX 4090:</strong> 3-5% improvement (less bottleneck at high end)</li>
+          <li><strong>RTX 3070:</strong> higher 1% lows at 1080p (community-reported)</li>
+          <li><strong>RX 6800 XT:</strong> higher 1% lows at 1440p (community-reported)</li>
+          <li><strong>RTX 4090:</strong> a smaller improvement (less bottleneck at high end)</li>
         </ul>
         <p>Enable it in BIOS (Advanced → PCI Configuration → ReBAR Support → Enabled) and verify in Nvidia Control Panel → System Information.</p>
         <p class="text-sm text-[#8B949E]/60 mt-8">Need the complete in-game config too? Use our <a href="/">Config Generator</a> or see the <a href="poe2-0-5-0-performance-guide">Ultimate Performance Guide</a>.</p>
+              <p class="text-xs" style="color:var(--text-secondary);opacity:.6;margin-top:2rem;">Performance figures throughout this guide are community-reported estimates, not controlled measurements by this site. Your results will vary with driver version, CPU and content.</p>
       </article>
     </div>
   </main>

@@ -46,7 +46,7 @@
           <p class="text-sm" style="margin-bottom:0;"><span class="text-[#EF4444] font-bold">Updated for 0.5.0b Hotfix (May 31):</span> GGG released a hotfix addressing client crashes, instance crashes, and boss VFX preloading. However, <strong>network-spike stuttering near monster packs</strong> remains a widespread issue — see fix #11 below.</p>
         </div>
         <p>The 0.5.0 "Return of the Ancients" patch is live, and with it comes the usual Early Access growing pains. Even high-end systems (9800X3D + RTX 4090) are reporting stuttering, FPS drops, and freezes — especially in dense endgame content with Breach, Delirium, and the new Runes of Aldur league mechanic.</p>
-        <p>These 10 fixes are <strong>community-tested and confirmed working</strong> on launch day. Try them in order — the first two solve ~80% of reported issues.</p>
+        <p>These 10 fixes are <strong>community-tested and confirmed working</strong> on launch day. Try them in order — the first two address most reported issues.</p>
 
         <div class="glass p-4 md:p-5 rounded-xl my-8" style="border-left:3px solid var(--accent-green);">
           <p class="text-sm" style="margin-bottom:0;"><strong>Quickest fix:</strong> Use our <a href="/">PoE2 Config Generator</a> — it applies all the renderer, cache, and audio optimizations automatically based on your GPU.</p>
@@ -56,7 +56,7 @@
         <p>Settings → Graphics → <strong>Dynamic Culling → OFF</strong>. This is the #1 reported fix for 0.5.0 stuttering. Dynamic Culling aggressively reduces draw distance and detail the moment your FPS dips, but the switching itself causes frame-time spikes that feel worse than the original lag. Disabling it gives you <em>consistent</em> performance rather than oscillating between high and low detail.</p>
 
         <h2>2. Reduce Sound Channel Count</h2>
-        <p>Settings → Audio → <strong>Channel Count → Medium (128)</strong> or Low (64). PoE2's FMOD audio engine processes every simultaneous sound source. In Breach + Delirium + Runes of Aldur scenarios you can have 200+ active sounds. Dropping from High (512) to Medium (128) reclaims <strong>5-15% CPU headroom</strong> with minimal audible difference — combat cues and loot filters remain clear.</p>
+        <p>Settings → Audio → <strong>Channel Count → Medium (128)</strong> or Low (64). PoE2's FMOD audio engine processes every simultaneous sound source. In Breach + Delirium + Runes of Aldur scenarios you can have 200+ active sounds. Dropping from High (512) to Medium (128) can free up CPU headroom with minimal audible difference — combat cues and loot filters remain clear.</p>
 
         <h2>3. Clear Shader Cache Before Playing</h2>
         <p>Nvidia users: Delete the shader cache folders to force a clean rebuild:</p>
@@ -116,6 +116,7 @@
         <h2>Still Having Issues?</h2>
         <p>If none of the above help, try our <a href="/">PoE2 Config Generator</a> — it generates a custom <code>production_Config.ini</code> with all known performance optimizations applied. For the full deep-dive on every setting, read our <a href="poe2-0-5-0-performance-guide">Ultimate 0.5.0 Performance Guide</a>.</p>
         <p class="text-sm text-[#8B949E]/60 mt-4">We are actively monitoring the 0.5.0 launch and will update this guide as new fixes emerge. Bookmark this page or check our <a href="/">Config Generator</a> for the latest optimizations.</p>
+              <p class="text-xs" style="color:var(--text-secondary);opacity:.6;margin-top:2rem;">Performance figures throughout this guide are community-reported estimates, not controlled measurements by this site. Your results will vary with driver version, CPU and content.</p>
       </article>
     </div>
   </main>

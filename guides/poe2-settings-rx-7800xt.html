@@ -83,7 +83,7 @@
 
         <h2>RX 7800 XT-Specific In-Game Settings</h2>
         <ul>
-          <li><strong>Renderer: Vulkan.</strong> RDNA 3's shader compiler is significantly more efficient under Vulkan than DX12. Expect ~15% better 1% lows at 1440p compared to DX12, especially in juiced maps with multiple mechanics.</li>
+          <li><strong>Renderer: Vulkan.</strong> RDNA 3's shader compiler is significantly more efficient under Vulkan than DX12. Expect better 1% lows at 1440p compared to DX12, especially in juiced maps with multiple mechanics.</li>
           <li><strong>Global Illumination: Low.</strong> AMD's SDF-based GI implementation is expensive on all hardware, and the RX 7800 XT is no exception. Low frees up frame time with minimal visual cost during mapping.</li>
           <li><strong>Shadow Quality: Low.</strong> Cascaded shadow maps are GPU-bound on RDNA 3. Dropping to Low frees up frame time and reduces VRAM pressure from shadow cache allocations.</li>
           <li><strong>Texture Streaming: High.</strong> With 16 GB VRAM, the RX 7800 XT has headroom to spare. Keep <code>streaming_cache_pool_size=2048</code> to eliminate texture pop-in entirely, even in crowded hideouts.</li>

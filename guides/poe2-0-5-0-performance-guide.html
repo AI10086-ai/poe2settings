@@ -137,8 +137,8 @@
         <h3>Renderer: Vulkan vs DirectX 12</h3>
         <p><strong>Use Vulkan.</strong> PoE2's Vulkan renderer has matured significantly since Early Access launch. In our 0.5.0 stress tests on juiced T16 maps with delirium + beyond + breach, Vulkan delivered:</p>
         <ul>
-          <li><strong>~12% higher average FPS</strong> on Nvidia hardware (RTX 3070 and above)</li>
-          <li><strong>~18% higher 1% low frame rates</strong> on AMD hardware (RX 6800 XT and above)</li>
+          <li><strong>Higher average FPS</strong> on Nvidia hardware (RTX 3070 and above), according to community reports</li>
+          <li><strong>Higher 1% low frame rates</strong> on AMD hardware (RX 6800 XT and above), according to community reports</li>
           <li>Noticeably <strong>fewer stutter events</strong> during shader compilation (new in 0.5.0)</li>
         </ul>
         <p>DX12 is only recommended if you encounter specific driver-level crashes with Vulkan — a rare edge case on older Nvidia driver branches (546.x and earlier).</p>
@@ -163,7 +163,7 @@
 
         <p><strong><code>render_scaling</code></strong> — Set to 75 for competitive, 100 for balanced. Do not use Dynamic Resolution — it introduces inconsistent blur that makes reading rare item mods harder during fast breaches.</p>
 
-        <p><strong><code>max_concurrent_voices</code></strong> — Drop this to 128 (from the default 512). PoE2's FMOD audio engine processes every simultaneous sound source. In 6-player parties with MTX spam, this parameter alone can reclaim 3-5% CPU headroom.</p>
+        <p><strong><code>max_concurrent_voices</code></strong> — Drop this to 128 (from the default 512). PoE2's FMOD audio engine processes every simultaneous sound source. In 6-player parties with MTX spam, this parameter alone can free up CPU headroom.</p>
 
         <p><strong><code>engine_multithreading</code></strong> — On 6-core or fewer CPUs (including Steam Deck's 4-core/8-thread APU), <strong>set this to false</strong>. The thread synchronization overhead negates the benefits on low-core-count processors. On 8-core+ systems, keep it true.</p>
 
@@ -209,7 +209,7 @@ raw_input=true</code></pre>
         <ul>
           <li><strong>Set <code>streaming_cache_pool_size</code> to 512</strong> — The 0.5.0 texture streaming improvements help, but 6 GB cards still need a tighter budget to avoid VRAM spills into system memory.</li>
           <li><strong>Disable <code>engine_multithreading</code></strong> — Low-core CPUs see a net regression from thread sync overhead. Benchmark with it off.</li>
-          <li><strong>Force <code>renderer_type</code> to Vulkan</strong> — On low-end AMD cards (RX 500 series), Vulkan yields ~22% better 1% lows compared to DX12 in our tests.</li>
+          <li><strong>Force <code>renderer_type</code> to Vulkan</strong> — On low-end AMD cards (RX 500 series), Vulkan generally yields better 1% lows compared to DX12 in community comparisons.</li>
           <li><strong>Set <code>reflections</code> to off</strong> — SSR at low resolutions looks noisy anyway. Disabling it entirely frees up frame time.</li>
           <li><strong>Reduce <code>max_concurrent_voices</code> to 64</strong> — Extreme, but effective. You will lose some ambient audio layering; combat cues remain intact.</li>
           <li><strong>Target 60 FPS, not 144</strong> — Set <code>fps_limit=60</code> and use the GPU headroom to maintain consistent frame-pacing. Variable frame rates feel worse than a locked 60.</li>
@@ -222,7 +222,7 @@ raw_input=true</code></pre>
 
         <ul>
           <li><strong>Disable Dynamic Culling:</strong> This is the #1 reported fix for stuttering in dense maps. Go to Settings → Graphics → Dynamic Culling → <strong>Off</strong>. Dynamic Culling aggressively reduces draw distance and detail when FPS drops, but the switching itself causes frame-time spikes.</li>
-          <li><strong>Sound channels to Medium or Low:</strong> PoE2's FMOD audio engine is a known CPU killer. Set Channel Count to <strong>Medium (128)</strong> or Low (64) in Audio settings. Players report 5-15% FPS recovery in breach/delirium scenarios where hundreds of simultaneous sounds play.</li>
+          <li><strong>Sound channels to Medium or Low:</strong> PoE2's FMOD audio engine is a known CPU killer. Set Channel Count to <strong>Medium (128)</strong> or Low (64) in Audio settings. Players report smoother performance in breach/delirium scenarios where hundreds of simultaneous sounds play.</li>
           <li><strong>Nvidia Reflex OFF:</strong> Contrary to prior advice, many 0.5.0 players report Reflex <em>causing</em> frame-time spikes. If you experience micro-stutter, turn Reflex off entirely rather than "On + Boost." The in-game toggle also resets after driver updates — verify it every time you update drivers.</li>
           <li><strong>Clear shader cache before playing:</strong> Delete <code>%APPDATA%/Path of Exile 2/ShaderCache</code> and <code>%LOCALAPPDATA%/NVIDIA/ShaderCache</code> folders (Nvidia users). The first 10-15 minutes will have mild stutter as shaders rebuild, then smoother than before.</li>
           <li><strong>/global [random number] trick:</strong> PoE2 saves every chat message to a log file that can bloat over time, causing I/O stutter. Type <code>/global 58291</code> (any unused channel) then <code>/clear</code>. Also delete the <code>logs</code> folder in your PoE2 documents directory.</li>
@@ -266,6 +266,7 @@ raw_input=true</code></pre>
 
         <p class="text-sm text-[#8B949E]/60">The 0.5.0 "Return of the Ancients" update is PoE2's largest EA patch — and its last before 1.0. It rewards players who take the time to tune their settings. Bookmark <a href="/">PoE2Settings.com</a> — we keep presets updated within 48 hours of every patch, and our <a href="/">Config Generator</a> makes it one-click easy.</p>
 
+              <p class="text-xs" style="color:var(--text-secondary);opacity:.6;margin-top:2rem;">Performance figures throughout this guide are community-reported estimates, not controlled measurements by this site. Your results will vary with driver version, CPU and content.</p>
       </article>
     </div>
   </main>

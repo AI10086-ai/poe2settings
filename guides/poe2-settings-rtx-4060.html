@@ -75,7 +75,7 @@
 
       <article class="glass-card p-6 md:p-10">
 
-        <p>The Nvidia RTX 4060 is the <strong>most popular 40-series GPU</strong> among Steam hardware survey participants — and for good reason. With 8 GB of VRAM, DLSS 3 support, and efficient Ada Lovelace architecture, it delivers excellent 1080p performance in Path of Exile 2. But out-of-the-box settings leave <strong>20-30% of your FPS potential on the table</strong>. Here is exactly what to adjust for 0.5.0.</p>
+        <p>The Nvidia RTX 4060 is the <strong>most popular 40-series GPU</strong> among Steam hardware survey participants — and for good reason. With 8 GB of VRAM, DLSS 3 support, and efficient Ada Lovelace architecture, it delivers excellent 1080p performance in Path of Exile 2. But out-of-the-box settings leave <strong>a significant share of your FPS potential on the table</strong>. Here is exactly what to adjust for 0.5.0.</p>
 
         <div class="glass p-4 md:p-5 rounded-xl my-8" style="border-left:3px solid var(--accent-green);">
           <p class="text-sm" style="margin-bottom:0;"><strong>Use our interactive <a href="/">PoE2 Config Generator</a></strong> — select "Nvidia" + "Competitive" to get a custom config tailored to your RTX 4060 in one click.</p>
@@ -83,7 +83,7 @@
 
         <h2>RTX 4060-Specific In-Game Settings</h2>
         <ul>
-          <li><strong>Renderer: Vulkan.</strong> The 4060's Ada architecture benefits from Vulkan's lower driver overhead. Expect ~10% better 1% lows vs DX12 at 1080p.</li>
+          <li><strong>Renderer: Vulkan.</strong> The 4060's Ada architecture benefits from Vulkan's lower driver overhead. Expect better 1% lows vs DX12 at 1080p.</li>
           <li><strong>Global Illumination: Low.</strong> Offloads the most expensive render pass. At 1080p the visual difference is negligible.</li>
           <li><strong>Shadow Quality: Low.</strong> Frees up frame time. Contact-hardening shadows are nice but not at the cost of FPS in juiced maps.</li>
           <li><strong>Texture Streaming: High.</strong> The 4060's 8 GB VRAM handles High streaming comfortably. Keep <code>streaming_cache_pool_size=1024</code> in the config file.</li>
@@ -93,7 +93,7 @@
         </ul>
 
         <h2>Recommended production_Config.ini</h2>
-        <p>These are our tested values for the RTX 4060 on the Competitive preset at 1080p. Paste into <code>Documents/My Games/Path of Exile 2/production_Config.ini</code>:</p>
+        <p>These are recommended values for the RTX 4060 on the Competitive preset at 1080p. Paste into <code>Documents/My Games/Path of Exile 2/production_Config.ini</code>:</p>
 
         <pre><code>[DISPLAY]
 fullscreen=true
